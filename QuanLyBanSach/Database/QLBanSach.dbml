@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBanSach" Class="QLBanSachDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-291A4MD;Initial Catalog=QLBanSach;Integrated Security=True" SettingsObjectName="QuanLyBanSach.Properties.Settings" SettingsPropertyName="QLBanSachConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CTPG" Member="CTPGs">
+    <Type Name="CTPG">
+      <Column Name="MaPG" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuongGiao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PhieuGiao_CTPG" Member="PhieuGiao" ThisKey="MaPG" OtherKey="MaPG" Type="PhieuGiao" IsForeignKey="true" />
+      <Association Name="Sach_CTPG" Member="Sach" ThisKey="MaS" OtherKey="MaS" Type="Sach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTHD" Member="CTHDs">
+    <Type Name="CTHD">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HoaDon_CTHD" Member="HoaDon" ThisKey="MaHD" OtherKey="MaHD" Type="HoaDon" IsForeignKey="true" />
+      <Association Name="Sach_CTHD" Member="Sach" ThisKey="MaS" OtherKey="MaS" Type="Sach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoaDon" Member="HoaDons">
+    <Type Name="HoaDon">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayLapHD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="TongHD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HoaDon_CTHD" Member="CTHDs" ThisKey="MaHD" OtherKey="MaHD" Type="CTHD" />
+      <Association Name="KhachHang_HoaDon" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinhKH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChiKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SdtKH" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailTG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="MaKH" OtherKey="MaKH" Type="HoaDon" />
+      <Association Name="KhachHang_PhieuGiao" Member="PhieuGiaos" ThisKey="MaKH" OtherKey="MaKH" Type="PhieuGiao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinhNV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChiNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SdtNV" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailNV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
+    <Type Name="NhaXuatBan">
+      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChiNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SdtNXB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailNXB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="NhaXuatBan_Sach" Member="Saches" ThisKey="MaNXB" OtherKey="MaNXB" Type="Sach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhieuGiao" Member="PhieuGiaos">
+    <Type Name="PhieuGiao">
+      <Column Name="MaPG" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayLapPG" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayGiaoDuKien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PhieuGiao_CTPG" Member="CTPGs" ThisKey="MaPG" OtherKey="MaPG" Type="CTPG" />
+      <Association Name="KhachHang_PhieuGiao" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sach" Member="Saches">
+    <Type Name="Sach">
+      <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenS" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NamXuatBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaNhap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTL" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="MaTG" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Association Name="Sach_CTPG" Member="CTPGs" ThisKey="MaS" OtherKey="MaS" Type="CTPG" />
+      <Association Name="Sach_CTHD" Member="CTHDs" ThisKey="MaS" OtherKey="MaS" Type="CTHD" />
+      <Association Name="NhaXuatBan_Sach" Member="NhaXuatBan" ThisKey="MaNXB" OtherKey="MaNXB" Type="NhaXuatBan" IsForeignKey="true" />
+      <Association Name="TacGia_Sach" Member="TacGia" ThisKey="MaTG" OtherKey="MaTG" Type="TacGia" IsForeignKey="true" />
+      <Association Name="TheLoai_Sach" Member="TheLoai" ThisKey="MaTL" OtherKey="MaTL" Type="TheLoai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TacGia" Member="TacGias">
+    <Type Name="TacGia">
+      <Column Name="MaTG" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTG" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinhTG" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SdtTG" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailTG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TacGia_Sach" Member="Saches" ThisKey="MaTG" OtherKey="MaTG" Type="Sach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TheLoai" Member="TheLoais">
+    <Type Name="TheLoai">
+      <Column Name="MaTL" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TheLoai_Sach" Member="Saches" ThisKey="MaTL" OtherKey="MaTL" Type="Sach" />
+    </Type>
+  </Table>
+</Database>

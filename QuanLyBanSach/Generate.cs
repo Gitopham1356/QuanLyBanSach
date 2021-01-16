@@ -1,0 +1,6 @@
+﻿namespace QuanLyBanSach
+{
+    class Generate
+    {
+    }
+}
