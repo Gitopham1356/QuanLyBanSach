@@ -9,13 +9,14 @@ namespace QuanLyBanSach
     {
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
         frmMain frm1;
+        frmDanhSach_DSHD frmDS;
 
         //Constructor
         public frmChiTiet_CTHD()
         {
             InitializeComponent();
         }
-        frmDanhSach_DSHD frmDS;
+      
         public frmChiTiet_CTHD(frmMain  frm)
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace QuanLyBanSach
                            ct.GiaBan
                        };
             gridConCTHD.DataSource = cthd;
+        
         }
 
         private void frmChiTiet_CTHD_Load(object sender, EventArgs e)
@@ -63,11 +65,12 @@ namespace QuanLyBanSach
             }
             else
             {
-                var x = (gridviewCTHD.FocusedRowHandle, cMaS).ToString();
-              
-                var cthd = context.CTHDs.FirstOrDefault(k => k.MaS == txtMaS.Text );
-                var soluongton = context.Saches.FirstOrDefault(s => s.MaS == txtMaS.Text);
-                var thanhtien = context.HoaDons.FirstOrDefault(tt => tt.MaHD == txtMaHD.Text);
+                
+                var x = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaS).ToString();
+                var y = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaHD).ToString();
+                var cthd = context.CTHDs.FirstOrDefault(k => k.MaS == txtMaS.Text && k.MaHD == txtMaHD.Text );
+                var soluongton = context.Saches.FirstOrDefault(s => s.MaS == x.Trim());
+                var thanhtien = context.HoaDons.FirstOrDefault(tt => tt.MaHD == y.Trim());
 
                 if (cthd != null)
                 {
@@ -77,14 +80,12 @@ namespace QuanLyBanSach
                     MessageBox.Show("Xóa Đối tượng thành công");
                     loadData();
                     
-                    soluongton.SoLuongTon += cthd.SoLuongBan;
-                    
-                  
-                    var tong = cthd.SoLuongBan * cthd.GiaBan;
+                    soluongton.SoLuongTon += cthd.SoLuongBan;//sao sl bán ra 2?                                   
+                    var tong = cthd.SoLuongBan * soluongton.GiaBan;
                     thanhtien.TongHD -= tong;
                    
-                   this.context.SubmitChanges();
-
+                    this.context.SubmitChanges();
+                    loadData();
                 }
                 else
                 {
@@ -97,14 +98,28 @@ namespace QuanLyBanSach
 
         private void gridConCTHD_Click(object sender, EventArgs e)
         {
-            txtMaHD.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaHD).ToString();
-            txtMaS.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaS).ToString();
-            txtTenS.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cTenSach).ToString();
-            var sL = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cSLB).ToString();
-            txtSoLuong.Text = int.Parse(sL).ToString();
-            txtDonGia.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cGiaBan).ToString();
-
+            if (gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaHD) == null)
+            {
+                MessageBox.Show("Không thể thực hiện ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                txtMaHD.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaHD).ToString();
+                txtMaS.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cMaS).ToString();
+                txtTenS.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cTenSach).ToString();
+                var sL = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cSLB).ToString();
+                txtSoLuong.Text = int.Parse(sL).ToString();
+                txtDonGia.Text = gridviewCTHD.GetRowCellValue(gridviewCTHD.FocusedRowHandle, cGiaBan).ToString();
+            }
             
+        }
+        //tự sinh stt
+        private void gridviewCTHD_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if(e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
         }
     }
 }

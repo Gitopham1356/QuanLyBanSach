@@ -34,25 +34,21 @@ namespace QuanLyBanSach
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtTenS = new System.Windows.Forms.TextBox();
             this.txtMaS = new System.Windows.Forms.TextBox();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
+            this.txtMaPG = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbSLG = new System.Windows.Forms.Label();
-            this.lbTenS = new System.Windows.Forms.Label();
-            this.lbMaS = new System.Windows.Forms.Label();
-            this.lbMaPG = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cSLG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cTenSach = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cMaS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cMaPG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridviewCTPG = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridconCTPG = new DevExpress.XtraGrid.GridControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewCTPG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridconCTPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
@@ -61,31 +57,33 @@ namespace QuanLyBanSach
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRefresh.Image = global::QuanLyBanSach.Properties.Resources.refresh1;
-            this.btnRefresh.Location = new System.Drawing.Point(300, 343);
+            this.btnRefresh.Location = new System.Drawing.Point(362, 323);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDeleteUs
             // 
             this.btnDeleteUs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDeleteUs.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteUs.Image = global::QuanLyBanSach.Properties.Resources.delete_user;
+            this.btnDeleteUs.Image = global::QuanLyBanSach.Properties.Resources.delivery;
             this.btnDeleteUs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteUs.Location = new System.Drawing.Point(187, 341);
+            this.btnDeleteUs.Location = new System.Drawing.Point(151, 323);
             this.btnDeleteUs.Name = "btnDeleteUs";
-            this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
+            this.btnDeleteUs.Size = new System.Drawing.Size(158, 45);
             this.btnDeleteUs.TabIndex = 2;
-            this.btnDeleteUs.Text = "Xoá";
+            this.btnDeleteUs.Text = "Xoá phiếu giao";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
+            this.btnDeleteUs.Click += new System.EventHandler(this.btnDeleteUs_Click);
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoLuong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.Location = new System.Drawing.Point(162, 243);
+            this.txtSoLuong.Location = new System.Drawing.Point(150, 225);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(261, 27);
             this.txtSoLuong.TabIndex = 1;
@@ -94,7 +92,7 @@ namespace QuanLyBanSach
             // 
             this.txtTenS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenS.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenS.Location = new System.Drawing.Point(162, 195);
+            this.txtTenS.Location = new System.Drawing.Point(150, 177);
             this.txtTenS.Name = "txtTenS";
             this.txtTenS.Size = new System.Drawing.Size(261, 27);
             this.txtTenS.TabIndex = 1;
@@ -103,26 +101,26 @@ namespace QuanLyBanSach
             // 
             this.txtMaS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaS.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaS.Location = new System.Drawing.Point(163, 147);
+            this.txtMaS.Location = new System.Drawing.Point(151, 129);
             this.txtMaS.Name = "txtMaS";
             this.txtMaS.Size = new System.Drawing.Size(261, 27);
             this.txtMaS.TabIndex = 1;
             // 
-            // txtMaHD
+            // txtMaPG
             // 
-            this.txtMaHD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaHD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHD.Location = new System.Drawing.Point(162, 99);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(261, 27);
-            this.txtMaHD.TabIndex = 1;
+            this.txtMaPG.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMaPG.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaPG.Location = new System.Drawing.Point(150, 81);
+            this.txtMaPG.Name = "txtMaPG";
+            this.txtMaPG.Size = new System.Drawing.Size(261, 27);
+            this.txtMaPG.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(48, 246);
+            this.label4.Location = new System.Drawing.Point(36, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 19);
             this.label4.TabIndex = 0;
@@ -133,7 +131,7 @@ namespace QuanLyBanSach
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 198);
+            this.label3.Location = new System.Drawing.Point(72, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
             this.label3.TabIndex = 0;
@@ -144,66 +142,18 @@ namespace QuanLyBanSach
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 150);
+            this.label2.Location = new System.Drawing.Point(79, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã sách";
-            // 
-            // lbSLG
-            // 
-            this.lbSLG.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbSLG.AutoSize = true;
-            this.lbSLG.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSLG.ForeColor = System.Drawing.Color.Red;
-            this.lbSLG.Location = new System.Drawing.Point(184, 274);
-            this.lbSLG.Name = "lbSLG";
-            this.lbSLG.Size = new System.Drawing.Size(41, 13);
-            this.lbSLG.TabIndex = 0;
-            this.lbSLG.Text = "sadasd";
-            // 
-            // lbTenS
-            // 
-            this.lbTenS.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTenS.AutoSize = true;
-            this.lbTenS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenS.ForeColor = System.Drawing.Color.Red;
-            this.lbTenS.Location = new System.Drawing.Point(184, 226);
-            this.lbTenS.Name = "lbTenS";
-            this.lbTenS.Size = new System.Drawing.Size(41, 13);
-            this.lbTenS.TabIndex = 0;
-            this.lbTenS.Text = "sadasd";
-            // 
-            // lbMaS
-            // 
-            this.lbMaS.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbMaS.AutoSize = true;
-            this.lbMaS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaS.ForeColor = System.Drawing.Color.Red;
-            this.lbMaS.Location = new System.Drawing.Point(184, 178);
-            this.lbMaS.Name = "lbMaS";
-            this.lbMaS.Size = new System.Drawing.Size(41, 13);
-            this.lbMaS.TabIndex = 0;
-            this.lbMaS.Text = "sadasd";
-            // 
-            // lbMaPG
-            // 
-            this.lbMaPG.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbMaPG.AutoSize = true;
-            this.lbMaPG.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaPG.ForeColor = System.Drawing.Color.Red;
-            this.lbMaPG.Location = new System.Drawing.Point(184, 130);
-            this.lbMaPG.Name = "lbMaPG";
-            this.lbMaPG.Size = new System.Drawing.Size(41, 13);
-            this.lbMaPG.TabIndex = 0;
-            this.lbMaPG.Text = "sadasd";
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(48, 102);
+            this.label7.Location = new System.Drawing.Point(36, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 19);
             this.label7.TabIndex = 0;
@@ -226,15 +176,15 @@ namespace QuanLyBanSach
             this.cSLG.FieldName = "SoLuongGiao";
             this.cSLG.Name = "cSLG";
             this.cSLG.Visible = true;
-            this.cSLG.VisibleIndex = 2;
+            this.cSLG.VisibleIndex = 3;
             // 
             // cTenSach
             // 
             this.cTenSach.Caption = "Tên sách";
-            this.cTenSach.FieldName = "TenSach";
+            this.cTenSach.FieldName = "TenS";
             this.cTenSach.Name = "cTenSach";
             this.cTenSach.Visible = true;
-            this.cTenSach.VisibleIndex = 3;
+            this.cTenSach.VisibleIndex = 2;
             // 
             // cMaS
             // 
@@ -252,25 +202,26 @@ namespace QuanLyBanSach
             this.cMaPG.Visible = true;
             this.cMaPG.VisibleIndex = 0;
             // 
-            // gridView1
+            // gridviewCTPG
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridviewCTPG.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.cMaPG,
             this.cMaS,
             this.cTenSach,
             this.cSLG});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.gridviewCTPG.GridControl = this.gridconCTPG;
+            this.gridviewCTPG.Name = "gridviewCTPG";
             // 
-            // gridControl1
+            // gridconCTPG
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 130);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1115, 463);
-            this.gridControl1.TabIndex = 13;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridconCTPG.Location = new System.Drawing.Point(12, 130);
+            this.gridconCTPG.MainView = this.gridviewCTPG;
+            this.gridconCTPG.Name = "gridconCTPG";
+            this.gridconCTPG.Size = new System.Drawing.Size(1380, 463);
+            this.gridconCTPG.TabIndex = 13;
+            this.gridconCTPG.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridviewCTPG});
+            this.gridconCTPG.Click += new System.EventHandler(this.gridconCTPG_Click);
             // 
             // groupControl1
             // 
@@ -278,25 +229,21 @@ namespace QuanLyBanSach
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.AutoSize = true;
             this.groupControl1.CaptionLocation = DevExpress.Utils.Locations.Top;
-            this.groupControl1.ContentImage = global::QuanLyBanSach.Properties.Resources.account1;
+            this.groupControl1.ContentImage = global::QuanLyBanSach.Properties.Resources.detail1;
             this.groupControl1.ContentImageAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.groupControl1.Controls.Add(this.btnRefresh);
             this.groupControl1.Controls.Add(this.btnDeleteUs);
             this.groupControl1.Controls.Add(this.txtSoLuong);
             this.groupControl1.Controls.Add(this.txtTenS);
             this.groupControl1.Controls.Add(this.txtMaS);
-            this.groupControl1.Controls.Add(this.txtMaHD);
+            this.groupControl1.Controls.Add(this.txtMaPG);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.lbSLG);
-            this.groupControl1.Controls.Add(this.lbTenS);
-            this.groupControl1.Controls.Add(this.lbMaS);
-            this.groupControl1.Controls.Add(this.lbMaPG);
             this.groupControl1.Controls.Add(this.label7);
-            this.groupControl1.Location = new System.Drawing.Point(1145, 130);
+            this.groupControl1.Location = new System.Drawing.Point(1398, 130);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(473, 472);
+            this.groupControl1.Size = new System.Drawing.Size(473, 463);
             this.groupControl1.TabIndex = 15;
             this.groupControl1.Text = "Thông Tin Chi Tiết";
             // 
@@ -304,14 +251,15 @@ namespace QuanLyBanSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1617, 748);
+            this.ClientSize = new System.Drawing.Size(1870, 932);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gridconCTPG);
             this.Name = "frmChiTiet_CTPG";
             this.Text = "frmChiTiet_CTPG";
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            this.Load += new System.EventHandler(this.frmChiTiet_CTPG_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewCTPG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridconCTPG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -327,22 +275,18 @@ namespace QuanLyBanSach
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtTenS;
         private System.Windows.Forms.TextBox txtMaS;
-        private System.Windows.Forms.TextBox txtMaHD;
+        private System.Windows.Forms.TextBox txtMaPG;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbSLG;
-        private System.Windows.Forms.Label lbTenS;
-        private System.Windows.Forms.Label lbMaS;
-        private System.Windows.Forms.Label lbMaPG;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.Columns.GridColumn cSLG;
         private DevExpress.XtraGrid.Columns.GridColumn cTenSach;
         private DevExpress.XtraGrid.Columns.GridColumn cMaS;
         private DevExpress.XtraGrid.Columns.GridColumn cMaPG;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridviewCTPG;
+        private DevExpress.XtraGrid.GridControl gridconCTPG;
         private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

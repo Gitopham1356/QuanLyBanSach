@@ -29,14 +29,12 @@ namespace QuanLyBanSach.Quản_lý
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbTenTL = new System.Windows.Forms.Label();
-            this.lbmaTL = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDeleteUs = new System.Windows.Forms.Button();
-            this.gridctrlCustomerInfo = new DevExpress.XtraGrid.GridControl();
-            this.griviewCusInfo = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridconTheLoaiInfo = new DevExpress.XtraGrid.GridControl();
+            this.gridvieTheLoaiInfo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cMaTL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cTenTL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtNameTL = new System.Windows.Forms.TextBox();
@@ -45,35 +43,11 @@ namespace QuanLyBanSach.Quản_lý
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gridctrlCustomerInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.griviewCusInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridconTheLoaiInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridvieTheLoaiInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbTenTL
-            // 
-            this.lbTenTL.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTenTL.AutoSize = true;
-            this.lbTenTL.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenTL.ForeColor = System.Drawing.Color.Red;
-            this.lbTenTL.Location = new System.Drawing.Point(163, 222);
-            this.lbTenTL.Name = "lbTenTL";
-            this.lbTenTL.Size = new System.Drawing.Size(41, 13);
-            this.lbTenTL.TabIndex = 4;
-            this.lbTenTL.Text = "sadasd";
-            // 
-            // lbmaTL
-            // 
-            this.lbmaTL.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbmaTL.AutoSize = true;
-            this.lbmaTL.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbmaTL.ForeColor = System.Drawing.Color.Red;
-            this.lbmaTL.Location = new System.Drawing.Point(163, 163);
-            this.lbmaTL.Name = "lbmaTL";
-            this.lbmaTL.Size = new System.Drawing.Size(24, 13);
-            this.lbmaTL.TabIndex = 4;
-            this.lbmaTL.Text = "asx";
             // 
             // btnRefresh
             // 
@@ -84,6 +58,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
             this.btnRefresh.TabIndex = 6;
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnRegister
             // 
@@ -98,6 +73,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnUpdate
             // 
@@ -112,6 +88,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDeleteUs
             // 
@@ -126,28 +103,32 @@ namespace QuanLyBanSach.Quản_lý
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
+            this.btnDeleteUs.Click += new System.EventHandler(this.btnDeleteUs_Click);
             // 
-            // gridctrlCustomerInfo
+            // gridconTheLoaiInfo
             // 
-            this.gridctrlCustomerInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gridconTheLoaiInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridctrlCustomerInfo.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1);
-            this.gridctrlCustomerInfo.Location = new System.Drawing.Point(2, 112);
-            this.gridctrlCustomerInfo.MainView = this.griviewCusInfo;
-            this.gridctrlCustomerInfo.Name = "gridctrlCustomerInfo";
-            this.gridctrlCustomerInfo.Size = new System.Drawing.Size(1386, 395);
-            this.gridctrlCustomerInfo.TabIndex = 12;
-            this.gridctrlCustomerInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.griviewCusInfo});
+            this.gridconTheLoaiInfo.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1);
+            this.gridconTheLoaiInfo.Location = new System.Drawing.Point(2, 112);
+            this.gridconTheLoaiInfo.MainView = this.gridvieTheLoaiInfo;
+            this.gridconTheLoaiInfo.Name = "gridconTheLoaiInfo";
+            this.gridconTheLoaiInfo.Size = new System.Drawing.Size(1386, 395);
+            this.gridconTheLoaiInfo.TabIndex = 12;
+            this.gridconTheLoaiInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridvieTheLoaiInfo});
+            this.gridconTheLoaiInfo.Click += new System.EventHandler(this.gridconTheLoaiInfo_Click);
             // 
-            // griviewCusInfo
+            // gridvieTheLoaiInfo
             // 
-            this.griviewCusInfo.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridvieTheLoaiInfo.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.cMaTL,
             this.cTenTL});
-            this.griviewCusInfo.GridControl = this.gridctrlCustomerInfo;
-            this.griviewCusInfo.Name = "griviewCusInfo";
+            this.gridvieTheLoaiInfo.GridControl = this.gridconTheLoaiInfo;
+            this.gridvieTheLoaiInfo.IndicatorWidth = 30;
+            this.gridvieTheLoaiInfo.Name = "gridvieTheLoaiInfo";
+            this.gridvieTheLoaiInfo.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridvieTheLoaiInfo_CustomDrawRowIndicator);
             // 
             // cMaTL
             // 
@@ -182,6 +163,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTLID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTLID.Location = new System.Drawing.Point(151, 126);
             this.txtTLID.Name = "txtTLID";
+            this.txtTLID.ReadOnly = true;
             this.txtTLID.Size = new System.Drawing.Size(261, 27);
             this.txtTLID.TabIndex = 1;
             // 
@@ -194,7 +176,7 @@ namespace QuanLyBanSach.Quản_lý
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mã the loai";
+            this.label1.Text = "Mã thể loại";
             // 
             // groupControl1
             // 
@@ -204,8 +186,6 @@ namespace QuanLyBanSach.Quản_lý
             this.groupControl1.CaptionLocation = DevExpress.Utils.Locations.Top;
             this.groupControl1.ContentImage = global::QuanLyBanSach.Properties.Resources.account1;
             this.groupControl1.ContentImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.groupControl1.Controls.Add(this.lbTenTL);
-            this.groupControl1.Controls.Add(this.lbmaTL);
             this.groupControl1.Controls.Add(this.btnRefresh);
             this.groupControl1.Controls.Add(this.btnRegister);
             this.groupControl1.Controls.Add(this.btnUpdate);
@@ -249,12 +229,13 @@ namespace QuanLyBanSach.Quản_lý
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1865, 931);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.gridctrlCustomerInfo);
+            this.Controls.Add(this.gridconTheLoaiInfo);
             this.Controls.Add(this.groupControl1);
             this.Name = "frmThongTin_TheLoai";
             this.Text = "frmThongTin_TheLoai";
-            ((System.ComponentModel.ISupportInitialize)(this.gridctrlCustomerInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.griviewCusInfo)).EndInit();
+            this.Load += new System.EventHandler(this.frmThongTin_TheLoai_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridconTheLoaiInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridvieTheLoaiInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -264,15 +245,12 @@ namespace QuanLyBanSach.Quản_lý
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbTenTL;
-        private System.Windows.Forms.Label lbmaTL;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDeleteUs;
-        private DevExpress.XtraGrid.GridControl gridctrlCustomerInfo;
-        private DevExpress.XtraGrid.Views.Grid.GridView griviewCusInfo;
+        private DevExpress.XtraGrid.GridControl gridconTheLoaiInfo;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridvieTheLoaiInfo;
         private DevExpress.XtraGrid.Columns.GridColumn cMaTL;
         private DevExpress.XtraGrid.Columns.GridColumn cTenTL;
         private System.Windows.Forms.TextBox txtNameTL;

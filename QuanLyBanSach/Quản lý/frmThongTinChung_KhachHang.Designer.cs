@@ -314,6 +314,7 @@ namespace QuanLyBanSach
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(261, 27);
             this.txtSDT.TabIndex = 1;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtAddress
             // 

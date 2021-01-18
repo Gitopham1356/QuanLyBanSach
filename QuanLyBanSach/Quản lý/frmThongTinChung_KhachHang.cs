@@ -55,18 +55,26 @@ namespace QuanLyBanSach
             string maLonNhat = (from kh in context.KhachHangs
                                 orderby kh.MaKH descending
                                 select kh.MaKH).FirstOrDefault();
-            //Mã thể loại có dạng "TL001". Cắt chuỗi con từ vị trí thứ 2 ra được stt là "001". Ép thành in ra "1"
+            //Mã KH có dạng "KH001". Cắt chuỗi con từ vị trí thứ 2 ra được stt là "001". Ép thành in ra "1"
             int stt = int.Parse(maLonNhat.Substring(2));
             //+1 ra stt tiếp theo
-            stt += 1;
-            if (stt < 10)
-                txtKHID.Text = "KH0" + stt.ToString();
-            else if (stt < 100)
-                txtKHID.Text = "KH" + stt.ToString();
+            if (maLonNhat == null)
+            {
+                txtKHID.Text = "KH00".ToString();
+            }
             else
-                txtKHID.Text = "KH" + stt.ToString();
+            {
+                stt += 1;
+                if (stt < 10)
+                    txtKHID.Text = "KH0" + stt.ToString();
+                else if (stt < 100)
+                    txtKHID.Text = "KH" + stt.ToString();
+                else
+                    txtKHID.Text = "KH" + stt.ToString();
 
-            txtNameKH.Text = "";
+                txtNameKH.Text = "";
+            }
+            
         }
 
         //Register Customer
@@ -180,22 +188,30 @@ namespace QuanLyBanSach
                 catch
                 {
 
-                    txtDoB.Text=("Ngày sinh Kh phải đúng định dạng( d/m/y)").ToString();
+                    lbDoBKH.Text=("Ngày sinh Kh phải đúng định dạng( d/m/y)").ToString();
                 }
             }
         }
         //get Data from gridcontrol to textbox
         private void gridctrlCustomerInfo_Click(object sender, EventArgs e)
         {
+            if (griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiKH) == null)
+            {
+                txtAddress.Text = "".ToString();
+            }
+            else
+            {
+                txtKHID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaKH).ToString();
+                var DoB = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cNgaySinhKH).ToString();
 
-            txtKHID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaKH).ToString();
-            var DoB = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cNgaySinhKH).ToString();
+                txtDoB.Text = DateTime.Parse(DoB).ToShortDateString();
+                txtNameKH.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cTenKH).ToString();
+                txtAddress.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiKH).ToString();
+                txtSDT.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cSdtKH).ToString();
+                txtEmail.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cEmailTG).ToString();
+            }
 
-            txtDoB.Text = DateTime.Parse(DoB).ToShortDateString();
-            txtNameKH.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cTenKH).ToString();
-            txtAddress.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiKH).ToString();
-            txtSDT.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cSdtKH).ToString();
-            txtEmail.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cEmailTG).ToString();
+           
         }
 
         //Delete Customer
@@ -240,6 +256,12 @@ namespace QuanLyBanSach
             ClearText();
         }
 
-   
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false )
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

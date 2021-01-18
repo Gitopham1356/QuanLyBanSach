@@ -56,14 +56,13 @@ namespace QuanLyBanSach
                 if (stt < 10)
                     txtMaHD.Text = "HD0" + stt.ToString();
                 else if (stt < 100)
-                    txtMaHD.Text = "KH" + stt.ToString();
+                    txtMaHD.Text = "HD" + stt.ToString();
                 else
-                    txtMaHD.Text = "KH" + stt.ToString();
+                    txtMaHD.Text = "HD" + stt.ToString();
             }
-            //Mã thể loại có dạng "TL001". Cắt chuỗi con từ vị trí thứ 2 ra được stt là "001". Ép thành in ra "1"
-            
 
-           
+            //Mã thể loại có dạng "TL001". Cắt chuỗi con từ vị trí thứ 2 ra được stt là "001". Ép thành in ra "1"
+  
         }
         void clear()
         {
@@ -134,9 +133,9 @@ namespace QuanLyBanSach
         //truyền MaKH vào collectionS để gợi ý
         public void getDataS(AutoCompleteStringCollection Data)
         {
-            foreach (var hk in context.KhachHangs)
+            foreach (var hk in context.Saches)
             {
-                Data.Add(hk.MaKH);
+                Data.Add(hk.MaS);
             }
 
         }
@@ -153,7 +152,7 @@ namespace QuanLyBanSach
             cmbMaKH.AutoCompleteCustomSource = DataCollectionKH;
             //truyền vào customsource cmbMAKH
 
-            getDataKH(DataCollectionKH);
+            getDataS(DataCollectionS);
             cmbMaS.AutoCompleteCustomSource = DataCollectionS;
             //Set ngày tháng lập hoá đơn chỉ dược là ngyà hôm nay
 
@@ -419,13 +418,13 @@ namespace QuanLyBanSach
                                 cTHD.MaS = mas;
                                 cTHD.SoLuongBan = soluongban;
                                 cTHD.GiaBan = giaban;
-                                var t = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text && s.SoLuongTon >= int.Parse(txtSoLuong.Text));
+                                var t = context.Saches.FirstOrDefault(s => s.MaS == mas && s.SoLuongTon >= soluongban);
                                 if (t == null)
                                 {
                                 }
                                 else
                                 {
-                                    t.SoLuongTon -= int.Parse(txtSoLuong.Text);
+                                    t.SoLuongTon -= soluongban;
                                 }
                                 
                                

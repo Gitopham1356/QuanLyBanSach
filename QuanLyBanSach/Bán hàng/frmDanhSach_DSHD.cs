@@ -48,10 +48,7 @@ namespace QuanLyBanSach
             loadData();
         }
 
-        private void gridCtrlDSHD_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnGoToCTHD_Click(object sender, EventArgs e)
         {
@@ -62,31 +59,31 @@ namespace QuanLyBanSach
 
         private void btnDelHD_Click(object sender, EventArgs e)
         {
-            //DialogResult dia = MessageBox.Show("Bạn có chắc muốn xoá? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dia == DialogResult.No)
-            //{
-            //}
-            //else
-            //{
-            //    var x = (gridviewDSHD.FocusedRowHandle, cMaHD).ToString();
-            //    var hd = context.HoaDons.FirstOrDefault(K => K.MaHD == x.Trim());
+            DialogResult dia = MessageBox.Show("Việc xoá Thông tin có thể gây mất thông tin hay ảnh hưởng đến chi tiết hoá đơn , bạn có chắc muốn xoá ", "Xoá Thông tin?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dia == DialogResult.No)
+            {
+            }
+            else
+            {
+                var x = gridviewDSHD.GetRowCellValue(gridviewDSHD.FocusedRowHandle, cMaHD).ToString();
+                var hd = context.HoaDons.FirstOrDefault(K => K.MaHD == x.Trim());
 
-            //    if (hd != null)
-            //    {
+                if (hd != null)
+                {
 
-            //        context.HoaDons.DeleteOnSubmit(hd);
-            //        context.SubmitChanges();
-            //        MessageBox.Show("Xóa Đối tượng thành công");
-            //        loadData();
+                    context.HoaDons.DeleteOnSubmit(hd);
+                    context.SubmitChanges();
+                    MessageBox.Show("Xóa Đối tượng thành công");
+                    loadData();
 
-            //    }
-            //    else
-            //    {
+                }
+                else
+                {
 
-            //        MessageBox.Show("Xoá thất bại");
+                    MessageBox.Show("Xoá thất bại");
 
-            //    }
-            //}
+                }
+            }
         }
     }
 }

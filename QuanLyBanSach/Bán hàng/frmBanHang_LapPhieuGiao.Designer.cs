@@ -37,13 +37,15 @@ namespace QuanLyBanSach
             this.MaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDSHD = new System.Windows.Forms.Button();
+            this.btnDSPG = new System.Windows.Forms.Button();
             this.btnLuuHD = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grbThongTinChung = new System.Windows.Forms.GroupBox();
+            this.lbNgayGiao = new System.Windows.Forms.Label();
+            this.lbMaKh = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.cmbMaKH = new System.Windows.Forms.ComboBox();
             this.datetimeNgayGiaoDK = new System.Windows.Forms.DateTimePicker();
@@ -61,6 +63,7 @@ namespace QuanLyBanSach
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.grbThongTinSP = new System.Windows.Forms.GroupBox();
+            this.lbMaS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSach)).BeginInit();
             this.grbThongTinChung.SuspendLayout();
             this.grbThongTinSP.SuspendLayout();
@@ -76,11 +79,14 @@ namespace QuanLyBanSach
             // 
             // cmbMaS
             // 
+            this.cmbMaS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMaS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbMaS.FormattingEnabled = true;
             this.cmbMaS.Location = new System.Drawing.Point(134, 40);
             this.cmbMaS.Name = "cmbMaS";
             this.cmbMaS.Size = new System.Drawing.Size(184, 21);
             this.cmbMaS.TabIndex = 16;
+            this.cmbMaS.TextChanged += new System.EventHandler(this.cmbMaS_TextChanged);
             // 
             // btnSua
             // 
@@ -140,16 +146,17 @@ namespace QuanLyBanSach
             this.SoLuongGiao.Name = "SoLuongGiao";
             this.SoLuongGiao.ReadOnly = true;
             // 
-            // btnDSHD
+            // btnDSPG
             // 
-            this.btnDSHD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDSHD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHD.Location = new System.Drawing.Point(763, 810);
-            this.btnDSHD.Name = "btnDSHD";
-            this.btnDSHD.Size = new System.Drawing.Size(299, 33);
-            this.btnDSHD.TabIndex = 28;
-            this.btnDSHD.Text = "Chuyển đến danh sách phiếu giao";
-            this.btnDSHD.UseVisualStyleBackColor = true;
+            this.btnDSPG.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDSPG.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSPG.Location = new System.Drawing.Point(763, 810);
+            this.btnDSPG.Name = "btnDSPG";
+            this.btnDSPG.Size = new System.Drawing.Size(299, 33);
+            this.btnDSPG.TabIndex = 28;
+            this.btnDSPG.Text = "Chuyển đến danh sách phiếu giao";
+            this.btnDSPG.UseVisualStyleBackColor = true;
+            this.btnDSPG.Click += new System.EventHandler(this.btnDSPG_Click);
             // 
             // btnLuuHD
             // 
@@ -161,7 +168,7 @@ namespace QuanLyBanSach
             this.btnLuuHD.TabIndex = 27;
             this.btnLuuHD.Text = "Lưu phiếu giao";
             this.btnLuuHD.UseVisualStyleBackColor = true;
-            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
+            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuPG_Click);
             // 
             // label3
             // 
@@ -210,6 +217,8 @@ namespace QuanLyBanSach
             // grbThongTinChung
             // 
             this.grbThongTinChung.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbThongTinChung.Controls.Add(this.lbNgayGiao);
+            this.grbThongTinChung.Controls.Add(this.lbMaKh);
             this.grbThongTinChung.Controls.Add(this.btnRefresh);
             this.grbThongTinChung.Controls.Add(this.cmbMaKH);
             this.grbThongTinChung.Controls.Add(this.datetimeNgayGiaoDK);
@@ -228,6 +237,27 @@ namespace QuanLyBanSach
             this.grbThongTinChung.Size = new System.Drawing.Size(992, 165);
             this.grbThongTinChung.TabIndex = 22;
             this.grbThongTinChung.TabStop = false;
+            // 
+            // lbNgayGiao
+            // 
+            this.lbNgayGiao.AutoSize = true;
+            this.lbNgayGiao.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNgayGiao.ForeColor = System.Drawing.Color.Red;
+            this.lbNgayGiao.Location = new System.Drawing.Point(179, 146);
+            this.lbNgayGiao.Name = "lbNgayGiao";
+            this.lbNgayGiao.Size = new System.Drawing.Size(35, 13);
+            this.lbNgayGiao.TabIndex = 8;
+            this.lbNgayGiao.Text = "label7";
+            // 
+            // lbMaKh
+            // 
+            this.lbMaKh.AutoSize = true;
+            this.lbMaKh.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaKh.ForeColor = System.Drawing.Color.Red;
+            this.lbMaKh.Location = new System.Drawing.Point(734, 59);
+            this.lbMaKh.Name = "lbMaKh";
+            this.lbMaKh.Size = new System.Drawing.Size(0, 13);
+            this.lbMaKh.TabIndex = 8;
             // 
             // btnRefresh
             // 
@@ -250,6 +280,7 @@ namespace QuanLyBanSach
             this.cmbMaKH.Name = "cmbMaKH";
             this.cmbMaKH.Size = new System.Drawing.Size(261, 26);
             this.cmbMaKH.TabIndex = 6;
+            this.cmbMaKH.TextChanged += new System.EventHandler(this.cmbMaKH_TextChanged);
             // 
             // datetimeNgayGiaoDK
             // 
@@ -258,6 +289,7 @@ namespace QuanLyBanSach
             this.datetimeNgayGiaoDK.Name = "datetimeNgayGiaoDK";
             this.datetimeNgayGiaoDK.Size = new System.Drawing.Size(187, 26);
             this.datetimeNgayGiaoDK.TabIndex = 1;
+            this.datetimeNgayGiaoDK.ValueChanged += new System.EventHandler(this.datetimeNgayGiaoDK_ValueChanged);
             // 
             // dtimepickNgayLapPG
             // 
@@ -266,6 +298,7 @@ namespace QuanLyBanSach
             this.dtimepickNgayLapPG.Name = "dtimepickNgayLapPG";
             this.dtimepickNgayLapPG.Size = new System.Drawing.Size(187, 26);
             this.dtimepickNgayLapPG.TabIndex = 1;
+            this.dtimepickNgayLapPG.ValueChanged += new System.EventHandler(this.dtimepickNgayLapPG_ValueChanged);
             // 
             // label2
             // 
@@ -282,7 +315,7 @@ namespace QuanLyBanSach
             // txtTenKH
             // 
             this.txtTenKH.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTenKH.Location = new System.Drawing.Point(726, 74);
+            this.txtTenKH.Location = new System.Drawing.Point(728, 88);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.ReadOnly = true;
             this.txtTenKH.Size = new System.Drawing.Size(258, 26);
@@ -327,7 +360,7 @@ namespace QuanLyBanSach
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label9.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(582, 77);
+            this.label9.Location = new System.Drawing.Point(584, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(123, 18);
             this.label9.TabIndex = 3;
@@ -376,6 +409,7 @@ namespace QuanLyBanSach
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(154, 21);
             this.txtSoLuong.TabIndex = 11;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // label14
             // 
@@ -404,6 +438,7 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbThongTinSP.Controls.Add(this.lbMaS);
             this.grbThongTinSP.Controls.Add(this.cmbTenS);
             this.grbThongTinSP.Controls.Add(this.cmbMaS);
             this.grbThongTinSP.Controls.Add(this.btnXoa);
@@ -421,13 +456,23 @@ namespace QuanLyBanSach
             this.grbThongTinSP.TabIndex = 23;
             this.grbThongTinSP.TabStop = false;
             // 
+            // lbMaS
+            // 
+            this.lbMaS.AutoSize = true;
+            this.lbMaS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaS.ForeColor = System.Drawing.Color.Red;
+            this.lbMaS.Location = new System.Drawing.Point(142, 64);
+            this.lbMaS.Name = "lbMaS";
+            this.lbMaS.Size = new System.Drawing.Size(0, 13);
+            this.lbMaS.TabIndex = 8;
+            // 
             // frmBanHang_LapPhieuGiao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1607, 932);
             this.Controls.Add(this.dgvTTSach);
-            this.Controls.Add(this.btnDSHD);
+            this.Controls.Add(this.btnDSPG);
             this.Controls.Add(this.btnLuuHD);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grbThongTinChung);
@@ -452,7 +497,7 @@ namespace QuanLyBanSach
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView dgvTTSach;
-        private System.Windows.Forms.Button btnDSHD;
+        private System.Windows.Forms.Button btnDSPG;
         private System.Windows.Forms.Button btnLuuHD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnXoa;
@@ -479,5 +524,8 @@ namespace QuanLyBanSach
         private System.Windows.Forms.DataGridViewTextBoxColumn MaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongGiao;
+        private System.Windows.Forms.Label lbMaKh;
+        private System.Windows.Forms.Label lbNgayGiao;
+        private System.Windows.Forms.Label lbMaS;
     }
 }

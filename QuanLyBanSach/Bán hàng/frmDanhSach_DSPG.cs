@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace QuanLyBanSach
 {
@@ -8,6 +9,7 @@ namespace QuanLyBanSach
     {
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
         frmMain frm1;
+        frmBanHang_LapPhieuGiao frmL;
         //Constructor
         public frmDanhSach_DSPG()
         {
@@ -17,6 +19,12 @@ namespace QuanLyBanSach
         {
             InitializeComponent();
             frm1 = frm;
+        }
+        public frmDanhSach_DSPG(frmMain frm,frmBanHang_LapPhieuGiao frml)
+        {
+            InitializeComponent();
+            frm1 = frm;
+            frmL = frml;
         }
         void loadData()
         {
@@ -38,8 +46,62 @@ namespace QuanLyBanSach
 
         private void btnGoToCTPG_Click(object sender, EventArgs e)
         {
-            frmChiTiet_CTPG frm = new frmChiTiet_CTPG();
+            frmChiTiet_CTPG frm = new frmChiTiet_CTPG(frm1,this);
             frm1.showFrm<frmChiTiet_CTPG>(frm);
+        }
+
+        private void btnDelPG_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dia = MessageBox.Show("Việc xoá Thông tin có thể gây mất thông tin hay ảnh hưởng đến chi tiết phiếu giao , bạn có chắc muốn xoá ", "Xoá Thông tin?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dia == DialogResult.No)
+            {
+            }
+            else
+            {
+                var x = gridviewDSPG.GetRowCellValue(gridviewDSPG.FocusedRowHandle, cMaPG).ToString();
+                var pg = context.PhieuGiaos.FirstOrDefault(K => K.MaPG == x.Trim());
+
+                if (pg != null)
+                {
+
+                    context.PhieuGiaos.DeleteOnSubmit(pg);
+                    context.SubmitChanges();
+                    MessageBox.Show("Xóa Đối tượng thành công");
+                    loadData();
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Xoá thất bại");
+
+                }
+                var ctpg = context.CTPGs.FirstOrDefault(k => k.MaPG == x.Trim());
+               // var soluongton = context.Saches.FirstOrDefault(s => s.MaS == txtMaS.Text);
+
+
+                if (ctpg != null)
+                {
+
+                    context.CTPGs.DeleteOnSubmit(ctpg);
+
+                    MessageBox.Show("Xóa Đối tượng thành công");
+                    loadData();
+                    foreach(var soluongton in context.Saches)
+                    {
+                        soluongton.SoLuongTon += ctpg.SoLuongGiao;
+                    }
+                    this.context.SubmitChanges();
+                    loadData();
+                }
+                else
+                {
+
+                    MessageBox.Show("Xoá thất bại");
+
+                }
+            }
         }
     }
 }

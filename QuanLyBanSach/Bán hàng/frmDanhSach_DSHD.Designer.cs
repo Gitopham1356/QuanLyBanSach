@@ -51,11 +51,11 @@ namespace QuanLyBanSach
             this.gridCtrlDSHD.MainView = this.gridviewDSHD;
             this.gridCtrlDSHD.Margin = new System.Windows.Forms.Padding(2);
             this.gridCtrlDSHD.Name = "gridCtrlDSHD";
-            this.gridCtrlDSHD.Size = new System.Drawing.Size(1271, 552);
+            this.gridCtrlDSHD.Size = new System.Drawing.Size(1271, 419);
             this.gridCtrlDSHD.TabIndex = 1;
             this.gridCtrlDSHD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewDSHD});
-            this.gridCtrlDSHD.Click += new System.EventHandler(this.gridCtrlDSHD_Click);
+ 
             // 
             // gridviewDSHD
             // 
@@ -145,7 +145,7 @@ namespace QuanLyBanSach
             // 
             this.btnGoToCTHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGoToCTHD.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToCTHD.Location = new System.Drawing.Point(1247, 740);
+            this.btnGoToCTHD.Location = new System.Drawing.Point(1247, 582);
             this.btnGoToCTHD.Name = "btnGoToCTHD";
             this.btnGoToCTHD.Size = new System.Drawing.Size(324, 35);
             this.btnGoToCTHD.TabIndex = 6;
@@ -155,9 +155,9 @@ namespace QuanLyBanSach
             // 
             // btnDelHD
             // 
-            this.btnDelHD.Location = new System.Drawing.Point(1587, 177);
+            this.btnDelHD.Location = new System.Drawing.Point(1576, 191);
             this.btnDelHD.Name = "btnDelHD";
-            this.btnDelHD.Size = new System.Drawing.Size(75, 81);
+            this.btnDelHD.Size = new System.Drawing.Size(75, 68);
             this.btnDelHD.TabIndex = 7;
             this.btnDelHD.Text = "Xoá hoá đơn";
             this.btnDelHD.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@ namespace QuanLyBanSach
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1872, 787);
+            this.ClientSize = new System.Drawing.Size(1872, 955);
             this.Controls.Add(this.btnDelHD);
             this.Controls.Add(this.btnGoToCTHD);
             this.Controls.Add(this.labelControl1);

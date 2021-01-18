@@ -10,8 +10,8 @@ namespace QuanLyBanSach
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
 
         frmMain frm1;
-        int ma = 0;
-        string mah = "PG";
+       //Constructor
+
         public frmBanHang_LapPhieuGiao()
         {
             InitializeComponent();
@@ -22,9 +22,25 @@ namespace QuanLyBanSach
             frm1 = frm;
         }
 
+        //Kiểm tra xem số lượng tồn có >= số lượng mua hay k
+
+        bool checkSl()
+        {
+            var t = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text && s.SoLuongTon >= int.Parse(txtSoLuong.Text));
+            if (t == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        // Hiển thị
         public void loadNDisplay()
         {
 
+
+            cmbMaKH.Text = "KH00";
+            cmbMaS.Text = "S001";
             cmbMaKH.DataSource = context.KhachHangs;
             cmbMaKH.DisplayMember = "MaKH";
             cmbMaKH.ValueMember = "MaKH";
@@ -35,6 +51,7 @@ namespace QuanLyBanSach
                 txtTenKH.Text = khName.TenKH.ToString();
             }
 
+
             cmbMaS.DataSource = context.Saches;
             cmbMaS.DisplayMember = "MaS";
             cmbMaS.ValueMember = "MaS";
@@ -43,6 +60,31 @@ namespace QuanLyBanSach
             if (sName != null)
             {
                 cmbTenS.Text = sName.TenS.ToString();
+            }
+        }
+
+        // hàm sinh mã phiếu giao
+
+        public void autoGenMHD()
+        {
+            string maLonNhat = (from pg in context.PhieuGiaos
+                                orderby pg.MaPG descending
+                                select pg.MaPG).FirstOrDefault();
+            if (maLonNhat == null)
+            {
+                txtMaPG.Text = "PG00".ToString();
+            }
+            else
+            {
+                int stt = int.Parse(maLonNhat.Substring(2));
+                //+1 ra stt tiếp theo
+                stt += 1;
+                if (stt < 10)
+                    txtMaPG.Text = "PG0" + stt.ToString();
+                else if (stt < 100)
+                    txtMaPG.Text = "PG" + stt.ToString();
+                else
+                    txtMaPG.Text = "PG" + stt.ToString();
             }
         }
 
@@ -65,26 +107,124 @@ namespace QuanLyBanSach
             dgvTTSach.Rows[selectedRow].Cells[2].Value = txtSoLuong.Text;
         }
 
+        void clear()
+        {
+            txtSoLuong.Clear();
+          
+
+        }
+        //truyền MaKH vào collectionS để gợi ý
+        public void getDataKH(AutoCompleteStringCollection Data)
+        {
+            foreach (var hk in context.KhachHangs)
+            {
+                Data.Add(hk.MaKH);
+            }
+
+        }
+        //truyền MaS vào collectionS để gợi ý
+        public void getDataS(AutoCompleteStringCollection Data)
+        {
+            foreach (var hk in context.Saches)
+            {
+                Data.Add(hk.MaS);
+            }
+
+        }
+
         private void frmBanHang_LapPhieuGiao_Load(object sender, EventArgs e)
         {
-            Database.PhieuGiao phieugiao = new Database.PhieuGiao();
 
-            if (phieugiao.MaPG == null)
+            AutoCompleteStringCollection DataCollectionKH = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection DataCollectionS = new AutoCompleteStringCollection();
+            Database.PhieuGiao phieuGiao = new Database.PhieuGiao();
+
+            //truyền vào customsource cmbMAKH
+
+            getDataKH(DataCollectionKH);
+            cmbMaKH.AutoCompleteCustomSource = DataCollectionKH;
+            //truyền vào customsource cmbMAKH
+
+            getDataS(DataCollectionS);
+            cmbMaS.AutoCompleteCustomSource = DataCollectionS;
+            //Set ngày tháng lập hoá đơn chỉ dược là ngyà hôm nay
+
+            dtimepickNgayLapPG.MinDate = DateTime.Now;
+            datetimeNgayGiaoDK.MinDate = DateTime.Now;
+           
+
+            //
+            autoGenMHD();
+            loadNDisplay();
+        }
+
+        private void cmbMaKH_TextChanged(object sender, EventArgs e)
+        {
+            lbMaKh.Text = "";
+            var mak = context.KhachHangs.FirstOrDefault(b => b.MaKH == cmbMaKH.Text);
+            if (mak == null)
             {
-                txtMaPG.Text += (mah + ma.ToString("D2")).ToString();
+                lbMaKh.Text = "xMã khách hàng không tồn tại.";
+                txtTenKH.Text = "".ToString();
             }
             else
             {
-                ma = phieugiao.MaPG.Count();
+                cmbMaKH.DataSource = context.KhachHangs;
+                cmbMaKH.DisplayMember = "MaKH";
+                cmbMaKH.ValueMember = "MaKH";
 
-                txtMaPG.Text += (mah + ma.ToString("D2")).ToString();
+                var khName = context.KhachHangs.FirstOrDefault(k => k.MaKH == cmbMaKH.Text);
+                if (khName != null)
+                {
+                    txtTenKH.Text = khName.TenKH.ToString();
+                }
             }
-            loadNDisplay();
+        }
+
+        private void cmbMaS_TextChanged(object sender, EventArgs e)
+        {
+            lbMaS.Text = "";
+            var maS = context.Saches.FirstOrDefault(b => b.MaS == cmbMaS.Text);
+            if (maS == null)
+            {
+                lbMaS.Text = "xMã sách không tồn tại.".ToString();
+                cmbTenS.Text = "".ToString();
+            }
+            else
+            {
+                lbMaS.Text = "".ToString();
+                cmbMaS.DataSource = context.Saches;
+                cmbMaS.DisplayMember = "MaS";
+                cmbMaS.ValueMember = "MaS";
+
+                var SName = context.Saches.FirstOrDefault(k => k.MaS == cmbMaS.Text);
+                if (SName != null)
+                {
+                    cmbTenS.Text = SName.TenS.ToString();
+                }
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            loadNDisplay();
+            DialogResult dr = MessageBox.Show("Các thay đổi bạn đã thực hiện có thể không được lưu", "Tải lại trang?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.Cancel)
+            {
+            }
+            else
+            {
+                dgvTTSach.Rows.Clear();
+                clear();
+                loadNDisplay();
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -195,15 +335,13 @@ namespace QuanLyBanSach
             }
         }
 
-        private void btnLuuHD_Click(object sender, EventArgs e)
+        private void btnLuuPG_Click(object sender, EventArgs e)
         {
             try
             {
                 Database.PhieuGiao phieugiao = new Database.PhieuGiao();
                 string mas;
                 int soluonggiao = 0;
-
-
 
                 if (txtMaPG.Text == "" || cmbMaKH.Text == "" || dtimepickNgayLapPG.Text == ""
                                        || datetimeNgayGiaoDK.Text == "")
@@ -212,50 +350,114 @@ namespace QuanLyBanSach
 
                 }
 
+
                 else
                 {
+
                     phieugiao.MaPG = txtMaPG.Text;
                     phieugiao.MaKH = cmbMaKH.Text;
                     phieugiao.NgayLapPG = DateTime.Parse(dtimepickNgayLapPG.Text);
                     phieugiao.NgayGiaoDuKien = DateTime.Parse(datetimeNgayGiaoDK.Text);
 
-                    var pg = context.PhieuGiaos.FirstOrDefault(p => p.MaPG == txtMaPG.Text);
-                    if (pg == null)
+                    var pg = context.PhieuGiaos.FirstOrDefault(p=>p.MaPG == txtMaPG.Text);
+                    var kh = context.KhachHangs.FirstOrDefault(k => k.MaKH == cmbMaKH.Text);
+                    var maS = context.Saches.FirstOrDefault(b => b.MaS == cmbMaS.Text);
+                    if (dtimepickNgayLapPG.Value <= datetimeNgayGiaoDK.Value)
                     {
-
-
-                        context.PhieuGiaos.InsertOnSubmit(phieugiao);
-                        context.SubmitChanges();
-
-                        for (int i = 0; i < dgvTTSach.Rows.Count; i++)
+                        if (maS != null)
                         {
-                            Database.CTPG cTPG = new Database.CTPG();
 
-                            mas = dgvTTSach.Rows[i].Cells[0].Value.ToString();
-                            soluonggiao = int.Parse(dgvTTSach.Rows[i].Cells[2].Value.ToString());
+                            if (kh != null)
+                            {
 
-                            cTPG.MaS = mas;
-                            cTPG.MaPG = txtMaPG.Text;
-                            cTPG.SoLuongGiao = soluonggiao;
 
-                            context.CTPGs.InsertOnSubmit(cTPG);
-                            this.context.SubmitChanges();
+
+                                if (pg == null)
+                                {
+
+
+                                    context.PhieuGiaos.InsertOnSubmit(phieugiao);
+                                    context.SubmitChanges();
+
+                                    for (int i = 0; i < dgvTTSach.Rows.Count; i++)
+                                    {
+                                        Database.CTPG cTPG = new Database.CTPG();
+                                        mas = dgvTTSach.Rows[i].Cells[0].Value.ToString();
+                                        soluonggiao = int.Parse(dgvTTSach.Rows[i].Cells[2].Value.ToString());
+
+
+                                        cTPG.MaPG = txtMaPG.Text;
+                                        cTPG.MaS = mas;
+                                        cTPG.SoLuongGiao = soluonggiao;
+
+                                        var t = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text && s.SoLuongTon >= int.Parse(txtSoLuong.Text));
+                                        if (t == null)
+                                        {
+                                        }
+                                        else
+                                        {
+                                            t.SoLuongTon -= int.Parse(txtSoLuong.Text);
+                                        }
+
+
+
+                                        context.CTPGs.InsertOnSubmit(cTPG);
+                                        this.context.SubmitChanges();
+                                    }
+                                    MessageBox.Show("Lập phiếu giao thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    loadNDisplay();
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Phiếu giao đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Mã khách hàng không tồn tại", "cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        MessageBox.Show("Lập phiếu giao thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadNDisplay();
-
+                        else
+                        {
+                            MessageBox.Show("Mã sách không tồn tại", "cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Phiếu giao đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Ngày lập phiếu / ngày giao dự kiến không hợp lệ", "cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
             }
             catch
             {
-                MessageBox.Show("");
+                MessageBox.Show("Không thực hiện được");
             }
+        }
+
+        private void dtimepickNgayLapPG_ValueChanged(object sender, EventArgs e)
+        {
+            lbNgayGiao.Text = "".ToString();
+            if (dtimepickNgayLapPG.Value > datetimeNgayGiaoDK.Value)
+            {
+                lbNgayGiao.Text = "Ngày giao phải >= ngày lập".ToString();
+            }
+        }
+
+        private void datetimeNgayGiaoDK_ValueChanged(object sender, EventArgs e)
+        {
+            lbNgayGiao.Text = "".ToString();
+            if (dtimepickNgayLapPG.Value > datetimeNgayGiaoDK.Value)
+            {
+                lbNgayGiao.Text = "Ngày giao phải >= ngày lập".ToString();
+            }
+        }
+        // chuyển đến danh sách phiếu giao
+        private void btnDSPG_Click(object sender, EventArgs e)
+        {
+            frmDanhSach_DSPG frm = new frmDanhSach_DSPG(frm1, this);
+            frm1.showFrm<frmDanhSach_DSPG>(frm);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace QuanLyBanSach
 {
+    
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
@@ -120,7 +121,7 @@ namespace QuanLyBanSach
         //**Sách
         private void barbtnBook_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Quản_lý.frmThongTin_Sach frm = new Quản_lý.frmThongTin_Sach();
+            Quản_lý.frmThongTin_Sach frm = new Quản_lý.frmThongTin_Sach(this);
             showFrm<Quản_lý.frmThongTin_Sach>(frm);
         }
         //**Tác giả
@@ -173,7 +174,7 @@ namespace QuanLyBanSach
         //**Chi tiết phiếu giao
         private void barbtnCTPG_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmChiTiet_CTPG frm = new frmChiTiet_CTPG();
+            frmChiTiet_CTPG frm = new frmChiTiet_CTPG(this);
             showFrm<frmChiTiet_CTPG>(frm);
         }
     }

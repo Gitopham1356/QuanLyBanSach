@@ -37,6 +37,7 @@ namespace QuanLyBanSach
             this.cNgayLapPG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cNgayGiaoDuKien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnGoToCTPG = new System.Windows.Forms.Button();
+            this.btnDelPG = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridCtrlDSPG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewDSPG)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +65,7 @@ namespace QuanLyBanSach
             this.gridCtrlDSPG.MainView = this.gridviewDSPG;
             this.gridCtrlDSPG.Margin = new System.Windows.Forms.Padding(2);
             this.gridCtrlDSPG.Name = "gridCtrlDSPG";
-            this.gridCtrlDSPG.Size = new System.Drawing.Size(1271, 549);
+            this.gridCtrlDSPG.Size = new System.Drawing.Size(1271, 723);
             this.gridCtrlDSPG.TabIndex = 3;
             this.gridCtrlDSPG.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewDSPG});
@@ -143,7 +144,7 @@ namespace QuanLyBanSach
             // 
             this.btnGoToCTPG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGoToCTPG.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToCTPG.Location = new System.Drawing.Point(1247, 737);
+            this.btnGoToCTPG.Location = new System.Drawing.Point(1247, 887);
             this.btnGoToCTPG.Name = "btnGoToCTPG";
             this.btnGoToCTPG.Size = new System.Drawing.Size(324, 35);
             this.btnGoToCTPG.TabIndex = 5;
@@ -151,11 +152,22 @@ namespace QuanLyBanSach
             this.btnGoToCTPG.UseVisualStyleBackColor = true;
             this.btnGoToCTPG.Click += new System.EventHandler(this.btnGoToCTPG_Click);
             // 
+            // btnDelPG
+            // 
+            this.btnDelPG.Location = new System.Drawing.Point(1576, 191);
+            this.btnDelPG.Name = "btnDelPG";
+            this.btnDelPG.Size = new System.Drawing.Size(75, 68);
+            this.btnDelPG.TabIndex = 8;
+            this.btnDelPG.Text = "Xoá phiếu giao";
+            this.btnDelPG.UseVisualStyleBackColor = true;
+            this.btnDelPG.Click += new System.EventHandler(this.btnDelPG_Click);
+            // 
             // frmDanhSach_DSPG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1870, 784);
+            this.ClientSize = new System.Drawing.Size(1870, 958);
+            this.Controls.Add(this.btnDelPG);
             this.Controls.Add(this.btnGoToCTPG);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.gridCtrlDSPG);
@@ -181,5 +193,6 @@ namespace QuanLyBanSach
         private DevExpress.XtraGrid.Columns.GridColumn cNgayLapPG;
         private DevExpress.XtraGrid.Columns.GridColumn cNgayGiaoDuKien;
         private System.Windows.Forms.Button btnGoToCTPG;
+        private System.Windows.Forms.Button btnDelPG;
     }
 }
