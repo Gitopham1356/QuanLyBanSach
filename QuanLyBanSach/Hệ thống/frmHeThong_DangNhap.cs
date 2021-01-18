@@ -49,16 +49,15 @@ namespace QuanLyBanSach
             } 
             else
             {
+
                 var loginInfo = QLContext.NhanViens.FirstOrDefault(tk => tk.MaNV == txtAccount.Text &&
                                                               tk.MatKhau == txtPassword.Text );
 
-
                 if (loginInfo != null)
                 {
-                    MessageBox.Show("Đăng nhập thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.Hide();
                     main1.showItem();
-
 
                 }
                 else

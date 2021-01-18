@@ -263,5 +263,18 @@ namespace QuanLyBanSach
                 e.Handled = true;
             }
         }
+
+        private void txtDoB_TextChanged(object sender, EventArgs e)
+        {
+            lbDoBKH.Text = "".ToString();
+            try
+            {
+                DateTime dateTime = DateTime.Parse(txtDoB.Text);
+            }
+            catch
+            {
+                lbDoBKH.Text = "Ngày sinh Kh phải đúng định dạng( d/m/y)".ToString();
+            }
+        }
     }
 }

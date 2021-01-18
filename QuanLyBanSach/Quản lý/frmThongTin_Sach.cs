@@ -185,7 +185,7 @@ namespace QuanLyBanSach.Quản_lý
             }
         }
         // Event thay đổi item trong combobox = thay đổi tên(label TenTG)
-        private void cmbMaTG_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbMaTG_TextChanged(object sender, EventArgs e)
         {
             lbTenTG.Text = "Không hợp lệ.".ToString();
 
@@ -196,7 +196,7 @@ namespace QuanLyBanSach.Quản_lý
             }
         }
         // Event thay đổi item trong combobox = thay đổi tên(label TenTG)
-        private void cmbMaNXB_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbMaNXB_TextChanged(object sender, EventArgs e)
         {
             lbTenNXB.Text = "Không hợp lệ.".ToString();
 
@@ -209,9 +209,9 @@ namespace QuanLyBanSach.Quản_lý
 
         //public void getDataTG<T>(AutoCompleteStringCollection Data, T contex) where T : System.Data.Linq.ITable
         //{
+
            
-        //    Console.WriteLine("asdadsadads{0}", contex);
-          
+
 
         //}
 
@@ -443,5 +443,9 @@ namespace QuanLyBanSach.Quản_lý
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
             }
         }
+
+    
+
+   
     }
 }

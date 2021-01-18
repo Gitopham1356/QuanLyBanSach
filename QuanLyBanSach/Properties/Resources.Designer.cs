@@ -193,6 +193,17 @@ namespace QuanLyBanSach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap books_bookshelves_bookstore_business_data_education_indoors_knowledge_library_literature_market_pile_research_stock_text_4757x3130 {
+            get {
+                object obj = ResourceManager.GetObject("books_bookshelves_bookstore_business_data_education_indoors_knowledge_library_lit" +
+                        "erature_market_pile_research_stock_text_4757x3130", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap books1 {
             get {
                 object obj = ResourceManager.GetObject("books1", resourceCulture);
@@ -236,6 +247,16 @@ namespace QuanLyBanSach.Properties {
         internal static System.Drawing.Bitmap customer__1_ {
             get {
                 object obj = ResourceManager.GetObject("customer (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +357,16 @@ namespace QuanLyBanSach.Properties {
         internal static System.Drawing.Bitmap enter {
             get {
                 object obj = ResourceManager.GetObject("enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exchange {
+            get {
+                object obj = ResourceManager.GetObject("exchange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -527,6 +558,16 @@ namespace QuanLyBanSach.Properties {
         internal static System.Drawing.Bitmap pie_chart {
             get {
                 object obj = ResourceManager.GetObject("pie-chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

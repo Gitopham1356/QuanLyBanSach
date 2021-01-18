@@ -172,6 +172,7 @@ namespace QuanLyBanSach
             this.barbtnTL.Name = "barbtnTL";
             this.barbtnTL.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barbtnTL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnTL_ItemClick_1);
             // 
             // barButtonItem4
             // 
@@ -397,11 +398,13 @@ namespace QuanLyBanSach
             // 
             // pnlMain
             // 
+            this.pnlMain.ContentImageAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 158);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(846, 498);
             this.pnlMain.TabIndex = 1;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // frmMain
             // 

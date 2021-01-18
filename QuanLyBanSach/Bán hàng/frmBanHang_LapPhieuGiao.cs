@@ -459,5 +459,19 @@ namespace QuanLyBanSach
             frmDanhSach_DSPG frm = new frmDanhSach_DSPG(frm1, this);
             frm1.showFrm<frmDanhSach_DSPG>(frm);
         }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            lbSoLuong.Text = "";
+
+            if (txtSoLuong.Text == "")
+            {
+
+            }
+             else if (checkSl() == false)
+            {
+                lbSoLuong.Text = "xSố lượng phải < hoặc = Số lượng tồn".ToString();
+            }
+        }
     }
 }

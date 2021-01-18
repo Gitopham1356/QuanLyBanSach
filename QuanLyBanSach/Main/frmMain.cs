@@ -127,13 +127,13 @@ namespace QuanLyBanSach
         //**Tác giả
         private void barbtnAuthor_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Quản_lý.frmThongTin_TacGia frm = new Quản_lý.frmThongTin_TacGia();
+            Quản_lý.frmThongTin_TacGia frm = new Quản_lý.frmThongTin_TacGia(this);
             showFrm<Quản_lý.frmThongTin_TacGia>(frm);
         }
         //**Nhà xuất bản
         private void barbtnPublisher_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Quản_lý.frmThongTin_NXB frm = new Quản_lý.frmThongTin_NXB();
+            Quản_lý.frmThongTin_NXB frm = new Quản_lý.frmThongTin_NXB(this);
             showFrm<Quản_lý.frmThongTin_NXB>(frm);
         }
         //************Page bán hàng
@@ -176,6 +176,17 @@ namespace QuanLyBanSach
         {
             frmChiTiet_CTPG frm = new frmChiTiet_CTPG(this);
             showFrm<frmChiTiet_CTPG>(frm);
+        }
+
+        private void barbtnTL_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            Quản_lý.frmThongTin_TheLoai frm = new Quản_lý.frmThongTin_TheLoai(this);
+            showFrm<Quản_lý.frmThongTin_TheLoai>(frm);
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

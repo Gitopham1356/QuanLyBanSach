@@ -268,7 +268,8 @@ namespace QuanLyBanSach.Quản_lý
             this.cmbMaNXB.Name = "cmbMaNXB";
             this.cmbMaNXB.Size = new System.Drawing.Size(254, 27);
             this.cmbMaNXB.TabIndex = 4;
-            this.cmbMaNXB.SelectedIndexChanged += new System.EventHandler(this.cmbMaNXB_SelectedIndexChanged);
+            
+            this.cmbMaNXB.TextChanged += new System.EventHandler(this.cmbMaNXB_TextChanged);
             // 
             // cmbMaTG
             // 
@@ -281,7 +282,8 @@ namespace QuanLyBanSach.Quản_lý
             this.cmbMaTG.Name = "cmbMaTG";
             this.cmbMaTG.Size = new System.Drawing.Size(254, 27);
             this.cmbMaTG.TabIndex = 4;
-            this.cmbMaTG.SelectedIndexChanged += new System.EventHandler(this.cmbMaTG_SelectedIndexChanged);
+         
+            this.cmbMaTG.TextChanged += new System.EventHandler(this.cmbMaTG_TextChanged);
             // 
             // cmbMaTL
             // 

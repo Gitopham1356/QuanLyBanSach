@@ -13,7 +13,7 @@ namespace QuanLyBanSach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Quản_lý.frmThongTin_NXB());
+            Application.Run(new frmMain());
         }
     }
 }

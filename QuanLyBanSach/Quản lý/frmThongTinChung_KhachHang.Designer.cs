@@ -333,6 +333,7 @@ namespace QuanLyBanSach
             this.txtDoB.Name = "txtDoB";
             this.txtDoB.Size = new System.Drawing.Size(261, 27);
             this.txtDoB.TabIndex = 1;
+            this.txtDoB.TextChanged += new System.EventHandler(this.txtDoB_TextChanged);
             // 
             // txtNameKH
             // 
