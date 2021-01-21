@@ -42,7 +42,7 @@ namespace QuanLyBanSach.Quản_lý
             this.lbEmailNXB = new System.Windows.Forms.Label();
             this.lbSDTNXB = new System.Windows.Forms.Label();
             this.lbAdressKH = new System.Windows.Forms.Label();
-            this.lbTenKH = new System.Windows.Forms.Label();
+            this.lbTenNXB = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -166,7 +166,7 @@ namespace QuanLyBanSach.Quản_lý
             this.groupControl1.Controls.Add(this.lbEmailNXB);
             this.groupControl1.Controls.Add(this.lbSDTNXB);
             this.groupControl1.Controls.Add(this.lbAdressKH);
-            this.groupControl1.Controls.Add(this.lbTenKH);
+            this.groupControl1.Controls.Add(this.lbTenNXB);
             this.groupControl1.Controls.Add(this.btnRefresh);
             this.groupControl1.Controls.Add(this.btnRegister);
             this.groupControl1.Controls.Add(this.btnUpdate);
@@ -220,16 +220,16 @@ namespace QuanLyBanSach.Quản_lý
             this.lbAdressKH.Size = new System.Drawing.Size(0, 13);
             this.lbAdressKH.TabIndex = 4;
             // 
-            // lbTenKH
+            // lbTenNXB
             // 
-            this.lbTenKH.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTenKH.AutoSize = true;
-            this.lbTenKH.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenKH.ForeColor = System.Drawing.Color.Red;
-            this.lbTenKH.Location = new System.Drawing.Point(209, 207);
-            this.lbTenKH.Name = "lbTenKH";
-            this.lbTenKH.Size = new System.Drawing.Size(0, 13);
-            this.lbTenKH.TabIndex = 4;
+            this.lbTenNXB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbTenNXB.AutoSize = true;
+            this.lbTenNXB.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenNXB.ForeColor = System.Drawing.Color.Red;
+            this.lbTenNXB.Location = new System.Drawing.Point(209, 207);
+            this.lbTenNXB.Name = "lbTenNXB";
+            this.lbTenNXB.Size = new System.Drawing.Size(0, 13);
+            this.lbTenNXB.TabIndex = 4;
             // 
             // btnRefresh
             // 
@@ -238,7 +238,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRefresh.Location = new System.Drawing.Point(452, 484);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
-            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.TabIndex = 9;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -251,7 +251,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRegister.Location = new System.Drawing.Point(101, 482);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 45);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnUpdate.Location = new System.Drawing.Point(218, 482);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(117, 45);
-            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnDeleteUs.Location = new System.Drawing.Point(357, 482);
             this.btnDeleteUs.Name = "btnDeleteUs";
             this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
-            this.btnDeleteUs.TabIndex = 2;
+            this.btnDeleteUs.TabIndex = 8;
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtEmail.Location = new System.Drawing.Point(197, 338);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 27);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 5;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtSDT
@@ -304,7 +304,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtSDT.Location = new System.Drawing.Point(197, 282);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(261, 27);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDT.TabIndex = 4;
             this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
@@ -315,7 +315,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtAddress.Location = new System.Drawing.Point(197, 227);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(261, 27);
-            this.txtAddress.TabIndex = 1;
+            this.txtAddress.TabIndex = 3;
             // 
             // txtTenNXB
             // 
@@ -324,7 +324,8 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTenNXB.Location = new System.Drawing.Point(197, 170);
             this.txtTenNXB.Name = "txtTenNXB";
             this.txtTenNXB.Size = new System.Drawing.Size(261, 27);
-            this.txtTenNXB.TabIndex = 1;
+            this.txtTenNXB.TabIndex = 2;
+            this.txtTenNXB.TextChanged += new System.EventHandler(this.txtTenNXB_TextChanged);
             // 
             // txtMaNXB
             // 
@@ -421,7 +422,7 @@ namespace QuanLyBanSach.Quản_lý
         private System.Windows.Forms.Label lbEmailNXB;
         private System.Windows.Forms.Label lbSDTNXB;
         private System.Windows.Forms.Label lbAdressKH;
-        private System.Windows.Forms.Label lbTenKH;
+        private System.Windows.Forms.Label lbTenNXB;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnUpdate;

@@ -363,4 +363,3 @@ C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\pt\Microsoft.Repor
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Bán_hàng.frmBanHang_LapPG.resources

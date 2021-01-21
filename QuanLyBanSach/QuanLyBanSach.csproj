@@ -110,12 +110,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bán hàng\frmBanHang_LapPG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bán hàng\frmBanHang_LapPG.Designer.cs">
-      <DependentUpon>frmBanHang_LapPG.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bán hàng\frmBanHang_LapPhieuGiao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,9 +214,6 @@
     <Compile Include="Quản lý\frmThongTin_TheLoai.Designer.cs">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bán hàng\frmBanHang_LapPG.resx">
-      <DependentUpon>frmBanHang_LapPG.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bán hàng\frmBanHang_LapPhieuGiao.resx">
       <DependentUpon>frmBanHang_LapPhieuGiao.cs</DependentUpon>
     </EmbeddedResource>

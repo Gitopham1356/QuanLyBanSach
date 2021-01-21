@@ -59,7 +59,7 @@ namespace QuanLyBanSach
             var sName = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text);
             if (sName != null)
             {
-                cmbTenS.Text = sName.TenS.ToString();
+                txtTenS.Text = sName.TenS.ToString();
             }
         }
 
@@ -103,15 +103,13 @@ namespace QuanLyBanSach
         {
 
             dgvTTSach.Rows[selectedRow].Cells[0].Value = cmbMaS.Text;
-            dgvTTSach.Rows[selectedRow].Cells[1].Value = cmbTenS.Text;
+            dgvTTSach.Rows[selectedRow].Cells[1].Value = txtTenS.Text;
             dgvTTSach.Rows[selectedRow].Cells[2].Value = txtSoLuong.Text;
         }
 
         void clear()
         {
             txtSoLuong.Clear();
-
-
         }
         //truyền MaKH vào collectionS để gợi ý
         public void getDataKH(AutoCompleteStringCollection Data)
@@ -162,7 +160,10 @@ namespace QuanLyBanSach
         {
             lbMaKh.Text = "";
             var mak = context.KhachHangs.FirstOrDefault(b => b.MaKH == cmbMaKH.Text);
-            if (mak == null)
+            if (cmbMaKH.Text == "")
+            {
+                txtTenKH.Text = "00".ToString();
+            }else if (mak == null && cmbMaKH.Text != "")
             {
                 lbMaKh.Text = "xMã khách hàng không tồn tại.";
                 txtTenKH.Text = "".ToString();
@@ -188,7 +189,7 @@ namespace QuanLyBanSach
             if (maS == null)
             {
                 lbMaS.Text = "xMã sách không tồn tại.".ToString();
-                cmbTenS.Text = "".ToString();
+                txtTenS.Text = "".ToString();
             }
             else
             {
@@ -200,14 +201,17 @@ namespace QuanLyBanSach
                 var SName = context.Saches.FirstOrDefault(k => k.MaS == cmbMaS.Text);
                 if (SName != null)
                 {
-                    cmbTenS.Text = SName.TenS.ToString();
+                    txtTenS.Text = SName.TenS.ToString();
                 }
             }
         }
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtSoLuong.Text.Length >5 &&
+                e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -231,7 +235,7 @@ namespace QuanLyBanSach
         {
             try
             {
-                if (cmbMaS.Text == "" || cmbTenS.Text == "" || txtSoLuong.Text == "")
+                if (cmbMaS.Text == "" || txtTenS.Text == "" || txtSoLuong.Text == "")
                 {
 
                     throw new Exception("Vui lòng nhập đầy đủ thông tin!");
@@ -265,7 +269,7 @@ namespace QuanLyBanSach
         {
             try
             {
-                if (cmbMaS.Text == "" || cmbTenS.Text == "" || txtSoLuong.Text == "")
+                if (cmbMaS.Text == "" || txtTenS.Text == "" || txtSoLuong.Text == "")
                 {
                     throw new Exception("Vui lòng nhập đầy đủ thông tin!");
                 }
@@ -325,7 +329,7 @@ namespace QuanLyBanSach
                 numrows = e.RowIndex;
 
                 cmbMaS.Text = dgvTTSach.Rows[numrows].Cells[0].Value.ToString();
-                cmbTenS.Text = dgvTTSach.Rows[numrows].Cells[1].Value.ToString();
+                txtTenS.Text = dgvTTSach.Rows[numrows].Cells[1].Value.ToString();
                 txtSoLuong.Text = dgvTTSach.Rows[numrows].Cells[2].Value.ToString();
 
             }
@@ -343,7 +347,7 @@ namespace QuanLyBanSach
                 string mas;
                 int soluonggiao = 0;
 
-                if (txtMaPG.Text == "" || cmbMaKH.Text == "" || dtimepickNgayLapPG.Text == ""
+                if (txtMaPG.Text == "" || dtimepickNgayLapPG.Text == ""
                                        || datetimeNgayGiaoDK.Text == "")
                 {
                     MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -353,6 +357,15 @@ namespace QuanLyBanSach
 
                 else
                 {
+
+                    if (cmbMaKH.Text == "")
+                    {
+                        phieugiao.MaKH = "KH00".ToString();
+                    }
+                    else
+                    {
+                        phieugiao.MaKH = cmbMaKH.Text;
+                    }
 
                     phieugiao.MaPG = txtMaPG.Text;
                     phieugiao.MaKH = cmbMaKH.Text;

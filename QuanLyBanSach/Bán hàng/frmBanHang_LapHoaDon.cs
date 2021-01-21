@@ -10,6 +10,7 @@ namespace QuanLyBanSach
 
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
 
+        int dem = 0;
         frmMain frm1;
         frmHeThong_DangNhap DN;
 
@@ -42,11 +43,7 @@ namespace QuanLyBanSach
             }
             return true;
         }
-        //tổng số lượng tồn còn lại
-        void tong()
-        {
 
-        }
         //Form loading
         public void autoGenMHD()
         {
@@ -111,10 +108,15 @@ namespace QuanLyBanSach
         //Hàm buộc viết số trong textbox
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false && 
+                Char.IsControl(e.KeyChar) == false || 
+                txtSoLuong.Text.Length >5 && 
+                e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
+                dem++;
             }
+
         }
 
         private int GetSelectedRow(string MAS)
@@ -417,7 +419,7 @@ namespace QuanLyBanSach
 
                     var hd = context.HoaDons.FirstOrDefault(h => h.MaHD == txtMaHD.Text);
                     var kh = context.KhachHangs.FirstOrDefault(k => k.MaKH == cmbMaKH.Text );
-                    if (kh != null || cmbMaKH.Text =="")
+                    if (kh != null || cmbMaKH.Text !="")
                     {
 
 
@@ -519,7 +521,7 @@ namespace QuanLyBanSach
             frm1.showFrm<frmDanhSach_DSHD>(frm);
         }
 
-
+    
     }
 
 

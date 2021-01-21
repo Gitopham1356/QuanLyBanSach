@@ -64,7 +64,10 @@ namespace QuanLyBanSach.Quản_lý
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtSDT.Text.Length == 11 &&
+                e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -91,9 +94,9 @@ namespace QuanLyBanSach.Quản_lý
                     {
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    }else if( txtSDT.Text.Length != 11)
+                    }else if( txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
-                        MessageBox.Show("SDT phải có 11 chữ số.");
+                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
                     }else if (checkEmail() == true)
                     {
                         lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
@@ -264,10 +267,10 @@ namespace QuanLyBanSach.Quản_lý
 
         private void txtSDT_TextChanged(object sender, EventArgs e)
         {
-            lbSDTNXB.Text = "".ToString();
-            if(lbSDTNXB.Text.Length != 11)
+            lbSDTNXB.Text = "";
+            if(txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
             {
-                lbSDTNXB.Text = "SDT phải có 11 số.".ToString();
+                lbSDTNXB.Text = "SDT phải có 11 số và phải bắt đầu bằng 0.".ToString();
             }
         }
 
@@ -276,6 +279,15 @@ namespace QuanLyBanSach.Quản_lý
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void txtTenNXB_TextChanged(object sender, EventArgs e)
+        {
+            lbTenNXB.Text = "";
+            if (txtTenNXB.Text == "")
+            {
+                lbTenNXB.Text = "Tên NXB không được trống!";
             }
         }
     }

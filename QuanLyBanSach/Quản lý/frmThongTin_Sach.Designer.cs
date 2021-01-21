@@ -106,7 +106,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRefresh.Location = new System.Drawing.Point(423, 704);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
-            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.TabIndex = 13;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -119,7 +119,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRegister.Location = new System.Drawing.Point(72, 702);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 45);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 10;
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -267,8 +267,7 @@ namespace QuanLyBanSach.Quản_lý
             this.cmbMaNXB.Location = new System.Drawing.Point(189, 570);
             this.cmbMaNXB.Name = "cmbMaNXB";
             this.cmbMaNXB.Size = new System.Drawing.Size(254, 27);
-            this.cmbMaNXB.TabIndex = 4;
-            
+            this.cmbMaNXB.TabIndex = 9;
             this.cmbMaNXB.TextChanged += new System.EventHandler(this.cmbMaNXB_TextChanged);
             // 
             // cmbMaTG
@@ -281,8 +280,7 @@ namespace QuanLyBanSach.Quản_lý
             this.cmbMaTG.Location = new System.Drawing.Point(189, 514);
             this.cmbMaTG.Name = "cmbMaTG";
             this.cmbMaTG.Size = new System.Drawing.Size(254, 27);
-            this.cmbMaTG.TabIndex = 4;
-         
+            this.cmbMaTG.TabIndex = 8;
             this.cmbMaTG.TextChanged += new System.EventHandler(this.cmbMaTG_TextChanged);
             // 
             // cmbMaTL
@@ -295,7 +293,7 @@ namespace QuanLyBanSach.Quản_lý
             this.cmbMaTL.Location = new System.Drawing.Point(189, 461);
             this.cmbMaTL.Name = "cmbMaTL";
             this.cmbMaTL.Size = new System.Drawing.Size(254, 27);
-            this.cmbMaTL.TabIndex = 4;
+            this.cmbMaTL.TabIndex = 7;
             this.cmbMaTL.TextChanged += new System.EventHandler(this.cmbMaTL_TextChanged);
             // 
             // btnUpdate
@@ -307,7 +305,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnUpdate.Location = new System.Drawing.Point(189, 702);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(117, 45);
-            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -322,7 +320,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnDeleteUs.Location = new System.Drawing.Point(328, 702);
             this.btnDeleteUs.Name = "btnDeleteUs";
             this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
-            this.btnDeleteUs.TabIndex = 2;
+            this.btnDeleteUs.TabIndex = 12;
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
@@ -335,7 +333,8 @@ namespace QuanLyBanSach.Quản_lý
             this.txtGiaBan.Location = new System.Drawing.Point(189, 402);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(254, 27);
-            this.txtGiaBan.TabIndex = 1;
+            this.txtGiaBan.TabIndex = 6;
+            this.txtGiaBan.TextChanged += new System.EventHandler(this.txtGiaBan_TextChanged);
             this.txtGiaBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
             // 
             // txtGiaNhap
@@ -345,7 +344,8 @@ namespace QuanLyBanSach.Quản_lý
             this.txtGiaNhap.Location = new System.Drawing.Point(189, 346);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(254, 27);
-            this.txtGiaNhap.TabIndex = 1;
+            this.txtGiaNhap.TabIndex = 5;
+            this.txtGiaNhap.TextChanged += new System.EventHandler(this.txtGiaNhap_TextChanged);
             this.txtGiaNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaNhap_KeyPress);
             // 
             // txtSoLuong
@@ -355,7 +355,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtSoLuong.Location = new System.Drawing.Point(189, 290);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(254, 27);
-            this.txtSoLuong.TabIndex = 1;
+            this.txtSoLuong.TabIndex = 4;
             this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtNamXB
@@ -365,7 +365,8 @@ namespace QuanLyBanSach.Quản_lý
             this.txtNamXB.Location = new System.Drawing.Point(189, 234);
             this.txtNamXB.Name = "txtNamXB";
             this.txtNamXB.Size = new System.Drawing.Size(254, 27);
-            this.txtNamXB.TabIndex = 1;
+            this.txtNamXB.TabIndex = 3;
+            this.txtNamXB.TextChanged += new System.EventHandler(this.txtNamXB_TextChanged);
             this.txtNamXB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamXB_KeyPress);
             // 
             // txtTenS
@@ -375,7 +376,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTenS.Location = new System.Drawing.Point(189, 178);
             this.txtTenS.Name = "txtTenS";
             this.txtTenS.Size = new System.Drawing.Size(254, 27);
-            this.txtTenS.TabIndex = 1;
+            this.txtTenS.TabIndex = 2;
             // 
             // txtMaS
             // 

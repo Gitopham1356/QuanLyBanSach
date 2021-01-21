@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace QuanLyBanSach.Quản_lý
 {
     public partial class frmThongTin_Sach : DevExpress.XtraEditors.XtraForm
     {
-       
+
+        static int dateNow = int.Parse(Convert.ToString(DateTime.Now.Year));
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
         frmMain frm1;
         //Constructor
@@ -34,7 +34,7 @@ namespace QuanLyBanSach.Quản_lý
             cmbMaTL.Text = "TL001";
             cmbMaNXB.Text = "NX001";
             cmbMaTG.Text = "TG001";
-            
+
 
             cmbMaTL.DataSource = context.TheLoais;
             cmbMaTL.DisplayMember = "MaTL";
@@ -69,7 +69,6 @@ namespace QuanLyBanSach.Quản_lý
         void ClearText()
         {
 
-
             txtMaS.Clear();
             txtTenS.Clear();
             txtNamXB.Clear();
@@ -79,9 +78,8 @@ namespace QuanLyBanSach.Quản_lý
             cmbMaTL.Text = "".ToString();
             cmbMaTG.Text = "".ToString();
             cmbMaNXB.Text = "".ToString();
-
         }
-        
+
         //Method tự động tạo mã sách
         public void autoGenMS()
         {
@@ -90,7 +88,7 @@ namespace QuanLyBanSach.Quản_lý
                                 orderby s.MaS descending
                                 select s.MaS).FirstOrDefault();
             //Mã thể loại có dạng "TL001". Cắt chuỗi con từ vị trí thứ 1 ra được stt là "001". Ép thành in ra "1"
-            
+
             //+1 ra stt tiếp theo
             if (maLonNhat == null)
             {
@@ -114,7 +112,10 @@ namespace QuanLyBanSach.Quản_lý
         //buộc nhập số
         private void txtNamXB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtNamXB.Text.Length == 4 &&
+                 e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -123,7 +124,10 @@ namespace QuanLyBanSach.Quản_lý
         //buộc nhập số(Số lượng)
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtSoLuong.Text.Length == 5 &&
+                 e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -132,7 +136,10 @@ namespace QuanLyBanSach.Quản_lý
         private void txtGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtGiaNhap.Text.Length == 8
+                && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -141,7 +148,10 @@ namespace QuanLyBanSach.Quản_lý
         private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtGiaBan.Text.Length == 8
+                && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -177,7 +187,7 @@ namespace QuanLyBanSach.Quản_lý
         private void cmbMaTL_TextChanged(object sender, EventArgs e)
         {
             lbTenTL.Text = "không hợp lệ".ToString();
-          
+
             var tlName = context.TheLoais.FirstOrDefault(k => k.MaTL == cmbMaTL.Text);
             if (tlName != null)
             {
@@ -206,14 +216,46 @@ namespace QuanLyBanSach.Quản_lý
                 lbTenNXB.Text = XBName.TenNXB.ToString();
             }
         }
+        private void txtNamXB_TextChanged(object sender, EventArgs e)
+        {
+            lbNamXB.Text = "";
+            if (txtNamXB.Text == "")
+            {
+            }
+            else if (int.Parse(txtNamXB.Text) > dateNow)
+            {
+                lbNamXB.Text = ("Năm xuất bản phải < năm {0}", dateNow).ToString();
+            }
+        }
 
-        //public void getDataTG<T>(AutoCompleteStringCollection Data, T contex) where T : System.Data.Linq.ITable
-        //{
 
-           
+        private void txtGiaNhap_TextChanged(object sender, EventArgs e)
+        {
+            lbGiaNhap.Text = "";
+            try
+            {
+                if (int.Parse(txtGiaNhap.Text) > int.Parse(txtGiaBan.Text))
+                {
+                    lbGiaNhap.Text = "xGiá nhập phải bé hơn giá bán";
+                }
+            }
+            catch { }
+        }
 
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+            lbGiaNhap.Text = "";
+            try
+            {
+                if (int.Parse(txtGiaNhap.Text) > int.Parse(txtGiaBan.Text))
+                {
+                    lbGiaNhap.Text = "xGiá nhập phải bé hơn giá bán";
+                }
+            }
+            catch { }
 
-        //}
+        }
+
 
         //Load
         private void frmThongTin_Sach_Load(object sender, EventArgs e)
@@ -232,12 +274,10 @@ namespace QuanLyBanSach.Quản_lý
             cmbMaTL.AutoCompleteCustomSource = DataCollectionTG;
             loadData();
             loadNDisplay();
-        
+
         }
 
-
-
-       //Đăng kí sách
+        //Đăng kí sách
         private void btnRegister_Click(object sender, EventArgs e)
         {
             lbTenS.Text = lbNamXB.Text = lbSL.Text = lbGiaNhap.Text = lbGiaXuat.Text = "";
@@ -254,24 +294,29 @@ namespace QuanLyBanSach.Quản_lý
                 try
                 {
                     Database.Sach sach = new Database.Sach();
-                    if (txtMaS.Text == "" 
-                        || txtTenS.Text == "" 
+                    if (txtMaS.Text == ""
+                        || txtTenS.Text == ""
                         || txtNamXB.Text == ""
                         || txtGiaNhap.Text == ""
-                        || txtGiaBan.Text == "" 
+                        || txtGiaBan.Text == ""
                         || cmbMaTL.Text == ""
-                        || cmbMaNXB.Text==""
-                        || cmbMaTG.Text=="")
+                        || cmbMaNXB.Text == ""
+                        || cmbMaTG.Text == "")
                     {
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                    }
+                    else if (int.Parse(txtNamXB.Text) > dateNow)
+                    {
+                        lbNamXB.Text = ("Năm xuất bản phải < năm {0}", dateNow).ToString();
                     }
                     else if (int.Parse(txtGiaNhap.Text) > int.Parse(txtGiaBan.Text))
                     {
 
                         lbGiaNhap.Text = ("Giá nhập phải <= giá bán.").ToString();
 
-                    }else if(theLoai == null || NXB==null||tacgia == null)
+                    }
+                    else if (theLoai == null || NXB == null || tacgia == null)
                     {
                         MessageBox.Show("Sai thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -287,7 +332,7 @@ namespace QuanLyBanSach.Quản_lý
                         sach.MaTL = cmbMaTL.Text;
                         sach.MaTG = cmbMaTG.Text;
                         sach.MaNXB = cmbMaNXB.Text;
-                     
+
                         Database.Sach s = context.Saches.FirstOrDefault(ss => ss.MaS == txtMaS.Text);
                         if (s == null)
                         {
@@ -337,6 +382,10 @@ namespace QuanLyBanSach.Quản_lý
                     {
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (int.Parse(txtNamXB.Text) > dateNow)
+                    {
+                        lbNamXB.Text = ("Năm xuất bản phải < năm {0}", dateNow).ToString();
                     }
                     else if (int.Parse(txtGiaNhap.Text) > int.Parse(txtGiaBan.Text))
                     {
@@ -444,8 +493,6 @@ namespace QuanLyBanSach.Quản_lý
             }
         }
 
-    
 
-   
     }
 }

@@ -55,7 +55,6 @@ namespace QuanLyBanSach
             this.gridCtrlDSHD.TabIndex = 1;
             this.gridCtrlDSHD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewDSHD});
- 
             // 
             // gridviewDSHD
             // 
@@ -155,13 +154,13 @@ namespace QuanLyBanSach
             // 
             // btnDelHD
             // 
-            this.btnDelHD.Location = new System.Drawing.Point(1576, 191);
+            this.btnDelHD.Location = new System.Drawing.Point(1576, 187);
             this.btnDelHD.Name = "btnDelHD";
             this.btnDelHD.Size = new System.Drawing.Size(75, 68);
-            this.btnDelHD.TabIndex = 7;
+            this.btnDelHD.TabIndex = 9;
             this.btnDelHD.Text = "Xoá hoá đơn";
             this.btnDelHD.UseVisualStyleBackColor = true;
-            this.btnDelHD.Click += new System.EventHandler(this.btnDelHD_Click);
+            this.btnDelHD.Click += new System.EventHandler(this.btnDelHD_Click_1);
             // 
             // frmDanhSach_DSHD
             // 
