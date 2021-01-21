@@ -63,5 +63,15 @@ namespace QuanLyBanSach.Properties {
                 return ((string)(this["QLBanSachConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-89CFUQQ;Initial Catalog=QLBanSach;Integrated Security=True")]
+        public string QLBanSachConnectionString1 {
+            get {
+                return ((string)(this["QLBanSachConnectionString1"]));
+            }
+        }
     }
 }

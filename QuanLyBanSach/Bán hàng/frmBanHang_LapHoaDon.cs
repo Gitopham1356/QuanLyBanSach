@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using QuanLyBanSach.Report.reportInHoaDon;
 
 namespace QuanLyBanSach
 {
@@ -12,6 +13,12 @@ namespace QuanLyBanSach
 
         frmMain frm1;
         frmHeThong_DangNhap DN;
+        string textMaKH;
+        string textMaHD;
+
+        public string TextMaKH { get => textMaKH; set => textMaKH = value; }
+        public string TextMaHD { get => textMaHD; set => textMaHD = value; }
+
 
 
         //Constructor
@@ -31,6 +38,8 @@ namespace QuanLyBanSach
             frm1 = frm;
             DN = frm2;
         }
+
+    
 
         //checksố lượng
         bool checkSl()
@@ -520,6 +529,15 @@ namespace QuanLyBanSach
         }
 
 
+        private void ButtonReport_Click(object sender, EventArgs e)
+        {
+            textMaKH = cmbMaKH.Text;
+            textMaHD = txtMaHD.Text;
+
+            FormRP rpInHoaDon = new FormRP(this);     
+            rpInHoaDon.Dock = DockStyle.Fill;
+            rpInHoaDon.Show();
+        }
     }
 
 

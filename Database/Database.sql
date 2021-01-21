@@ -194,8 +194,14 @@ select * from Sach
 
 
 
-insert into NhanVien values ('NV001', N'Lê Nguyễn Thiện Quang', '20/12/1996', 'KDC Gia Hòa', '0961865161', 'thienquang8825@gmail.com', 1)
+insert into NhanVien values ('NV00', N'Lê Nguyễn Thiện Quang', '2021-01-21T19:28:00.0753425+07:00', 'KDC Gia Hòa', '0961865161', 'thienquang8825@gmail.com', 1,'111111')
 
 select * from NhanVien
 
 
+create proc [dbo].[ReportInHoaDon]
+as
+	begin
+	select HoaDon.MaHD, Sach.MaS, Sach.TenS, HoaDon.NgayLapHD, KhachHang.MaKH, KhachHang.TenKH, CTHD.GiaBan, CTHD.SoLuongBan
+	from HoaDon, Sach, KhachHang, CTHD
+	end

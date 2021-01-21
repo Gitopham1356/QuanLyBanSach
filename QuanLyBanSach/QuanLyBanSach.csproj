@@ -146,6 +146,21 @@
     <Compile Include="Bán hàng\frmDanhSach_DSPG.Designer.cs">
       <DependentUpon>frmDanhSach_DSPG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\QLBanSach.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="QLBanSachDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSachDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBanSachDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSachDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Quản lý\frmThongKe_DoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,11 +206,6 @@
     <Compile Include="Hệ thống\frmHeThong_DangNhap.Designer.cs">
       <DependentUpon>frmHeThong_DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\QLBanSach.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLBanSach.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Quản lý\frmThongTin_NXB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +229,13 @@
     </Compile>
     <Compile Include="Quản lý\frmThongTin_TheLoai.Designer.cs">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\reportInHoaDon\ClassInHD.cs" />
+    <Compile Include="Report\reportInHoaDon\FormRP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\reportInHoaDon\FormRP.Designer.cs">
+      <DependentUpon>FormRP.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Bán hàng\frmBanHang_LapPG.resx">
       <DependentUpon>frmBanHang_LapPG.cs</DependentUpon>
@@ -279,6 +296,20 @@
     <EmbeddedResource Include="Quản lý\frmThongTin_TheLoai.resx">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report1.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\reportInHoaDon\FormRP.resx">
+      <DependentUpon>FormRP.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Database\QLBanSach.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLBanSach.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\QLBanSach.dbml.layout">
+      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -294,13 +325,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Database\QLBanSach.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLBanSach.designer.cs</LastGenOutput>
+    <None Include="QLBanSachDataSet.xsc">
+      <DependentUpon>QLBanSachDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSachDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBanSachDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Database\QLBanSach.dbml.layout">
-      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    <None Include="QLBanSachDataSet.xss">
+      <DependentUpon>QLBanSachDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSachDataSet1.xsc">
+      <DependentUpon>QLBanSachDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSachDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBanSachDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBanSachDataSet1.xss">
+      <DependentUpon>QLBanSachDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\enter.png" />
   </ItemGroup>
@@ -493,5 +538,6 @@
   <ItemGroup>
     <None Include="Resources\books_bookshelves_bookstore_business_data_education_indoors_knowledge_library_literature_market_pile_research_stock_text_4757x3130.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

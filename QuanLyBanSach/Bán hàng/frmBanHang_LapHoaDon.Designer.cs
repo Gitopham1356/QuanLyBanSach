@@ -43,6 +43,7 @@ namespace QuanLyBanSach
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.grbThongTinSP = new System.Windows.Forms.GroupBox();
+            this.txtTenS = new System.Windows.Forms.TextBox();
             this.lbSoLuong = new System.Windows.Forms.Label();
             this.cmbMaS = new System.Windows.Forms.ComboBox();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@ namespace QuanLyBanSach
             this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTenS = new System.Windows.Forms.TextBox();
+            this.ButtonReport = new System.Windows.Forms.Button();
             this.grbThongTinChung.SuspendLayout();
             this.grbThongTinSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSach)).BeginInit();
@@ -232,6 +233,7 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbThongTinSP.Controls.Add(this.ButtonReport);
             this.grbThongTinSP.Controls.Add(this.txtTenS);
             this.grbThongTinSP.Controls.Add(this.lbSoLuong);
             this.grbThongTinSP.Controls.Add(this.cmbMaS);
@@ -254,6 +256,14 @@ namespace QuanLyBanSach
             this.grbThongTinSP.Size = new System.Drawing.Size(1139, 164);
             this.grbThongTinSP.TabIndex = 2;
             this.grbThongTinSP.TabStop = false;
+            // 
+            // txtTenS
+            // 
+            this.txtTenS.Location = new System.Drawing.Point(500, 45);
+            this.txtTenS.Name = "txtTenS";
+            this.txtTenS.ReadOnly = true;
+            this.txtTenS.Size = new System.Drawing.Size(282, 21);
+            this.txtTenS.TabIndex = 19;
             // 
             // lbSoLuong
             // 
@@ -537,13 +547,15 @@ namespace QuanLyBanSach
             this.thanhTien.Name = "thanhTien";
             this.thanhTien.ReadOnly = true;
             // 
-            // txtTenS
+            // ButtonReport
             // 
-            this.txtTenS.Location = new System.Drawing.Point(500, 45);
-            this.txtTenS.Name = "txtTenS";
-            this.txtTenS.ReadOnly = true;
-            this.txtTenS.Size = new System.Drawing.Size(282, 21);
-            this.txtTenS.TabIndex = 19;
+            this.ButtonReport.Location = new System.Drawing.Point(813, 123);
+            this.ButtonReport.Name = "ButtonReport";
+            this.ButtonReport.Size = new System.Drawing.Size(75, 23);
+            this.ButtonReport.TabIndex = 20;
+            this.ButtonReport.Text = "button1";
+            this.ButtonReport.UseVisualStyleBackColor = true;
+            this.ButtonReport.Click += new System.EventHandler(this.ButtonReport_Click);
             // 
             // frmBanHang_LapHoaDon
             // 
@@ -622,5 +634,6 @@ namespace QuanLyBanSach
         private System.Windows.Forms.Label lbMaKh;
         private System.Windows.Forms.Label lbSoLuong;
         private System.Windows.Forms.TextBox txtTenS;
+        private System.Windows.Forms.Button ButtonReport;
     }
 }
