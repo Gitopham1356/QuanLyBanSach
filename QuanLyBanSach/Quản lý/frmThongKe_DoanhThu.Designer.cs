@@ -235,7 +235,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRefresh.Location = new System.Drawing.Point(452, 484);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
-            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.TabIndex = 9;
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnRegister
@@ -247,7 +247,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRegister.Location = new System.Drawing.Point(101, 482);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 45);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnUpdate.Location = new System.Drawing.Point(218, 482);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(117, 45);
-            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -275,7 +275,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnDeleteUs.Location = new System.Drawing.Point(357, 482);
             this.btnDeleteUs.Name = "btnDeleteUs";
             this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
-            this.btnDeleteUs.TabIndex = 2;
+            this.btnDeleteUs.TabIndex = 8;
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtEmail.Location = new System.Drawing.Point(197, 338);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 27);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 5;
             // 
             // txtSDT
             // 
@@ -296,7 +296,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtSDT.Location = new System.Drawing.Point(197, 282);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(261, 27);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDT.TabIndex = 4;
             // 
             // txtAddress
             // 
@@ -305,7 +305,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtAddress.Location = new System.Drawing.Point(197, 227);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(261, 27);
-            this.txtAddress.TabIndex = 1;
+            this.txtAddress.TabIndex = 3;
             // 
             // txtTenNXB
             // 
@@ -314,7 +314,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTenNXB.Location = new System.Drawing.Point(197, 170);
             this.txtTenNXB.Name = "txtTenNXB";
             this.txtTenNXB.Size = new System.Drawing.Size(261, 27);
-            this.txtTenNXB.TabIndex = 1;
+            this.txtTenNXB.TabIndex = 2;
             // 
             // txtMaNXB
             // 

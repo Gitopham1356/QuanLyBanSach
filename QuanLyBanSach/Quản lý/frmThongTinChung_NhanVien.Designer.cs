@@ -168,8 +168,9 @@ namespace QuanLyBanSach
             this.txtEmailNV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailNV.Location = new System.Drawing.Point(193, 396);
             this.txtEmailNV.Name = "txtEmailNV";
+            this.txtEmailNV.ReadOnly = true;
             this.txtEmailNV.Size = new System.Drawing.Size(261, 27);
-            this.txtEmailNV.TabIndex = 1;
+            this.txtEmailNV.TabIndex = 6;
             // 
             // txtSDTNV
             // 
@@ -177,8 +178,9 @@ namespace QuanLyBanSach
             this.txtSDTNV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDTNV.Location = new System.Drawing.Point(193, 337);
             this.txtSDTNV.Name = "txtSDTNV";
+            this.txtSDTNV.ReadOnly = true;
             this.txtSDTNV.Size = new System.Drawing.Size(261, 27);
-            this.txtSDTNV.TabIndex = 1;
+            this.txtSDTNV.TabIndex = 5;
             // 
             // txtAddressNV
             // 
@@ -186,8 +188,9 @@ namespace QuanLyBanSach
             this.txtAddressNV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddressNV.Location = new System.Drawing.Point(193, 278);
             this.txtAddressNV.Name = "txtAddressNV";
+            this.txtAddressNV.ReadOnly = true;
             this.txtAddressNV.Size = new System.Drawing.Size(261, 27);
-            this.txtAddressNV.TabIndex = 1;
+            this.txtAddressNV.TabIndex = 4;
             // 
             // txtDoBNV
             // 
@@ -195,8 +198,9 @@ namespace QuanLyBanSach
             this.txtDoBNV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoBNV.Location = new System.Drawing.Point(193, 219);
             this.txtDoBNV.Name = "txtDoBNV";
+            this.txtDoBNV.ReadOnly = true;
             this.txtDoBNV.Size = new System.Drawing.Size(261, 27);
-            this.txtDoBNV.TabIndex = 1;
+            this.txtDoBNV.TabIndex = 3;
             // 
             // txtNameNV
             // 
@@ -204,8 +208,9 @@ namespace QuanLyBanSach
             this.txtNameNV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameNV.Location = new System.Drawing.Point(193, 160);
             this.txtNameNV.Name = "txtNameNV";
+            this.txtNameNV.ReadOnly = true;
             this.txtNameNV.Size = new System.Drawing.Size(261, 27);
-            this.txtNameNV.TabIndex = 1;
+            this.txtNameNV.TabIndex = 2;
             // 
             // txtNVID
             // 
@@ -213,6 +218,7 @@ namespace QuanLyBanSach
             this.txtNVID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNVID.Location = new System.Drawing.Point(193, 101);
             this.txtNVID.Name = "txtNVID";
+            this.txtNVID.ReadOnly = true;
             this.txtNVID.Size = new System.Drawing.Size(261, 27);
             this.txtNVID.TabIndex = 1;
             // 

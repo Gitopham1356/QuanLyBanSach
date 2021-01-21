@@ -59,48 +59,32 @@ namespace QuanLyBanSach
             }
             else
             {
-                var x = gridviewDSPG.GetRowCellValue(gridviewDSPG.FocusedRowHandle, cMaPG).ToString();
-                var pg = context.PhieuGiaos.FirstOrDefault(K => K.MaPG == x.Trim());
-
-                if (pg != null)
+                try
                 {
+                    var x = gridviewDSPG.GetRowCellValue(gridviewDSPG.FocusedRowHandle, cMaPG).ToString();
+                    var pg = context.PhieuGiaos.FirstOrDefault(K => K.MaPG == x.Trim());
 
-                    context.PhieuGiaos.DeleteOnSubmit(pg);
-                    context.SubmitChanges();
-                    MessageBox.Show("Xóa Đối tượng thành công");
-                    loadData();
-
-                }
-                else
-                {
-
-                    MessageBox.Show("Xoá thất bại");
-
-                }
-                var ctpg = context.CTPGs.FirstOrDefault(k => k.MaPG == x.Trim());
-               // var soluongton = context.Saches.FirstOrDefault(s => s.MaS == txtMaS.Text);
-
-
-                if (ctpg != null)
-                {
-
-                    context.CTPGs.DeleteOnSubmit(ctpg);
-
-                    MessageBox.Show("Xóa Đối tượng thành công");
-                    loadData();
-                    foreach(var soluongton in context.Saches)
+                    if (pg != null)
                     {
-                        soluongton.SoLuongTon += ctpg.SoLuongGiao;
+                        context.PhieuGiaos.DeleteOnSubmit(pg);
+                        context.SubmitChanges();
+                        MessageBox.Show("Xóa Đối tượng thành công");
+                        loadData();
+
                     }
-                    this.context.SubmitChanges();
-                    loadData();
+                    else
+                    {
+
+                        MessageBox.Show("Xoá thất bại");
+
+                    }
                 }
-                else
+                catch
                 {
-
-                    MessageBox.Show("Xoá thất bại");
-
+                    MessageBox.Show("Không thể xoá đối tượng");
                 }
+
+               
             }
         }
     }

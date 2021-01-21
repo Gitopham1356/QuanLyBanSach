@@ -97,11 +97,13 @@ namespace QuanLyBanSach
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (txtSDT.Text.Length != 10)
+                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
-
-                        lbSDTKH.Text=("SDT phải có 10 số.").ToString();
-
+                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                    }
+                    else if (checkEmail() == true)
+                    {
+                        lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
                     else
                     {
@@ -156,10 +158,13 @@ namespace QuanLyBanSach
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (txtSDT.Text.Length != 10)
+                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
-
-                        lbSDTKH.Text=("SDT phải có 10 số.").ToString();
+                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                    }
+                    else if (checkEmail() == true)
+                    {
+                        lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
                     else
                     {
@@ -201,9 +206,9 @@ namespace QuanLyBanSach
             }
             else
             {
-                txtKHID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaKH).ToString();
                 var DoB = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cNgaySinhKH).ToString();
 
+                txtKHID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaKH).ToString();
                 txtDoB.Text = DateTime.Parse(DoB).ToShortDateString();
                 txtNameKH.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cTenKH).ToString();
                 txtAddress.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiKH).ToString();
@@ -258,7 +263,10 @@ namespace QuanLyBanSach
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false )
+            if (Char.IsDigit(e.KeyChar) == false &&
+                Char.IsControl(e.KeyChar) == false ||
+                txtSDT.Text.Length == 10 &&
+                e.KeyChar !=(Char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -275,6 +283,38 @@ namespace QuanLyBanSach
             {
                 lbDoBKH.Text = "Ngày sinh Kh phải đúng định dạng( d/m/y)".ToString();
             }
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            lbSDTKH.Text = "";
+            if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
+            {
+                lbSDTKH.Text = "SDT phải có 10 số và phải bắt đầu bằng 0.".ToString();
+            }
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            lbEmailKH.Text = "".ToString();
+            if (checkEmail() == false)
+            {
+                lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
+            }
+        }
+        bool checkEmail()
+        {
+            string s1 = "@gmail.com";
+            if (txtEmail.Text.Contains(s1))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -20,9 +20,12 @@ namespace QuanLyBanSach.Quản_lý
         }
         void loadData()
         {
+            
             var dstg = context.TacGias.ToList();
             gridconTGInfo.DataSource = dstg;
             autoGenMNXB();
+          
+            
         }
         public void autoGenMNXB()
         {
@@ -63,6 +66,7 @@ namespace QuanLyBanSach.Quản_lý
             txtTGName.Clear();
             txtTGDoB.Clear();
             txtTGSDT.Clear();
+            lbTGSDT.Text = "";
             txtTGEmail.Clear();
         }
 
@@ -140,7 +144,7 @@ namespace QuanLyBanSach.Quản_lý
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (txtTGSDT.Text.Length !=10)
+                    else if (txtTGSDT.Text.Length !=10|| txtTGSDT.Text.IndexOf("0") != 0)
                     {
                         MessageBox.Show("SDT không hợp lệ.");
                     }
@@ -293,8 +297,12 @@ namespace QuanLyBanSach.Quản_lý
 
         private void txtTGSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
+            if (Char.IsDigit(e.KeyChar) == false && 
+                Char.IsControl(e.KeyChar) == false || 
+                txtTGSDT.Text.Length ==10 &&
+                e.KeyChar !=(char)Keys.Back)
             {
+                
                 e.Handled = true;
             }
         }
@@ -306,5 +314,19 @@ namespace QuanLyBanSach.Quản_lý
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
             }
         }
+
+        private void txtTGSDT_TextChanged(object sender, EventArgs e)
+        {
+            lbTGSDT.Text = "";
+            string dauSo = "0";
+            if (txtTGSDT.Text.Length != 10|| txtTGSDT.Text.IndexOf(dauSo)!=0)
+            {
+                lbTGSDT.Text = "SDT phải có 10 số và phải bắt đầu bằng 0".ToString();
+            }
+        }
+
     }
 }
+
+
+

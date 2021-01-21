@@ -248,7 +248,7 @@ namespace QuanLyBanSach
             this.btnRefresh.Location = new System.Drawing.Point(452, 484);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
-            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.TabIndex = 9;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -261,7 +261,7 @@ namespace QuanLyBanSach
             this.btnRegister.Location = new System.Drawing.Point(101, 482);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 45);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@ namespace QuanLyBanSach
             this.btnUpdate.Location = new System.Drawing.Point(218, 482);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(117, 45);
-            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -291,7 +291,7 @@ namespace QuanLyBanSach
             this.btnDeleteUs.Location = new System.Drawing.Point(357, 482);
             this.btnDeleteUs.Name = "btnDeleteUs";
             this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
-            this.btnDeleteUs.TabIndex = 2;
+            this.btnDeleteUs.TabIndex = 8;
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
@@ -304,7 +304,8 @@ namespace QuanLyBanSach
             this.txtEmail.Location = new System.Drawing.Point(197, 410);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 27);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtSDT
             // 
@@ -313,7 +314,8 @@ namespace QuanLyBanSach
             this.txtSDT.Location = new System.Drawing.Point(197, 351);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(261, 27);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDT.TabIndex = 4;
+            this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtAddress
@@ -323,7 +325,8 @@ namespace QuanLyBanSach
             this.txtAddress.Location = new System.Drawing.Point(197, 292);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(261, 27);
-            this.txtAddress.TabIndex = 1;
+            this.txtAddress.TabIndex = 3;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // txtDoB
             // 
@@ -332,7 +335,7 @@ namespace QuanLyBanSach
             this.txtDoB.Location = new System.Drawing.Point(197, 233);
             this.txtDoB.Name = "txtDoB";
             this.txtDoB.Size = new System.Drawing.Size(261, 27);
-            this.txtDoB.TabIndex = 1;
+            this.txtDoB.TabIndex = 2;
             this.txtDoB.TextChanged += new System.EventHandler(this.txtDoB_TextChanged);
             // 
             // txtNameKH

@@ -68,6 +68,7 @@ namespace QuanLyBanSach
 
                 if (ctpg != null)
                 {
+                    
 
                     context.CTPGs.DeleteOnSubmit(ctpg);
 

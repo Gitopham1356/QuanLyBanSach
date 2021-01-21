@@ -100,7 +100,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRefresh.Location = new System.Drawing.Point(422, 501);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(49, 45);
-            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.TabIndex = 9;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -113,7 +113,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnRegister.Location = new System.Drawing.Point(71, 499);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 45);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Thêm";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnUpdate.Location = new System.Drawing.Point(188, 499);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(117, 45);
-            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@ namespace QuanLyBanSach.Quản_lý
             this.btnDeleteUs.Location = new System.Drawing.Point(327, 499);
             this.btnDeleteUs.Name = "btnDeleteUs";
             this.btnDeleteUs.Size = new System.Drawing.Size(78, 45);
-            this.btnDeleteUs.TabIndex = 2;
+            this.btnDeleteUs.TabIndex = 8;
             this.btnDeleteUs.Text = "Xoá";
             this.btnDeleteUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteUs.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTGEmail.Location = new System.Drawing.Point(188, 356);
             this.txtTGEmail.Name = "txtTGEmail";
             this.txtTGEmail.Size = new System.Drawing.Size(261, 27);
-            this.txtTGEmail.TabIndex = 1;
+            this.txtTGEmail.TabIndex = 5;
             // 
             // txtTGSDT
             // 
@@ -165,7 +165,9 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTGSDT.Location = new System.Drawing.Point(188, 297);
             this.txtTGSDT.Name = "txtTGSDT";
             this.txtTGSDT.Size = new System.Drawing.Size(261, 27);
-            this.txtTGSDT.TabIndex = 1;
+            this.txtTGSDT.TabIndex = 4;
+            this.txtTGSDT.Tag = "";
+            this.txtTGSDT.TextChanged += new System.EventHandler(this.txtTGSDT_TextChanged);
             this.txtTGSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTGSDT_KeyPress);
             // 
             // txtTGDoB
@@ -175,7 +177,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTGDoB.Location = new System.Drawing.Point(188, 238);
             this.txtTGDoB.Name = "txtTGDoB";
             this.txtTGDoB.Size = new System.Drawing.Size(261, 27);
-            this.txtTGDoB.TabIndex = 1;
+            this.txtTGDoB.TabIndex = 3;
             // 
             // txtTGName
             // 
@@ -184,7 +186,7 @@ namespace QuanLyBanSach.Quản_lý
             this.txtTGName.Location = new System.Drawing.Point(188, 179);
             this.txtTGName.Name = "txtTGName";
             this.txtTGName.Size = new System.Drawing.Size(261, 27);
-            this.txtTGName.TabIndex = 1;
+            this.txtTGName.TabIndex = 2;
             // 
             // txtTGID
             // 
@@ -361,6 +363,7 @@ namespace QuanLyBanSach.Quản_lý
             this.ClientSize = new System.Drawing.Size(1864, 750);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gridconTGInfo);
+            this.IconOptions.Image = global::QuanLyBanSach.Properties.Resources.writer;
             this.Name = "frmThongTin_TacGia";
             this.Text = "frmThongTin_TacGia";
             this.Load += new System.EventHandler(this.frmThongTin_TacGia_Load);

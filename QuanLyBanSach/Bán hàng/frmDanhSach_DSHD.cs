@@ -57,33 +57,44 @@ namespace QuanLyBanSach
 
         }
 
-        private void btnDelHD_Click(object sender, EventArgs e)
+ 
+
+        private void btnDelHD_Click_1(object sender, EventArgs e)
         {
+
             DialogResult dia = MessageBox.Show("Việc xoá Thông tin có thể gây mất thông tin hay ảnh hưởng đến chi tiết hoá đơn , bạn có chắc muốn xoá ", "Xoá Thông tin?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
             }
             else
             {
-                var x = gridviewDSHD.GetRowCellValue(gridviewDSHD.FocusedRowHandle, cMaHD).ToString();
-                var hd = context.HoaDons.FirstOrDefault(K => K.MaHD == x.Trim());
-
-                if (hd != null)
+                try
                 {
+                    var x = gridviewDSHD.GetRowCellValue(gridviewDSHD.FocusedRowHandle, cMaHD).ToString();
+                    var hd = context.HoaDons.FirstOrDefault(K => K.MaHD == x.Trim());
 
-                    context.HoaDons.DeleteOnSubmit(hd);
-                    context.SubmitChanges();
-                    MessageBox.Show("Xóa Đối tượng thành công");
-                    loadData();
+                    if (hd != null)
+                    {
 
+                        context.HoaDons.DeleteOnSubmit(hd);
+                        context.SubmitChanges();
+                        MessageBox.Show("Xóa Đối tượng thành công");
+                        loadData();
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Xoá thất bại");
+
+                    }
                 }
-                else
+                catch 
                 {
-
-                    MessageBox.Show("Xoá thất bại");
-
+                    MessageBox.Show("Không thể xoá hoá đơn");
                 }
             }
+
         }
     }
 }
