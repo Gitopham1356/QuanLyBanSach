@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
+using DevExpress.XtraTabbedMdi;
 
 namespace QuanLyBanSach
 {
@@ -59,6 +60,8 @@ namespace QuanLyBanSach
         {
             skins();
             barbtnLogout.Enabled = false;
+            frmHeThong_DangNhap frm = new frmHeThong_DangNhap(this);
+            showFrm<frmHeThong_DangNhap>(frm);
 
         }
         //////////////
@@ -149,7 +152,13 @@ namespace QuanLyBanSach
         private void barbtnDeliBill_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmBanHang_LapPhieuGiao frm = new frmBanHang_LapPhieuGiao(this);
-            showFrm<frmBanHang_LapPhieuGiao>(frm);
+            pnlMain.Controls.Clear();
+
+            frm.TopLevel = false;
+            pnlMain.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Show();
         }
         //Danh sách
         //**Danh sách hoá đơn
@@ -184,9 +193,6 @@ namespace QuanLyBanSach
             showFrm<Quản_lý.frmThongTin_TheLoai>(frm);
         }
 
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+    
     }
 }

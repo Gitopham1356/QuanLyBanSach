@@ -44,7 +44,6 @@ namespace QuanLyBanSach
             this.btnRefresh = new System.Windows.Forms.Button();
             this.grbThongTinSP = new System.Windows.Forms.GroupBox();
             this.lbSoLuong = new System.Windows.Forms.Label();
-            this.cmbTenS = new System.Windows.Forms.ComboBox();
             this.cmbMaS = new System.Windows.Forms.ComboBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -71,6 +70,7 @@ namespace QuanLyBanSach
             this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTenS = new System.Windows.Forms.TextBox();
             this.grbThongTinChung.SuspendLayout();
             this.grbThongTinSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSach)).BeginInit();
@@ -232,8 +232,8 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbThongTinSP.Controls.Add(this.txtTenS);
             this.grbThongTinSP.Controls.Add(this.lbSoLuong);
-            this.grbThongTinSP.Controls.Add(this.cmbTenS);
             this.grbThongTinSP.Controls.Add(this.cmbMaS);
             this.grbThongTinSP.Controls.Add(this.btnXoa);
             this.grbThongTinSP.Controls.Add(this.btnSua);
@@ -265,17 +265,10 @@ namespace QuanLyBanSach
             this.lbSoLuong.Size = new System.Drawing.Size(0, 13);
             this.lbSoLuong.TabIndex = 18;
             // 
-            // cmbTenS
-            // 
-            this.cmbTenS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbTenS.FormattingEnabled = true;
-            this.cmbTenS.Location = new System.Drawing.Point(500, 40);
-            this.cmbTenS.Name = "cmbTenS";
-            this.cmbTenS.Size = new System.Drawing.Size(282, 21);
-            this.cmbTenS.TabIndex = 17;
-            // 
             // cmbMaS
             // 
+            this.cmbMaS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMaS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbMaS.FormattingEnabled = true;
             this.cmbMaS.Location = new System.Drawing.Point(134, 40);
             this.cmbMaS.Name = "cmbMaS";
@@ -480,7 +473,7 @@ namespace QuanLyBanSach
             this.btnLuuHD.Name = "btnLuuHD";
             this.btnLuuHD.Size = new System.Drawing.Size(131, 33);
             this.btnLuuHD.TabIndex = 17;
-            this.btnLuuHD.Text = "Lưu hoá đơn";
+            this.btnLuuHD.Text = "Thanh toán";
             this.btnLuuHD.UseVisualStyleBackColor = true;
             this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
             // 
@@ -544,6 +537,14 @@ namespace QuanLyBanSach
             this.thanhTien.Name = "thanhTien";
             this.thanhTien.ReadOnly = true;
             // 
+            // txtTenS
+            // 
+            this.txtTenS.Location = new System.Drawing.Point(500, 45);
+            this.txtTenS.Name = "txtTenS";
+            this.txtTenS.ReadOnly = true;
+            this.txtTenS.Size = new System.Drawing.Size(282, 21);
+            this.txtTenS.TabIndex = 19;
+            // 
             // frmBanHang_LapHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +562,7 @@ namespace QuanLyBanSach
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtTongTien);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.Image = global::QuanLyBanSach.Properties.Resources.invoice;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBanHang_LapHoaDon";
@@ -618,7 +620,7 @@ namespace QuanLyBanSach
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhTien;
         private System.Windows.Forms.Label lbMaKh;
-        private System.Windows.Forms.ComboBox cmbTenS;
         private System.Windows.Forms.Label lbSoLuong;
+        private System.Windows.Forms.TextBox txtTenS;
     }
 }

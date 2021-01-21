@@ -10,7 +10,7 @@ namespace QuanLyBanSach
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
 
         frmMain frm1;
-       //Constructor
+        //Constructor
 
         public frmBanHang_LapPhieuGiao()
         {
@@ -110,7 +110,7 @@ namespace QuanLyBanSach
         void clear()
         {
             txtSoLuong.Clear();
-          
+
 
         }
         //truyền MaKH vào collectionS để gợi ý
@@ -151,7 +151,7 @@ namespace QuanLyBanSach
 
             dtimepickNgayLapPG.MinDate = DateTime.Now;
             datetimeNgayGiaoDK.MinDate = DateTime.Now;
-           
+
 
             //
             autoGenMHD();
@@ -359,7 +359,7 @@ namespace QuanLyBanSach
                     phieugiao.NgayLapPG = DateTime.Parse(dtimepickNgayLapPG.Text);
                     phieugiao.NgayGiaoDuKien = DateTime.Parse(datetimeNgayGiaoDK.Text);
 
-                    var pg = context.PhieuGiaos.FirstOrDefault(p=>p.MaPG == txtMaPG.Text);
+                    var pg = context.PhieuGiaos.FirstOrDefault(p => p.MaPG == txtMaPG.Text);
                     var kh = context.KhachHangs.FirstOrDefault(k => k.MaKH == cmbMaKH.Text);
                     var maS = context.Saches.FirstOrDefault(b => b.MaS == cmbMaS.Text);
                     if (dtimepickNgayLapPG.Value <= datetimeNgayGiaoDK.Value)
@@ -458,8 +458,9 @@ namespace QuanLyBanSach
         {
             frmDanhSach_DSPG frm = new frmDanhSach_DSPG(frm1, this);
             frm1.showFrm<frmDanhSach_DSPG>(frm);
-        }
 
+
+        }
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
             lbSoLuong.Text = "";
@@ -468,7 +469,7 @@ namespace QuanLyBanSach
             {
 
             }
-             else if (checkSl() == false)
+            else if (checkSl() == false)
             {
                 lbSoLuong.Text = "xSố lượng phải < hoặc = Số lượng tồn".ToString();
             }

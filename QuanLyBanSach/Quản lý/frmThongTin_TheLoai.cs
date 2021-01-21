@@ -65,6 +65,7 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            //dua dialog xuong
             DialogResult dia = MessageBox.Show("Bạn có chắc muốn thêm sách này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
@@ -76,7 +77,7 @@ namespace QuanLyBanSach.Quản_lý
                 {
                     Database.TheLoai theloai = new Database.TheLoai();
                     if (txtTLID.Text == ""
-                        || txtTLID.Text == "")
+                        || txtNameTL.Text == "")
 
                     {
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -45,12 +45,12 @@ namespace QuanLyBanSach.Database
     partial void InsertNhanVien(NhanVien instance);
     partial void UpdateNhanVien(NhanVien instance);
     partial void DeleteNhanVien(NhanVien instance);
-    partial void InsertNhaXuatBan(NhaXuatBan instance);
-    partial void UpdateNhaXuatBan(NhaXuatBan instance);
-    partial void DeleteNhaXuatBan(NhaXuatBan instance);
     partial void InsertPhieuGiao(PhieuGiao instance);
     partial void UpdatePhieuGiao(PhieuGiao instance);
     partial void DeletePhieuGiao(PhieuGiao instance);
+    partial void InsertNhaXuatBan(NhaXuatBan instance);
+    partial void UpdateNhaXuatBan(NhaXuatBan instance);
+    partial void DeleteNhaXuatBan(NhaXuatBan instance);
     partial void InsertSach(Sach instance);
     partial void UpdateSach(Sach instance);
     partial void DeleteSach(Sach instance);
@@ -132,19 +132,19 @@ namespace QuanLyBanSach.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<NhaXuatBan> NhaXuatBans
-		{
-			get
-			{
-				return this.GetTable<NhaXuatBan>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PhieuGiao> PhieuGiaos
 		{
 			get
 			{
 				return this.GetTable<PhieuGiao>();
+			}
+		}
+		
+		public System.Data.Linq.Table<NhaXuatBan> NhaXuatBans
+		{
+			get
+			{
+				return this.GetTable<NhaXuatBan>();
 			}
 		}
 		
@@ -170,6 +170,13 @@ namespace QuanLyBanSach.Database
 			{
 				return this.GetTable<TheLoai>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Report")]
+		public ISingleResult<ReportResult> Report([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAHD", DbType="VarChar(8)")] string mAHD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAHD);
+			return ((ISingleResult<ReportResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1252,192 +1259,6 @@ namespace QuanLyBanSach.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhaXuatBan")]
-	public partial class NhaXuatBan : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaNXB;
-		
-		private string _TenNXB;
-		
-		private string _DiaChiNXB;
-		
-		private string _SdtNXB;
-		
-		private string _EmailNXB;
-		
-		private EntitySet<Sach> _Saches;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaNXBChanging(string value);
-    partial void OnMaNXBChanged();
-    partial void OnTenNXBChanging(string value);
-    partial void OnTenNXBChanged();
-    partial void OnDiaChiNXBChanging(string value);
-    partial void OnDiaChiNXBChanged();
-    partial void OnSdtNXBChanging(string value);
-    partial void OnSdtNXBChanged();
-    partial void OnEmailNXBChanging(string value);
-    partial void OnEmailNXBChanged();
-    #endregion
-		
-		public NhaXuatBan()
-		{
-			this._Saches = new EntitySet<Sach>(new Action<Sach>(this.attach_Saches), new Action<Sach>(this.detach_Saches));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNXB", DbType="VarChar(8) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaNXB
-		{
-			get
-			{
-				return this._MaNXB;
-			}
-			set
-			{
-				if ((this._MaNXB != value))
-				{
-					this.OnMaNXBChanging(value);
-					this.SendPropertyChanging();
-					this._MaNXB = value;
-					this.SendPropertyChanged("MaNXB");
-					this.OnMaNXBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNXB", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TenNXB
-		{
-			get
-			{
-				return this._TenNXB;
-			}
-			set
-			{
-				if ((this._TenNXB != value))
-				{
-					this.OnTenNXBChanging(value);
-					this.SendPropertyChanging();
-					this._TenNXB = value;
-					this.SendPropertyChanged("TenNXB");
-					this.OnTenNXBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChiNXB", DbType="NVarChar(50)")]
-		public string DiaChiNXB
-		{
-			get
-			{
-				return this._DiaChiNXB;
-			}
-			set
-			{
-				if ((this._DiaChiNXB != value))
-				{
-					this.OnDiaChiNXBChanging(value);
-					this.SendPropertyChanging();
-					this._DiaChiNXB = value;
-					this.SendPropertyChanged("DiaChiNXB");
-					this.OnDiaChiNXBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SdtNXB", DbType="VarChar(11)")]
-		public string SdtNXB
-		{
-			get
-			{
-				return this._SdtNXB;
-			}
-			set
-			{
-				if ((this._SdtNXB != value))
-				{
-					this.OnSdtNXBChanging(value);
-					this.SendPropertyChanging();
-					this._SdtNXB = value;
-					this.SendPropertyChanged("SdtNXB");
-					this.OnSdtNXBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailNXB", DbType="VarChar(50)")]
-		public string EmailNXB
-		{
-			get
-			{
-				return this._EmailNXB;
-			}
-			set
-			{
-				if ((this._EmailNXB != value))
-				{
-					this.OnEmailNXBChanging(value);
-					this.SendPropertyChanging();
-					this._EmailNXB = value;
-					this.SendPropertyChanged("EmailNXB");
-					this.OnEmailNXBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhaXuatBan_Sach", Storage="_Saches", ThisKey="MaNXB", OtherKey="MaNXB")]
-		public EntitySet<Sach> Saches
-		{
-			get
-			{
-				return this._Saches;
-			}
-			set
-			{
-				this._Saches.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Saches(Sach entity)
-		{
-			this.SendPropertyChanging();
-			entity.NhaXuatBan = this;
-		}
-		
-		private void detach_Saches(Sach entity)
-		{
-			this.SendPropertyChanging();
-			entity.NhaXuatBan = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhieuGiao")]
 	public partial class PhieuGiao : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1638,6 +1459,192 @@ namespace QuanLyBanSach.Database
 		{
 			this.SendPropertyChanging();
 			entity.PhieuGiao = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhaXuatBan")]
+	public partial class NhaXuatBan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaNXB;
+		
+		private string _TenNXB;
+		
+		private string _DiaChiNXB;
+		
+		private string _SdtNXB;
+		
+		private string _EmailNXB;
+		
+		private EntitySet<Sach> _Saches;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaNXBChanging(string value);
+    partial void OnMaNXBChanged();
+    partial void OnTenNXBChanging(string value);
+    partial void OnTenNXBChanged();
+    partial void OnDiaChiNXBChanging(string value);
+    partial void OnDiaChiNXBChanged();
+    partial void OnSdtNXBChanging(string value);
+    partial void OnSdtNXBChanged();
+    partial void OnEmailNXBChanging(string value);
+    partial void OnEmailNXBChanged();
+    #endregion
+		
+		public NhaXuatBan()
+		{
+			this._Saches = new EntitySet<Sach>(new Action<Sach>(this.attach_Saches), new Action<Sach>(this.detach_Saches));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNXB", DbType="VarChar(8) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaNXB
+		{
+			get
+			{
+				return this._MaNXB;
+			}
+			set
+			{
+				if ((this._MaNXB != value))
+				{
+					this.OnMaNXBChanging(value);
+					this.SendPropertyChanging();
+					this._MaNXB = value;
+					this.SendPropertyChanged("MaNXB");
+					this.OnMaNXBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNXB", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TenNXB
+		{
+			get
+			{
+				return this._TenNXB;
+			}
+			set
+			{
+				if ((this._TenNXB != value))
+				{
+					this.OnTenNXBChanging(value);
+					this.SendPropertyChanging();
+					this._TenNXB = value;
+					this.SendPropertyChanged("TenNXB");
+					this.OnTenNXBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChiNXB", DbType="NVarChar(50)")]
+		public string DiaChiNXB
+		{
+			get
+			{
+				return this._DiaChiNXB;
+			}
+			set
+			{
+				if ((this._DiaChiNXB != value))
+				{
+					this.OnDiaChiNXBChanging(value);
+					this.SendPropertyChanging();
+					this._DiaChiNXB = value;
+					this.SendPropertyChanged("DiaChiNXB");
+					this.OnDiaChiNXBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SdtNXB", DbType="VarChar(11)")]
+		public string SdtNXB
+		{
+			get
+			{
+				return this._SdtNXB;
+			}
+			set
+			{
+				if ((this._SdtNXB != value))
+				{
+					this.OnSdtNXBChanging(value);
+					this.SendPropertyChanging();
+					this._SdtNXB = value;
+					this.SendPropertyChanged("SdtNXB");
+					this.OnSdtNXBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailNXB", DbType="VarChar(50)")]
+		public string EmailNXB
+		{
+			get
+			{
+				return this._EmailNXB;
+			}
+			set
+			{
+				if ((this._EmailNXB != value))
+				{
+					this.OnEmailNXBChanging(value);
+					this.SendPropertyChanging();
+					this._EmailNXB = value;
+					this.SendPropertyChanged("EmailNXB");
+					this.OnEmailNXBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhaXuatBan_Sach", Storage="_Saches", ThisKey="MaNXB", OtherKey="MaNXB")]
+		public EntitySet<Sach> Saches
+		{
+			get
+			{
+				return this._Saches;
+			}
+			set
+			{
+				this._Saches.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Saches(Sach entity)
+		{
+			this.SendPropertyChanging();
+			entity.NhaXuatBan = this;
+		}
+		
+		private void detach_Saches(Sach entity)
+		{
+			this.SendPropertyChanging();
+			entity.NhaXuatBan = null;
 		}
 	}
 	
@@ -2371,6 +2378,176 @@ namespace QuanLyBanSach.Database
 		{
 			this.SendPropertyChanging();
 			entity.TheLoai = null;
+		}
+	}
+	
+	public partial class ReportResult
+	{
+		
+		private string _MaHD;
+		
+		private System.Nullable<System.DateTime> _NgayLapHD;
+		
+		private string _MaKH;
+		
+		private string _TenKH;
+		
+		private System.Nullable<int> _TongHD;
+		
+		private string _MaS;
+		
+		private string _TenS;
+		
+		private System.Nullable<int> _SoLuongBan;
+		
+		private System.Nullable<int> _GiaBan;
+		
+		public ReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string MaHD
+		{
+			get
+			{
+				return this._MaHD;
+			}
+			set
+			{
+				if ((this._MaHD != value))
+				{
+					this._MaHD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayLapHD", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayLapHD
+		{
+			get
+			{
+				return this._NgayLapHD;
+			}
+			set
+			{
+				if ((this._NgayLapHD != value))
+				{
+					this._NgayLapHD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string MaKH
+		{
+			get
+			{
+				return this._MaKH;
+			}
+			set
+			{
+				if ((this._MaKH != value))
+				{
+					this._MaKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TenKH
+		{
+			get
+			{
+				return this._TenKH;
+			}
+			set
+			{
+				if ((this._TenKH != value))
+				{
+					this._TenKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongHD", DbType="Int")]
+		public System.Nullable<int> TongHD
+		{
+			get
+			{
+				return this._TongHD;
+			}
+			set
+			{
+				if ((this._TongHD != value))
+				{
+					this._TongHD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaS", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string MaS
+		{
+			get
+			{
+				return this._MaS;
+			}
+			set
+			{
+				if ((this._MaS != value))
+				{
+					this._MaS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenS", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string TenS
+		{
+			get
+			{
+				return this._TenS;
+			}
+			set
+			{
+				if ((this._TenS != value))
+				{
+					this._TenS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuongBan", DbType="Int")]
+		public System.Nullable<int> SoLuongBan
+		{
+			get
+			{
+				return this._SoLuongBan;
+			}
+			set
+			{
+				if ((this._SoLuongBan != value))
+				{
+					this._SoLuongBan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="Int")]
+		public System.Nullable<int> GiaBan
+		{
+			get
+			{
+				return this._GiaBan;
+			}
+			set
+			{
+				if ((this._GiaBan != value))
+				{
+					this._GiaBan = value;
+				}
+			}
 		}
 	}
 }

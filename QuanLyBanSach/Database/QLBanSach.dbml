@@ -53,16 +53,6 @@
       <Column Name="MatKhau" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
-    <Type Name="NhaXuatBan">
-      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DiaChiNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SdtNXB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="EmailNXB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="NhaXuatBan_Sach" Member="Saches" ThisKey="MaNXB" OtherKey="MaNXB" Type="Sach" />
-    </Type>
-  </Table>
   <Table Name="dbo.PhieuGiao" Member="PhieuGiaos">
     <Type Name="PhieuGiao">
       <Column Name="MaPG" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -71,6 +61,16 @@
       <Column Name="NgayGiaoDuKien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="PhieuGiao_CTPG" Member="CTPGs" ThisKey="MaPG" OtherKey="MaPG" Type="CTPG" />
       <Association Name="KhachHang_PhieuGiao" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
+    <Type Name="NhaXuatBan">
+      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChiNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SdtNXB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailNXB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="NhaXuatBan_Sach" Member="Saches" ThisKey="MaNXB" OtherKey="MaNXB" Type="Sach" />
     </Type>
   </Table>
   <Table Name="dbo.Sach" Member="Saches">
@@ -108,4 +108,18 @@
       <Association Name="TheLoai_Sach" Member="Saches" ThisKey="MaTL" OtherKey="MaTL" Type="Sach" />
     </Type>
   </Table>
+  <Function Name="dbo.Report" Method="Report">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="VarChar(8)" />
+    <ElementType Name="ReportResult">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayLapHD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TongHD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="TenS" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
