@@ -135,6 +135,7 @@ namespace QuanLyBanSach
             this.gridctrlCustomerInfo.TabIndex = 12;
             this.gridctrlCustomerInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griviewCusInfo});
+            this.gridctrlCustomerInfo.Click += new System.EventHandler(this.gridctrlCustomerInfo_Click);
             // 
             // groupControl1
             // 
