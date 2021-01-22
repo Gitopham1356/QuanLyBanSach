@@ -594,4 +594,6 @@ D:\Winform\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.pdb
 D:\Winform\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Report.reportInHoaDon.FormRP.resources
 D:\Winform\QuanLyBanSach\QuanLyBanSach\obj\Debug\RdlCompile.cache
 D:\Winform\QuanLyBanSach\QuanLyBanSach\obj\Debug\RdlCompile.compiled
-D:\Winform\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report1.rdlc
+D:\Winform\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\reportInHoaDon\Report1.rdlc
+D:\Winform\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Report.reportInPhieuGiao.FormInPhieuGiao.resources
+D:\Winform\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\reportInPhieuGiao\RPInPG.rdlc

@@ -21,6 +21,8 @@ namespace QuanLyBanSach
             base.Dispose(disposing);
         }
 
+        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -63,6 +65,7 @@ namespace QuanLyBanSach
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.grbThongTinSP = new System.Windows.Forms.GroupBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.lbSoLuong = new System.Windows.Forms.Label();
             this.lbMaS = new System.Windows.Forms.Label();
             this.standardReportDesigner2 = new DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner();
@@ -442,6 +445,7 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbThongTinSP.Controls.Add(this.btnReport);
             this.grbThongTinSP.Controls.Add(this.lbSoLuong);
             this.grbThongTinSP.Controls.Add(this.lbMaS);
             this.grbThongTinSP.Controls.Add(this.cmbTenS);
@@ -460,6 +464,16 @@ namespace QuanLyBanSach
             this.grbThongTinSP.Size = new System.Drawing.Size(1139, 164);
             this.grbThongTinSP.TabIndex = 23;
             this.grbThongTinSP.TabStop = false;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(764, 135);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.TabIndex = 19;
+            this.btnReport.Text = "btnReport";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // lbSoLuong
             // 
@@ -545,5 +559,6 @@ namespace QuanLyBanSach
         private System.Windows.Forms.Label lbMaS;
         private DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner standardReportDesigner2;
         private System.Windows.Forms.Label lbSoLuong;
+        private System.Windows.Forms.Button btnReport;
     }
 }

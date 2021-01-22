@@ -161,6 +161,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanSachDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLBanSachDataSetInPG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSachDataSetInPG.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Quản lý\frmThongKe_DoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +242,13 @@
     <Compile Include="Report\reportInHoaDon\FormRP.Designer.cs">
       <DependentUpon>FormRP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\reportInPhieuGiao\ClassInPhieuGiao.cs" />
+    <Compile Include="Report\reportInPhieuGiao\FormInPhieuGiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\reportInPhieuGiao\FormInPhieuGiao.Designer.cs">
+      <DependentUpon>FormInPhieuGiao.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bán hàng\frmBanHang_LapPG.resx">
       <DependentUpon>frmBanHang_LapPG.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,11 +308,17 @@
     <EmbeddedResource Include="Quản lý\frmThongTin_TheLoai.resx">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\Report1.rdlc">
+    <EmbeddedResource Include="Report\reportInHoaDon\Report1.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\reportInHoaDon\FormRP.resx">
       <DependentUpon>FormRP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\reportInPhieuGiao\FormInPhieuGiao.resx">
+      <DependentUpon>FormInPhieuGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\reportInPhieuGiao\RPInPG.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Database\QLBanSach.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -346,6 +364,17 @@
     </None>
     <None Include="QLBanSachDataSet1.xss">
       <DependentUpon>QLBanSachDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSachDataSetInPG.xsc">
+      <DependentUpon>QLBanSachDataSetInPG.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSachDataSetInPG.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBanSachDataSetInPG.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBanSachDataSetInPG.xss">
+      <DependentUpon>QLBanSachDataSetInPG.xsd</DependentUpon>
     </None>
     <None Include="Resources\enter.png" />
   </ItemGroup>

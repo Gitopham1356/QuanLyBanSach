@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBanSach.Report.reportInPhieuGiao;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,6 +11,14 @@ namespace QuanLyBanSach
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
 
         frmMain frm1;
+        private string textMaPG;
+        private string textMaKH;
+        private string textMaS;
+
+        public string TextMaPG { get => textMaPG; set => textMaPG = value; }
+        public string TextMaKH { get => textMaKH; set => textMaKH = value; }
+        public string TextMaS { get => textMaS; set => textMaS = value; }
+
         //Constructor
 
         public frmBanHang_LapPhieuGiao()
@@ -473,6 +482,18 @@ namespace QuanLyBanSach
             {
                 lbSoLuong.Text = "xSố lượng phải < hoặc = Số lượng tồn".ToString();
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
+            textMaPG = txtMaPG.Text;
+            textMaKH = cmbMaKH.Text;
+            textMaS = cmbMaS.Text;
+
+            FormInPhieuGiao rpInPG = new FormInPhieuGiao(this);
+            rpInPG.Dock = DockStyle.Fill;
+            rpInPG.Show();
         }
     }
 }

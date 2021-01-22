@@ -204,4 +204,17 @@ as
 	begin
 	select HoaDon.MaHD, Sach.MaS, Sach.TenS, HoaDon.NgayLapHD, KhachHang.MaKH, KhachHang.TenKH, CTHD.GiaBan, CTHD.SoLuongBan
 	from HoaDon, Sach, KhachHang, CTHD
+	where (HoaDon.MaHD=CTHD.MaHD) and (Sach.MaS=CTHD.MaS) and (KhachHang.MaKH=HoaDon.MaKH) 
 	end
+
+
+
+alter proc [dbo].[ReportInPhieuGiao]
+as
+	begin
+	select PhieuGiao.MaPG, PhieuGiao.NgayLapPG, PhieuGiao.NgayGiaoDuKien, PhieuGiao.MaKH ,CTPG.MaS, CTPG.SoLuongGiao, KhachHang.TenKH,  Sach.TenS
+	from PhieuGiao, Sach, KhachHang,  CTPG
+	where (PhieuGiao.MaPG=CTPG.MaPG) and (PhieuGiao.MaKH=KhachHang.MaKH) and (Sach.MaS=CTPG.MaS)
+	end
+
+	
