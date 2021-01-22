@@ -118,7 +118,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridconTheLoaiInfo.TabIndex = 12;
             this.gridconTheLoaiInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridvieTheLoaiInfo});
-            this.gridconTheLoaiInfo.Click += new System.EventHandler(this.gridconTheLoaiInfo_Click);
+          
             // 
             // gridvieTheLoaiInfo
             // 
@@ -129,6 +129,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridvieTheLoaiInfo.IndicatorWidth = 30;
             this.gridvieTheLoaiInfo.Name = "gridvieTheLoaiInfo";
             this.gridvieTheLoaiInfo.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridvieTheLoaiInfo_CustomDrawRowIndicator);
+            this.gridvieTheLoaiInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridvieTheLoaiInfo_FocusedRowChanged);
             // 
             // cMaTL
             // 

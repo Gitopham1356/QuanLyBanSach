@@ -83,7 +83,7 @@ namespace QuanLyBanSach
             this.gridctrlCustomerInfo.TabIndex = 10;
             this.gridctrlCustomerInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griviewCusInfo});
-            this.gridctrlCustomerInfo.Click += new System.EventHandler(this.gridctrlCustomerInfo_Click);
+           
             // 
             // griviewCusInfo
             // 
@@ -96,6 +96,7 @@ namespace QuanLyBanSach
             this.cEmailTG});
             this.griviewCusInfo.GridControl = this.gridctrlCustomerInfo;
             this.griviewCusInfo.Name = "griviewCusInfo";
+            this.griviewCusInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.griviewCusInfo_FocusedRowChanged);
             // 
             // cMaKH
             // 

@@ -307,6 +307,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridvieTGInfo.IndicatorWidth = 30;
             this.gridvieTGInfo.Name = "gridvieTGInfo";
             this.gridvieTGInfo.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridvieTGInfo_CustomDrawRowIndicator);
+            this.gridvieTGInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridvieTGInfo_FocusedRowChanged);
             // 
             // gridconTGInfo
             // 
@@ -321,7 +322,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridconTGInfo.TabIndex = 12;
             this.gridconTGInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridvieTGInfo});
-            this.gridconTGInfo.Click += new System.EventHandler(this.gridconTGInfo_Click);
+          
             // 
             // groupControl1
             // 

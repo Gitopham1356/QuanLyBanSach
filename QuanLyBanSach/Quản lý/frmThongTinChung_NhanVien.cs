@@ -31,7 +31,7 @@ namespace QuanLyBanSach
                                 nv.DiaChiNV,
                                 nv.SdtNV,
                                 nv.EmailNV
-                              
+
                             };
             gridctrlCustomerInfo.DataSource = bs;
         }
@@ -40,5 +40,22 @@ namespace QuanLyBanSach
         {
             loadData();
         }
+<<<<<<< Updated upstream
+=======
+
+
+        private void griviewCusInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            var DoB = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cNgaySinhNV).ToString();
+
+            txtNVID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaNV).ToString();
+            txtDoBNV.Text = DateTime.Parse(DoB).ToShortDateString();
+            txtNameNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cTenNV).ToString();
+            txtAddressNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiNV).ToString();
+            txtSDTNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cSdtNV).ToString();
+            txtEmailNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cEmailNV).ToString();
+
+        }
+>>>>>>> Stashed changes
     }
 }

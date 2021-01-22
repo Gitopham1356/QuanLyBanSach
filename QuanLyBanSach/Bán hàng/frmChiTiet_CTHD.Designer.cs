@@ -79,6 +79,7 @@ namespace QuanLyBanSach
             this.gridviewCTHD.IndicatorWidth = 40;
             this.gridviewCTHD.Name = "gridviewCTHD";
             this.gridviewCTHD.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridviewCTHD_CustomDrawRowIndicator);
+            this.gridviewCTHD.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridviewCTHD_FocusedRowChanged);
             // 
             // cMaHD
             // 

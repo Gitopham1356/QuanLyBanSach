@@ -22,7 +22,13 @@ namespace QuanLyBanSach.Quản_lý
         {
             var dstg = context.TacGias.ToList();
             gridconTGInfo.DataSource = dstg;
+<<<<<<< Updated upstream
             autoGenMNXB();
+=======
+            
+          
+            
+>>>>>>> Stashed changes
         }
         public void autoGenMNXB()
         {
@@ -48,9 +54,10 @@ namespace QuanLyBanSach.Quản_lý
         }
         bool checkEmail()
         {
-            lbTGEmail.Text = "".ToString();
-            string s1 = "@gmail.com";
-            if (txtTGEmail.Text.Contains(s1))
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+            if (txtTGEmail.Text.Contains(s1) && (txtTGEmail.Text.Contains(s2) || txtTGEmail.Text.Contains(s3)))
             {
                 return true;
             }
@@ -64,59 +71,9 @@ namespace QuanLyBanSach.Quản_lý
             txtTGDoB.Clear();
             txtTGSDT.Clear();
             txtTGEmail.Clear();
+            autoGenMNXB();
         }
 
-        private void gridconTGInfo_Click(object sender, System.EventArgs e)
-        {
-            object sdt = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cSdtTG);
-            object dob = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cNgaySinhTG);
-            object email = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cEmailTG);
-            if (sdt==null && dob==null)
-            {
-                txtTGSDT.Text = "";
-                txtTGDoB.Text = "";
-                txtTGEmail.Text = email.ToString();
-            }
-            else if(sdt == null && email == null)
-            {
-                txtTGSDT.Text = "";
-                txtTGEmail.Text = "";
-                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString() ;   
-            }
-             else if(email ==null && dob == null )
-            {
-                txtTGDoB.Text = "";
-                txtTGEmail.Text = "";
-                txtTGSDT.Text = sdt.ToString();
-            }
-            else if (sdt == null)
-            {
-                txtTGSDT.Text = "";
-                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
-                txtTGEmail.Text = email.ToString();
-            }else if(email == null)
-            {
-                txtTGEmail.Text = "";
-                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
-                txtTGSDT.Text = sdt.ToString();
-            }else if (dob == null)
-            {
-                txtTGDoB.Text = "";
-                txtTGSDT.Text = sdt.ToString();
-                txtTGEmail.Text = email.ToString();
-            }
-            else
-            {
-                txtTGSDT.Text = sdt.ToString();
-                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
-                txtTGEmail.Text = email.ToString();
-            }
-
-            txtTGID.Text = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cMaTG).ToString();
-            txtTGName.Text = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cTenTG).ToString();
-
-
-        }
 
         private void btnRegister_Click(object sender, System.EventArgs e)
         {
@@ -282,8 +239,9 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnRefresh_Click(object sender, System.EventArgs e)
         {
-            clear();
             loadData();
+            clear();
+           
         }
 
         private void frmThongTin_TacGia_Load(object sender, EventArgs e)
@@ -306,5 +264,71 @@ namespace QuanLyBanSach.Quản_lý
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private void txtTGSDT_TextChanged(object sender, EventArgs e)
+        {
+            lbTGSDT.Text = "";
+            string dauSo = "0";
+            if (txtTGSDT.Text.Length != 10|| txtTGSDT.Text.IndexOf(dauSo)!=0)
+            {
+                lbTGSDT.Text = "SDT phải có 10 số và phải bắt đầu bằng 0".ToString();
+            }
+        }
+
+        private void gridvieTGInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            object sdt = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cSdtTG);
+            object dob = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cNgaySinhTG);
+            object email = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cEmailTG);
+            if (sdt == null && dob == null)
+            {
+                txtTGSDT.Text = "";
+                txtTGDoB.Text = "";
+                txtTGEmail.Text = email.ToString();
+            }
+            else if (sdt == null && email == null)
+            {
+                txtTGSDT.Text = "";
+                txtTGEmail.Text = "";
+                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
+            }
+            else if (email == null && dob == null)
+            {
+                txtTGDoB.Text = "";
+                txtTGEmail.Text = "";
+                txtTGSDT.Text = sdt.ToString();
+            }
+            else if (sdt == null)
+            {
+                txtTGSDT.Text = "";
+                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
+                txtTGEmail.Text = email.ToString();
+            }
+            else if (email == null)
+            {
+                txtTGEmail.Text = "";
+                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
+                txtTGSDT.Text = sdt.ToString();
+            }
+            else if (dob == null)
+            {
+                txtTGDoB.Text = "";
+                txtTGSDT.Text = sdt.ToString();
+                txtTGEmail.Text = email.ToString();
+            }
+            else
+            {
+                txtTGSDT.Text = sdt.ToString();
+                txtTGDoB.Text = DateTime.Parse(dob.ToString()).ToShortDateString();
+                txtTGEmail.Text = email.ToString();
+            }
+
+            txtTGID.Text = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cMaTG).ToString();
+            txtTGName.Text = gridvieTGInfo.GetRowCellValue(gridvieTGInfo.FocusedRowHandle, cTenTG).ToString();
+
+        }
+>>>>>>> Stashed changes
     }
 }

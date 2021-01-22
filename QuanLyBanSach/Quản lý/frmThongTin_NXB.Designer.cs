@@ -78,6 +78,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridviewNXBInfo.IndicatorWidth = 30;
             this.gridviewNXBInfo.Name = "gridviewNXBInfo";
             this.gridviewNXBInfo.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridviewNXBInfo_CustomDrawRowIndicator);
+            this.gridviewNXBInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridviewNXBInfo_FocusedRowChanged);
             // 
             // cMaNXB
             // 

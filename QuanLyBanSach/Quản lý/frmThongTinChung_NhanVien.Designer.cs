@@ -67,6 +67,7 @@ namespace QuanLyBanSach
             this.cEmailNV});
             this.griviewCusInfo.GridControl = this.gridctrlCustomerInfo;
             this.griviewCusInfo.Name = "griviewCusInfo";
+            this.griviewCusInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.griviewCusInfo_FocusedRowChanged);
             // 
             // cMaNV
             // 
@@ -135,6 +136,10 @@ namespace QuanLyBanSach
             this.gridctrlCustomerInfo.TabIndex = 12;
             this.gridctrlCustomerInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griviewCusInfo});
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
             // 
             // groupControl1
             // 

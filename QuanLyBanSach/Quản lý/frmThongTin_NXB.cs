@@ -23,7 +23,7 @@ namespace QuanLyBanSach.Quản_lý
         {
             var dsnxb = context.NhaXuatBans.ToList();
             gridconNXBInfo.DataSource = dsnxb;
-            autoGenMNXB();
+           
         }
         public void autoGenMNXB()
         {
@@ -54,6 +54,7 @@ namespace QuanLyBanSach.Quản_lý
             txtAddress.Clear();
             txtSDT.Clear();
             txtEmail.Clear();
+            autoGenMNXB();
 
         }
 
@@ -93,8 +94,13 @@ namespace QuanLyBanSach.Quản_lý
 
                     }else if( txtSDT.Text.Length != 11)
                     {
+<<<<<<< Updated upstream
                         MessageBox.Show("SDT phải có 11 chữ số.");
                     }else if (checkEmail() == true)
+=======
+                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                    }else if (checkEmail() == false)
+>>>>>>> Stashed changes
                     {
                         lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
@@ -154,10 +160,11 @@ namespace QuanLyBanSach.Quản_lý
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (txtSDT.Text.Length != 10)
+                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
-                        MessageBox.Show("SDT phải có 10 chữ số.");
-                    }else if (checkEmail() == false)
+                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                    }
+                    else if (checkEmail() == false)
                     {
                         lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
@@ -230,9 +237,9 @@ namespace QuanLyBanSach.Quản_lý
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            clear();
+        {          
             loadData();
+            clear();
         }
 
         private void gridconNXBInfo_Click(object sender, EventArgs e)
@@ -254,8 +261,10 @@ namespace QuanLyBanSach.Quản_lý
         }
        bool checkEmail()
         {
-            string s1 = "@gmail.com";
-            if (txtEmail.Text.Contains(s1))
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+            if (txtEmail.Text.Contains(s1) && (txtEmail.Text.Contains(s2) || txtEmail.Text.Contains(s3)))
             {
                 return true;
             }
@@ -278,5 +287,27 @@ namespace QuanLyBanSach.Quản_lý
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private void txtTenNXB_TextChanged(object sender, EventArgs e)
+        {
+            lbTenNXB.Text = "";
+            if (txtTenNXB.Text == "")
+            {
+                lbTenNXB.Text = "Tên NXB không được trống!";
+            }
+        }
+
+        private void gridviewNXBInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            txtMaNXB.Text = gridviewNXBInfo.GetRowCellValue(gridviewNXBInfo.FocusedRowHandle, cMaNXB).ToString();
+            txtTenNXB.Text = gridviewNXBInfo.GetRowCellValue(gridviewNXBInfo.FocusedRowHandle, cTenNXB).ToString();
+            txtAddress.Text = gridviewNXBInfo.GetRowCellValue(gridviewNXBInfo.FocusedRowHandle, cDiaChiNXB).ToString();
+            txtSDT.Text = gridviewNXBInfo.GetRowCellValue(gridviewNXBInfo.FocusedRowHandle, cSdtNXB).ToString();
+            txtEmail.Text = gridviewNXBInfo.GetRowCellValue(gridviewNXBInfo.FocusedRowHandle, cEmail).ToString();
+
+        }
+>>>>>>> Stashed changes
     }
 }

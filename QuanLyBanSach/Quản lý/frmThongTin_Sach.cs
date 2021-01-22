@@ -26,7 +26,7 @@ namespace QuanLyBanSach.Quản_lý
         {
             var dss = context.Saches.ToList();
             gridconSachInfo.DataSource = dss;
-            autoGenMS();
+            
         }
         //Load dữ liệu từ database lên combobox
         void loadNDisplay()
@@ -68,9 +68,13 @@ namespace QuanLyBanSach.Quản_lý
         //Refresh
         void ClearText()
         {
+<<<<<<< Updated upstream
 
 
             txtMaS.Clear();
+=======
+         
+>>>>>>> Stashed changes
             txtTenS.Clear();
             txtNamXB.Clear();
             txtSoLuong.Clear();
@@ -79,6 +83,11 @@ namespace QuanLyBanSach.Quản_lý
             cmbMaTL.Text = "".ToString();
             cmbMaTG.Text = "".ToString();
             cmbMaNXB.Text = "".ToString();
+<<<<<<< Updated upstream
+=======
+            
+        }
+>>>>>>> Stashed changes
 
         }
         
@@ -356,9 +365,9 @@ namespace QuanLyBanSach.Quản_lý
                             s.SoLuongTon = int.Parse(txtSoLuong.Text);
                             s.GiaNhap = int.Parse(txtGiaNhap.Text);
                             s.GiaBan = int.Parse(txtGiaBan.Text);
-                            s.MaTL = cmbMaTL.Text;
-                            s.MaTG = cmbMaTG.Text;
-                            s.MaNXB = cmbMaNXB.Text;
+                            s.MaNXB = cmbMaNXB.SelectedValue.ToString();
+                            s.MaTL = cmbMaTL.SelectedValue.ToString();
+                            s.MaTG = cmbMaTG.SelectedValue.ToString();
 
                             context.SubmitChanges();
                             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -374,8 +383,7 @@ namespace QuanLyBanSach.Quản_lý
                 }
                 catch
                 {
-
-                    MessageBox.Show("");
+                    MessageBox.Show("Loi64 cc gi do", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -416,14 +424,25 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            ClearText();
+           
             loadData();
             loadNDisplay();
+            ClearText();
+            autoGenMS();
         }
         //Tham chiếu dữ liệu từ gridcontrol -> textbox
-        private void gridconSachInfo_Click(object sender, EventArgs e)
-        {
+      
 
+        private void gridviewSachInfo_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void gridviewSachInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
             txtMaS.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cMaS).ToString();
             txtTenS.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cTenS).ToString();
             txtNamXB.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cNamXB).ToString();
@@ -433,8 +452,8 @@ namespace QuanLyBanSach.Quản_lý
             cmbMaTL.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cMaTL).ToString();
             cmbMaTG.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cMaTG).ToString();
             cmbMaNXB.Text = gridviewSachInfo.GetRowCellValue(gridviewSachInfo.FocusedRowHandle, cMaNXB).ToString();
-
         }
+<<<<<<< Updated upstream
 
         private void gridviewSachInfo_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
@@ -447,5 +466,7 @@ namespace QuanLyBanSach.Quản_lý
     
 
    
+=======
+>>>>>>> Stashed changes
     }
 }

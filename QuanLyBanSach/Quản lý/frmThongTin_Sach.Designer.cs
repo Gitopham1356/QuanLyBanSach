@@ -499,7 +499,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridconSachInfo.TabIndex = 13;
             this.gridconSachInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewSachInfo});
-            this.gridconSachInfo.Click += new System.EventHandler(this.gridconSachInfo_Click);
+      
             // 
             // gridviewSachInfo
             // 
@@ -517,6 +517,7 @@ namespace QuanLyBanSach.Quản_lý
             this.gridviewSachInfo.IndicatorWidth = 40;
             this.gridviewSachInfo.Name = "gridviewSachInfo";
             this.gridviewSachInfo.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridviewSachInfo_CustomDrawRowIndicator);
+            this.gridviewSachInfo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridviewSachInfo_FocusedRowChanged);
             // 
             // cMaS
             // 

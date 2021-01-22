@@ -27,7 +27,7 @@ namespace QuanLyBanSach
         {
             var dskh = context.KhachHangs.ToList();
             gridctrlCustomerInfo.DataSource = dskh;
-            autoGenMKH();
+            
         }
 
         private void frmCustomer_Load(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace QuanLyBanSach
             txtAddress.Clear();
             txtSDT.Clear();
             txtEmail.Clear();
+            autoGenMKH();
         }
       
 
@@ -97,11 +98,21 @@ namespace QuanLyBanSach
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
+<<<<<<< Updated upstream
                     else if (txtSDT.Text.Length != 10)
                     {
 
                         lbSDTKH.Text=("SDT phải có 10 số.").ToString();
 
+=======
+                    else if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
+                    {
+                        MessageBox.Show("SDT phải có 10 chữ số và bắt đầu bằng 0.");
+                    }
+                    else if (checkEmail() == false)
+                    {
+                        lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
+>>>>>>> Stashed changes
                     }
                     else
                     {
@@ -156,10 +167,20 @@ namespace QuanLyBanSach
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+<<<<<<< Updated upstream
                     else if (txtSDT.Text.Length != 10)
                     {
 
                         lbSDTKH.Text=("SDT phải có 10 số.").ToString();
+=======
+                    else if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
+                    {
+                        MessageBox.Show("SDT phải có 10 chữ số và bắt đầu bằng 0.");
+                    }
+                    else if (checkEmail() == false)
+                    {
+                        lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
+>>>>>>> Stashed changes
                     }
                     else
                     {
@@ -193,7 +214,7 @@ namespace QuanLyBanSach
             }
         }
         //get Data from gridcontrol to textbox
-        private void gridctrlCustomerInfo_Click(object sender, EventArgs e)
+        private void griviewCusInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             if (griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiKH) == null)
             {
@@ -211,7 +232,6 @@ namespace QuanLyBanSach
                 txtEmail.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cEmailTG).ToString();
             }
 
-           
         }
 
         //Delete Customer
@@ -276,5 +296,44 @@ namespace QuanLyBanSach
                 lbDoBKH.Text = "Ngày sinh Kh phải đúng định dạng( d/m/y)".ToString();
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            lbSDTKH.Text = "";
+            if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
+            {
+                lbSDTKH.Text = "SDT phải có 10 số và phải bắt đầu bằng 0.".ToString();
+            }
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            lbEmailKH.Text = "".ToString();
+            if (checkEmail() == false)
+            {
+                lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
+            }
+        }
+        bool checkEmail()
+        {
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+            if (txtEmail.Text.Contains(s1) && (txtEmail.Text.Contains(s2) || txtEmail.Text.Contains(s3)))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+>>>>>>> Stashed changes
     }
 }

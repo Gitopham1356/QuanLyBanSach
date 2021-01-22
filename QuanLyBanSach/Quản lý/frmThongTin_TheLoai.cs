@@ -23,10 +23,11 @@ namespace QuanLyBanSach.Quản_lý
         {
             var dss = context.TheLoais.ToList();
             gridconTheLoaiInfo.DataSource = dss;
-            autoGenMTL();
+            
         }
         void clear()
         {
+            autoGenMTL();
             txtNameTL.Clear();
         }
 
@@ -201,15 +202,12 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            clear();
+            
             loadData();
+            clear();
         }
 
-        private void gridconTheLoaiInfo_Click(object sender, EventArgs e)
-        {
-            txtTLID.Text = gridvieTheLoaiInfo.GetRowCellValue(gridvieTheLoaiInfo.FocusedRowHandle, cMaTL).ToString();
-            txtNameTL.Text = gridvieTheLoaiInfo.GetRowCellValue(gridvieTheLoaiInfo.FocusedRowHandle, cTenTL).ToString();
-        }
+ 
 
         private void gridvieTheLoaiInfo_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
@@ -217,6 +215,13 @@ namespace QuanLyBanSach.Quản_lý
             {
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
             }
+        }
+
+        private void gridvieTheLoaiInfo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            txtTLID.Text = gridvieTheLoaiInfo.GetRowCellValue(gridvieTheLoaiInfo.FocusedRowHandle, cMaTL).ToString();
+            txtNameTL.Text = gridvieTheLoaiInfo.GetRowCellValue(gridvieTheLoaiInfo.FocusedRowHandle, cTenTL).ToString();
+
         }
     }
 }

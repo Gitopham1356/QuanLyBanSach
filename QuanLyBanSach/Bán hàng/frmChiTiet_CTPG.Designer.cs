@@ -211,6 +211,7 @@ namespace QuanLyBanSach
             this.cSLG});
             this.gridviewCTPG.GridControl = this.gridconCTPG;
             this.gridviewCTPG.Name = "gridviewCTPG";
+            this.gridviewCTPG.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridviewCTPG_FocusedRowChanged);
             // 
             // gridconCTPG
             // 

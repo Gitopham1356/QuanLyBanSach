@@ -105,5 +105,21 @@ namespace QuanLyBanSach
            
            
         }
+
+        private void gridviewCTPG_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (gridviewCTPG.GetRowCellValue(gridviewCTPG.FocusedRowHandle, cMaPG) == null)
+            {
+                MessageBox.Show("Không thể thực hiện ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                txtMaPG.Text = gridviewCTPG.GetRowCellValue(gridviewCTPG.FocusedRowHandle, cMaPG).ToString();
+                txtMaS.Text = gridviewCTPG.GetRowCellValue(gridviewCTPG.FocusedRowHandle, cMaS).ToString();
+                txtTenS.Text = gridviewCTPG.GetRowCellValue(gridviewCTPG.FocusedRowHandle, cTenSach).ToString();
+                var sL = gridviewCTPG.GetRowCellValue(gridviewCTPG.FocusedRowHandle, cSLG).ToString();
+                txtSoLuong.Text = int.Parse(sL).ToString();
+            }
+        }
     }
 }
