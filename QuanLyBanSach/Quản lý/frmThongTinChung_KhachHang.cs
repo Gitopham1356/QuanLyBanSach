@@ -97,11 +97,11 @@ namespace QuanLyBanSach
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
+                    else if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
                     {
-                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                        MessageBox.Show("SDT phải có 10 chữ số và bắt đầu bằng 0.");
                     }
-                    else if (checkEmail() == true)
+                    else if (checkEmail() == false)
                     {
                         lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
@@ -158,11 +158,11 @@ namespace QuanLyBanSach
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
+                    else if (txtSDT.Text.Length != 10 || txtSDT.Text.IndexOf("0") != 0)
                     {
-                        MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
+                        MessageBox.Show("SDT phải có 10 chữ số và bắt đầu bằng 0.");
                     }
-                    else if (checkEmail() == true)
+                    else if (checkEmail() == false)
                     {
                         lbEmailKH.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
@@ -309,8 +309,12 @@ namespace QuanLyBanSach
         }
         bool checkEmail()
         {
-            string s1 = "@gmail.com";
-            if (txtEmail.Text.Contains(s1))
+            lbEmailKH.Text = "".ToString();
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+
+            if (txtEmail.Text.Contains(s1) && (txtEmail.Text.Contains(s2) || txtEmail.Text.Contains(s3)))
             {
                 return true;
             }

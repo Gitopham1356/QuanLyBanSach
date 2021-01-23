@@ -31,7 +31,7 @@ namespace QuanLyBanSach
                                 nv.DiaChiNV,
                                 nv.SdtNV,
                                 nv.EmailNV
-                              
+
                             };
             gridctrlCustomerInfo.DataSource = bs;
         }
@@ -42,7 +42,8 @@ namespace QuanLyBanSach
         }
 
         private void gridctrlCustomerInfo_Click(object sender, EventArgs e)
-        {{
+        {
+            {
                 var DoB = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cNgaySinhNV).ToString();
 
                 txtNVID.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cMaNV).ToString();
@@ -51,7 +52,8 @@ namespace QuanLyBanSach
                 txtAddressNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cDiaChiNV).ToString();
                 txtSDTNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cSdtNV).ToString();
                 txtEmailNV.Text = griviewCusInfo.GetRowCellValue(griviewCusInfo.FocusedRowHandle, cEmailNV).ToString();
-            
+
+            }
         }
     }
 }

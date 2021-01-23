@@ -52,8 +52,11 @@ namespace QuanLyBanSach.Quản_lý
         bool checkEmail()
         {
             lbTGEmail.Text = "".ToString();
-            string s1 = "@gmail.com";
-            if (txtTGEmail.Text.Contains(s1))
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+
+            if (txtTGEmail.Text.Contains(s1)&& (txtTGEmail.Text.Contains(s2) || txtTGEmail.Text.Contains(s3)))
             {
                 return true;
             }

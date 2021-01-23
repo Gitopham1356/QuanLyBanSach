@@ -358,7 +358,9 @@ namespace QuanLyBanSach.Quản_lý
         }
         //Cập nhật sách
         private void btnUpdate_Click(object sender, EventArgs e)
+
         {
+
             lbTenS.Text = lbNamXB.Text = lbSL.Text = lbGiaNhap.Text = lbGiaXuat.Text = "";
 
             DialogResult dia = MessageBox.Show("Bạn muốn cập nhật thông tin sách? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -399,15 +401,26 @@ namespace QuanLyBanSach.Quản_lý
                         var s = context.Saches.FirstOrDefault(k => k.MaS == txtMaS.Text);
                         if (s != null)
                         {
+                            var updateNXB = context.NhaXuatBans.FirstOrDefault(x => x.MaNXB == s.MaNXB);
 
+                            //s.MaTL = null;
+                            //s.MaTG = null;
+
+
+                            //updateNXB.MaNXB = cmbMaNXB.Text;
+                            //s.MaNXB = updateNXB.MaNXB;
                             s.TenS = txtTenS.Text;
                             s.NamXuatBan = int.Parse(txtNamXB.Text);
                             s.SoLuongTon = int.Parse(txtSoLuong.Text);
                             s.GiaNhap = int.Parse(txtGiaNhap.Text);
                             s.GiaBan = int.Parse(txtGiaBan.Text);
-                            s.MaTL = cmbMaTL.Text;
-                            s.MaTG = cmbMaTG.Text;
-                            s.MaNXB = cmbMaNXB.Text;
+
+                            // khoa ngoai
+                            s.TacGia = context.TacGias.Single(x => x.MaTG == cmbMaTG.Text);
+                            s.TheLoai = context.TheLoais.Single(x => x.MaTL == cmbMaTL.Text);
+                            s.NhaXuatBan = context.NhaXuatBans.Single(x => x.MaNXB == cmbMaNXB.Text);
+
+
 
                             context.SubmitChanges();
                             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

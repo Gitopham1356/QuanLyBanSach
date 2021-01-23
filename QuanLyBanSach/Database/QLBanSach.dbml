@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBanSach" Class="QLBanSachDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-291A4MD;Initial Catalog=QLBanSach;Integrated Security=True" SettingsObjectName="QuanLyBanSach.Properties.Settings" SettingsPropertyName="QLBanSachConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=desktop-291a4md;Initial Catalog=QLBanSach;Integrated Security=True" SettingsObjectName="QuanLyBanSach.Properties.Settings" SettingsPropertyName="QLBanSachConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CTPG" Member="CTPGs">
     <Type Name="CTPG">
       <Column Name="MaPG" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -41,6 +41,16 @@
       <Association Name="KhachHang_PhieuGiao" Member="PhieuGiaos" ThisKey="MaKH" OtherKey="MaKH" Type="PhieuGiao" />
     </Type>
   </Table>
+  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
+    <Type Name="NhaXuatBan">
+      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChiNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SdtNXB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EmailNXB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="NhaXuatBan_Sach" Member="Saches" ThisKey="MaNXB" OtherKey="MaNXB" Type="Sach" />
+    </Type>
+  </Table>
   <Table Name="dbo.NhanVien" Member="NhanViens">
     <Type Name="NhanVien">
       <Column Name="MaNV" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -63,16 +73,6 @@
       <Association Name="KhachHang_PhieuGiao" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NhaXuatBan" Member="NhaXuatBans">
-    <Type Name="NhaXuatBan">
-      <Column Name="MaNXB" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenNXB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DiaChiNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SdtNXB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="EmailNXB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="NhaXuatBan_Sach" Member="Saches" ThisKey="MaNXB" OtherKey="MaNXB" Type="Sach" />
-    </Type>
-  </Table>
   <Table Name="dbo.Sach" Member="Saches">
     <Type Name="Sach">
       <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -87,8 +87,15 @@
       <Association Name="Sach_CTPG" Member="CTPGs" ThisKey="MaS" OtherKey="MaS" Type="CTPG" />
       <Association Name="Sach_CTHD" Member="CTHDs" ThisKey="MaS" OtherKey="MaS" Type="CTHD" />
       <Association Name="NhaXuatBan_Sach" Member="NhaXuatBan" ThisKey="MaNXB" OtherKey="MaNXB" Type="NhaXuatBan" IsForeignKey="true" />
-      <Association Name="TacGia_Sach" Member="TacGia" ThisKey="MaTG" OtherKey="MaTG" Type="TacGia" IsForeignKey="true" />
       <Association Name="TheLoai_Sach" Member="TheLoai" ThisKey="MaTL" OtherKey="MaTL" Type="TheLoai" IsForeignKey="true" />
+      <Association Name="TacGia_Sach" Member="TacGia" ThisKey="MaTG" OtherKey="MaTG" Type="TacGia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TheLoai" Member="TheLoais">
+    <Type Name="TheLoai">
+      <Column Name="MaTL" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TheLoai_Sach" Member="Saches" ThisKey="MaTL" OtherKey="MaTL" Type="Sach" />
     </Type>
   </Table>
   <Table Name="dbo.TacGia" Member="TacGias">
@@ -101,25 +108,13 @@
       <Association Name="TacGia_Sach" Member="Saches" ThisKey="MaTG" OtherKey="MaTG" Type="Sach" />
     </Type>
   </Table>
-  <Table Name="dbo.TheLoai" Member="TheLoais">
-    <Type Name="TheLoai">
-      <Column Name="MaTL" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenTL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="TheLoai_Sach" Member="Saches" ThisKey="MaTL" OtherKey="MaTL" Type="Sach" />
-    </Type>
-  </Table>
-  <Function Name="dbo.Report" Method="Report">
-    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="VarChar(8)" />
-    <ElementType Name="ReportResult">
-      <Column Name="MaHD" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-      <Column Name="NgayLapHD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MaKH" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TongHD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Function Name="dbo.ReportSLBan" Method="ReportSLBan">
+    <Parameter Name="Ngaybatdau" Parameter="ngaybatdau" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Ngayketthuc" Parameter="ngayketthuc" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="ReportSLBanResult">
       <Column Name="MaS" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
       <Column Name="TenS" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="SoLuongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuongban" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

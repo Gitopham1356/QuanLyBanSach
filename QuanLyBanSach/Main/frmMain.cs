@@ -193,6 +193,10 @@ namespace QuanLyBanSach
             showFrm<Quản_lý.frmThongTin_TheLoai>(frm);
         }
 
-    
+        private void barbtnBookSold_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Report.ReportSLBan.frmReportSLBan frm = new Report.ReportSLBan.frmReportSLBan(this);
+            showFrm<Report.ReportSLBan.frmReportSLBan>(frm);
+        }
     }
 }

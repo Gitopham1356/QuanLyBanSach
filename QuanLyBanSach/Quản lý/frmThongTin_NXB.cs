@@ -97,7 +97,7 @@ namespace QuanLyBanSach.Quản_lý
                     }else if( txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
                         MessageBox.Show("SDT phải có 11 chữ số và bắt đầu bằng 0.");
-                    }else if (checkEmail() == true)
+                    }else if (checkEmail() == false)
                     {
                         lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
                     }
@@ -157,9 +157,9 @@ namespace QuanLyBanSach.Quản_lý
 
                         MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (txtSDT.Text.Length != 10)
+                    else if (txtSDT.Text.Length != 11 || txtSDT.Text.IndexOf("0") != 0)
                     {
-                        MessageBox.Show("SDT phải có 10 chữ số.");
+                        MessageBox.Show("SDT phải có 11 số và phải bắt đầu bằng 0.");
                     }else if (checkEmail() == false)
                     {
                         lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
@@ -255,10 +255,14 @@ namespace QuanLyBanSach.Quản_lý
                 lbEmailNXB.Text = "Sai dịnh dạng email, vd: 123@gmail.com".ToString();
             }
         }
-       bool checkEmail()
+        bool checkEmail()
         {
-            string s1 = "@gmail.com";
-            if (txtEmail.Text.Contains(s1))
+            lbAdressKH.Text = "".ToString();
+            string s1 = "@";
+            string s2 = ".com";
+            string s3 = ".vn";
+
+            if (txtEmail.Text.Contains(s1) && (txtEmail.Text.Contains(s2) || txtEmail.Text.Contains(s3)))
             {
                 return true;
             }

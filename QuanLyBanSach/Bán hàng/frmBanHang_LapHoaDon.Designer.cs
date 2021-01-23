@@ -43,7 +43,6 @@ namespace QuanLyBanSach
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.grbThongTinSP = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtTenS = new System.Windows.Forms.TextBox();
             this.lbSoLuong = new System.Windows.Forms.Label();
             this.cmbMaS = new System.Windows.Forms.ComboBox();
@@ -233,7 +232,6 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grbThongTinSP.Controls.Add(this.btnSearch);
             this.grbThongTinSP.Controls.Add(this.txtTenS);
             this.grbThongTinSP.Controls.Add(this.lbSoLuong);
             this.grbThongTinSP.Controls.Add(this.cmbMaS);
@@ -256,18 +254,6 @@ namespace QuanLyBanSach
             this.grbThongTinSP.Size = new System.Drawing.Size(1139, 164);
             this.grbThongTinSP.TabIndex = 2;
             this.grbThongTinSP.TabStop = false;
-     
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::QuanLyBanSach.Properties.Resources.magnifying_glass;
-            this.btnSearch.Location = new System.Drawing.Point(332, 39);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(32, 23);
-            this.btnSearch.TabIndex = 20;
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // txtTenS
             // 
@@ -276,7 +262,6 @@ namespace QuanLyBanSach
             this.txtTenS.ReadOnly = true;
             this.txtTenS.Size = new System.Drawing.Size(282, 21);
             this.txtTenS.TabIndex = 19;
-         
             // 
             // lbSoLuong
             // 
@@ -353,7 +338,6 @@ namespace QuanLyBanSach
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 3;
-        
             // 
             // label18
             // 
@@ -378,7 +362,6 @@ namespace QuanLyBanSach
             this.label16.Size = new System.Drawing.Size(86, 18);
             this.label16.TabIndex = 3;
             this.label16.Text = "Thành tiền";
-        
             // 
             // label15
             // 
@@ -400,7 +383,6 @@ namespace QuanLyBanSach
             this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(242, 21);
             this.txtThanhTien.TabIndex = 12;
-         
             // 
             // txtSoLuong
             // 
@@ -579,6 +561,7 @@ namespace QuanLyBanSach
             this.Controls.Add(this.grbThongTinSP);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtTongTien);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.Image = global::QuanLyBanSach.Properties.Resources.invoice;
             this.MaximizeBox = false;
@@ -640,6 +623,5 @@ namespace QuanLyBanSach
         private System.Windows.Forms.Label lbMaKh;
         private System.Windows.Forms.Label lbSoLuong;
         private System.Windows.Forms.TextBox txtTenS;
-        private System.Windows.Forms.Button btnSearch;
     }
 }

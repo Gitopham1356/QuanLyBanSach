@@ -140,17 +140,16 @@
     <Compile Include="Bán hàng\frmDanhSach_DSPG.Designer.cs">
       <DependentUpon>frmDanhSach_DSPG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\QLBanSach.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Quản lý\frmThongKe_DoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Quản lý\frmThongKe_DoanhThu.Designer.cs">
       <DependentUpon>frmThongKe_DoanhThu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Quản lý\frmThongKe_SachTonKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Quản lý\frmThongKe_SachTonKho.Designer.cs">
-      <DependentUpon>frmThongKe_SachTonKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Quản lý\frmThongTinChung_KhachHang.cs">
       <SubType>Form</SubType>
@@ -185,11 +184,6 @@
     <Compile Include="Hệ thống\frmHeThong_DangNhap.Designer.cs">
       <DependentUpon>frmHeThong_DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\QLBanSach.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLBanSach.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Quản lý\frmThongTin_NXB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +207,17 @@
     </Compile>
     <Compile Include="Quản lý\frmThongTin_TheLoai.Designer.cs">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSLBan\DataSet1QLSLBan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1QLSLBan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSLBan\frmReportSLBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\ReportSLBan\frmReportSLBan.Designer.cs">
+      <DependentUpon>frmReportSLBan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Bán hàng\frmBanHang_LapPhieuGiao.resx">
       <DependentUpon>frmBanHang_LapPhieuGiao.cs</DependentUpon>
@@ -270,6 +275,18 @@
     <EmbeddedResource Include="Quản lý\frmThongTin_TheLoai.resx">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSLBan\frmReportSLBan.resx">
+      <DependentUpon>frmReportSLBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSLBan\ReportSLBan.rdlc" />
+    <None Include="Database\QLBanSach.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLBanSach.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\QLBanSach.dbml.layout">
+      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -285,13 +302,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Database\QLBanSach.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLBanSach.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    <None Include="Report\ReportSLBan\DataSet1QLSLBan.xsc">
+      <DependentUpon>DataSet1QLSLBan.xsd</DependentUpon>
     </None>
-    <None Include="Database\QLBanSach.dbml.layout">
-      <DependentUpon>QLBanSach.dbml</DependentUpon>
+    <None Include="Report\ReportSLBan\DataSet1QLSLBan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1QLSLBan.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ReportSLBan\DataSet1QLSLBan.xss">
+      <DependentUpon>DataSet1QLSLBan.xsd</DependentUpon>
     </None>
     <None Include="Resources\enter.png" />
   </ItemGroup>
