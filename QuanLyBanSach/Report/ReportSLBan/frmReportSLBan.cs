@@ -14,6 +14,8 @@ namespace QuanLyBanSach.Report.ReportSLBan
     public partial class frmReportSLBan : DevExpress.XtraEditors.XtraForm
     {
         frmMain frm1;
+        public string fromDate { get; set; }
+        public string toDate { get; set; }
         public frmReportSLBan()
         {
             InitializeComponent();

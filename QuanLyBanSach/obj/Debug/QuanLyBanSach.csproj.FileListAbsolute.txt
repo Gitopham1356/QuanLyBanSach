@@ -307,7 +307,6 @@ C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\de\DevExpress.Xtra
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\es\DevExpress.XtraVerticalGrid.v20.2.resources.dll
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.2.resources.dll
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.2.resources.dll
-C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Quản_lý.frmThongKe_DoanhThu.resources
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Quản_lý.frmThongTin_NXB.resources
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
@@ -366,3 +365,10 @@ C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\zh-CHT\Microsoft.R
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\RdlCompile.cache
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\RdlCompile.compiled
 C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Report.ReportSLBan.frmReportSLBan.resources
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report_InHoaDon\FormRPInHoaDon.resx
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report_InHoaDon\FormRPInHoaDon.cs
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report_InHoaDon\FormRPInHoaDon.Designer.cs
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Report.Report_InHoaDon.FormRPInHoaDon.resources
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report_InHoaDon\ReportInHoaDon.rdlc
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\bin\Debug\Report\Report_InPhieuGiao\ReportInPG.rdlc
+C:\Users\Lenovo\Desktop\QuanLyBanSach\QuanLyBanSach\obj\Debug\QuanLyBanSach.Hệ_thống.frmHeThong_DoiMatKhau.resources

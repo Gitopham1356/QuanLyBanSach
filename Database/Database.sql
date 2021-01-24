@@ -199,3 +199,24 @@ insert into NhanVien values ('NV001', N'Lê Nguyễn Thiện Quang', '20/12/1996
 select * from NhanVien
 
 
+
+create proc [dbo].[ReportInHoaDon]
+as
+	begin
+	select HoaDon.MaHD, Sach.MaS, Sach.TenS, HoaDon.NgayLapHD, KhachHang.MaKH, KhachHang.TenKH, CTHD.GiaBan, CTHD.SoLuongBan
+	from HoaDon, Sach, KhachHang, CTHD
+	where (HoaDon.MaHD=CTHD.MaHD) and (Sach.MaS=CTHD.MaS) and (KhachHang.MaKH=HoaDon.MaKH) 
+	end
+
+
+create proc [dbo].[ReportInPhieuGiao]
+as
+	begin
+	select PhieuGiao.MaPG, PhieuGiao.NgayLapPG, PhieuGiao.NgayGiaoDuKien, PhieuGiao.MaKH ,CTPG.MaS, CTPG.SoLuongGiao, KhachHang.TenKH,  Sach.TenS
+	from PhieuGiao, Sach, KhachHang,  CTPG
+	where (PhieuGiao.MaPG=CTPG.MaPG) and (KhachHang.MaKH=PhieuGiao.MaKH) and (Sach.MaS=CTPG.MaS)
+	end
+
+	
+
+

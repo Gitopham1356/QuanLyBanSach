@@ -21,6 +21,8 @@ namespace QuanLyBanSach
             base.Dispose(disposing);
         }
 
+        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace QuanLyBanSach
         /// </summary>
         private void InitializeComponent()
         {
+            this.cmbTenS = new System.Windows.Forms.ComboBox();
             this.cmbMaS = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -65,18 +68,25 @@ namespace QuanLyBanSach
             this.lbSoLuong = new System.Windows.Forms.Label();
             this.lbMaS = new System.Windows.Forms.Label();
             this.standardReportDesigner2 = new DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner();
-            this.txtTenS = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSach)).BeginInit();
             this.grbThongTinChung.SuspendLayout();
             this.grbThongTinSP.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // cmbTenS
+            // 
+            this.cmbTenS.FormattingEnabled = true;
+            this.cmbTenS.Location = new System.Drawing.Point(500, 40);
+            this.cmbTenS.Name = "cmbTenS";
+            this.cmbTenS.Size = new System.Drawing.Size(282, 21);
+            this.cmbTenS.TabIndex = 17;
             // 
             // cmbMaS
             // 
             this.cmbMaS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbMaS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbMaS.FormattingEnabled = true;
-            this.cmbMaS.Location = new System.Drawing.Point(134, 41);
+            this.cmbMaS.Location = new System.Drawing.Point(134, 40);
             this.cmbMaS.Name = "cmbMaS";
             this.cmbMaS.Size = new System.Drawing.Size(184, 21);
             this.cmbMaS.TabIndex = 16;
@@ -322,6 +332,7 @@ namespace QuanLyBanSach
             this.txtMaPG.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaPG.Location = new System.Drawing.Point(172, 30);
             this.txtMaPG.Name = "txtMaPG";
+            this.txtMaPG.ReadOnly = true;
             this.txtMaPG.Size = new System.Drawing.Size(187, 26);
             this.txtMaPG.TabIndex = 0;
             // 
@@ -391,11 +402,11 @@ namespace QuanLyBanSach
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label15.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(370, 41);
+            this.label15.Location = new System.Drawing.Point(370, 44);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 18);
+            this.label15.Size = new System.Drawing.Size(103, 18);
             this.label15.TabIndex = 3;
-            this.label15.Text = "Tên  sách";
+            this.label15.Text = "Tên sản sách";
             // 
             // txtSoLuong
             // 
@@ -425,7 +436,7 @@ namespace QuanLyBanSach
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(47, 41);
+            this.label12.Location = new System.Drawing.Point(47, 44);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 18);
             this.label12.TabIndex = 3;
@@ -434,9 +445,9 @@ namespace QuanLyBanSach
             // grbThongTinSP
             // 
             this.grbThongTinSP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grbThongTinSP.Controls.Add(this.txtTenS);
             this.grbThongTinSP.Controls.Add(this.lbSoLuong);
             this.grbThongTinSP.Controls.Add(this.lbMaS);
+            this.grbThongTinSP.Controls.Add(this.cmbTenS);
             this.grbThongTinSP.Controls.Add(this.cmbMaS);
             this.grbThongTinSP.Controls.Add(this.btnXoa);
             this.grbThongTinSP.Controls.Add(this.btnSua);
@@ -469,18 +480,10 @@ namespace QuanLyBanSach
             this.lbMaS.AutoSize = true;
             this.lbMaS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaS.ForeColor = System.Drawing.Color.Red;
-            this.lbMaS.Location = new System.Drawing.Point(142, 41);
+            this.lbMaS.Location = new System.Drawing.Point(142, 64);
             this.lbMaS.Name = "lbMaS";
             this.lbMaS.Size = new System.Drawing.Size(0, 13);
             this.lbMaS.TabIndex = 8;
-            // 
-            // txtTenS
-            // 
-            this.txtTenS.Location = new System.Drawing.Point(466, 41);
-            this.txtTenS.Name = "txtTenS";
-            this.txtTenS.ReadOnly = true;
-            this.txtTenS.Size = new System.Drawing.Size(316, 21);
-            this.txtTenS.TabIndex = 19;
             // 
             // frmBanHang_LapPhieuGiao
             // 
@@ -507,6 +510,8 @@ namespace QuanLyBanSach
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox cmbTenS;
         private System.Windows.Forms.ComboBox cmbMaS;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
@@ -543,6 +548,5 @@ namespace QuanLyBanSach
         private System.Windows.Forms.Label lbMaS;
         private DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner standardReportDesigner2;
         private System.Windows.Forms.Label lbSoLuong;
-        private System.Windows.Forms.TextBox txtTenS;
     }
 }

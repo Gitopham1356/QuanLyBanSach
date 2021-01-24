@@ -43,7 +43,6 @@ namespace QuanLyBanSach
             this.barbtnAuthor = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnBook = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnPublisher = new DevExpress.XtraBars.BarButtonItem();
-            this.barbtnRevenue = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnBookSold = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnBills = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnDeliBill = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +50,7 @@ namespace QuanLyBanSach
             this.barbtnCTPG = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnDSHD = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnDSPG = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDoiMK = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.riboSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.riboManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -85,17 +85,17 @@ namespace QuanLyBanSach
             this.barbtnAuthor,
             this.barbtnBook,
             this.barbtnPublisher,
-            this.barbtnRevenue,
             this.barbtnBookSold,
             this.barbtnBills,
             this.barbtnDeliBill,
             this.barbtnCTHD,
             this.barbtnCTPG,
             this.barbtnDSHD,
-            this.barbtnDSPG});
+            this.barbtnDSPG,
+            this.btnDoiMK});
             this.Main.Location = new System.Drawing.Point(0, 0);
             this.Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Main.MaxItemId = 32;
+            this.Main.MaxItemId = 33;
             this.Main.Name = "Main";
             this.Main.OptionsMenuMinWidth = 495;
             this.Main.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -212,15 +212,6 @@ namespace QuanLyBanSach
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barbtnPublisher.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnPublisher_ItemClick);
             // 
-            // barbtnRevenue
-            // 
-            this.barbtnRevenue.Caption = "Doanh thu";
-            this.barbtnRevenue.Id = 21;
-            this.barbtnRevenue.ImageOptions.Image = global::QuanLyBanSach.Properties.Resources.revenue;
-            this.barbtnRevenue.Name = "barbtnRevenue";
-            this.barbtnRevenue.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
             // barbtnBookSold
             // 
             this.barbtnBookSold.Caption = "Sách bán được";
@@ -291,6 +282,16 @@ namespace QuanLyBanSach
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barbtnDSPG.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnDSPG_ItemClick);
             // 
+            // btnDoiMK
+            // 
+            this.btnDoiMK.Caption = "Đổi mật khẩu";
+            this.btnDoiMK.Id = 32;
+            this.btnDoiMK.ImageOptions.Image = global::QuanLyBanSach.Properties.Resources.password;
+            this.btnDoiMK.Name = "btnDoiMK";
+            this.btnDoiMK.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnDoiMK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoiMK_ItemClick);
+            // 
             // ribbonSystem
             // 
             this.ribbonSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -302,6 +303,7 @@ namespace QuanLyBanSach
             // 
             this.riboSystem.ItemLinks.Add(this.barbtnLogin);
             this.riboSystem.ItemLinks.Add(this.barbtnLogout);
+            this.riboSystem.ItemLinks.Add(this.btnDoiMK);
             this.riboSystem.Name = "riboSystem";
             this.riboSystem.Text = "Hệ thống";
             // 
@@ -333,7 +335,6 @@ namespace QuanLyBanSach
             // 
             // riboStatistics
             // 
-            this.riboStatistics.ItemLinks.Add(this.barbtnRevenue);
             this.riboStatistics.ItemLinks.Add(this.barbtnBookSold);
             this.riboStatistics.Name = "riboStatistics";
             this.riboStatistics.Text = "Thống kê số liệu";
@@ -426,7 +427,6 @@ namespace QuanLyBanSach
         private DevExpress.XtraBars.BarButtonItem barbtnAuthor;
         private DevExpress.XtraBars.BarButtonItem barbtnBook;
         private DevExpress.XtraBars.BarButtonItem barbtnPublisher;
-        private DevExpress.XtraBars.BarButtonItem barbtnRevenue;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup riboStatistics;
         private DevExpress.XtraBars.BarButtonItem barbtnBookSold;
         private DevExpress.XtraBars.BarButtonItem barbtnBills;
@@ -439,5 +439,6 @@ namespace QuanLyBanSach
         private DevExpress.XtraBars.BarButtonItem barbtnDSHD;
         private DevExpress.XtraBars.BarButtonItem barbtnDSPG;
         private DevExpress.XtraEditors.PanelControl pnlMain;
+        private DevExpress.XtraBars.BarButtonItem btnDoiMK;
     }
 }

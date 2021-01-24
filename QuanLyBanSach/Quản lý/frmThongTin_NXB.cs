@@ -137,7 +137,7 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("Bạn muốn cập nhật thông tin sách? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("Bạn muốn cập nhật thông tin NXB? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
             }

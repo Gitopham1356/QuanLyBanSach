@@ -145,11 +145,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanSach.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Quản lý\frmThongKe_DoanhThu.cs">
+    <Compile Include="Database\QLBanSachDataSet_InHD_InPG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBanSachDataSet_InHD_InPG.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Hệ thống\frmHeThong_DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quản lý\frmThongKe_DoanhThu.Designer.cs">
-      <DependentUpon>frmThongKe_DoanhThu.cs</DependentUpon>
+    <Compile Include="Hệ thống\frmHeThong_DoiMatKhau.Designer.cs">
+      <DependentUpon>frmHeThong_DoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="Quản lý\frmThongTinChung_KhachHang.cs">
       <SubType>Form</SubType>
@@ -208,6 +213,9 @@
     <Compile Include="Quản lý\frmThongTin_TheLoai.Designer.cs">
       <DependentUpon>frmThongTin_TheLoai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\ReportSLBan\DataSet1QLSLBan.cs">
+      <DependentUpon>DataSet1QLSLBan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report\ReportSLBan\DataSet1QLSLBan.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +226,22 @@
     </Compile>
     <Compile Include="Report\ReportSLBan\frmReportSLBan.Designer.cs">
       <DependentUpon>frmReportSLBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Report_InHoaDon\ClassInHoaDon.cs" />
+    <Compile Include="Report\Report_InHoaDon\FormRPInHoaDon.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Report\Report_InHoaDon\FormRPInHoaDon.Designer.cs">
+      <DependentUpon>FormRPInHoaDon.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Report\Report_InPhieuGiao\ClassInPG.cs" />
+    <Compile Include="Report\Report_InPhieuGiao\FormInPG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Report_InPhieuGiao\FormInPG.Designer.cs">
+      <DependentUpon>FormInPG.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Bán hàng\frmBanHang_LapPhieuGiao.resx">
       <DependentUpon>frmBanHang_LapPhieuGiao.cs</DependentUpon>
@@ -234,8 +258,8 @@
     <EmbeddedResource Include="Bán hàng\frmDanhSach_DSPG.resx">
       <DependentUpon>frmDanhSach_DSPG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Quản lý\frmThongKe_DoanhThu.resx">
-      <DependentUpon>frmThongKe_DoanhThu.cs</DependentUpon>
+    <EmbeddedResource Include="Hệ thống\frmHeThong_DoiMatKhau.resx">
+      <DependentUpon>frmHeThong_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Quản lý\frmThongTinChung_KhachHang.resx">
       <DependentUpon>frmThongTinChung_KhachHang.cs</DependentUpon>
@@ -279,6 +303,16 @@
       <DependentUpon>frmReportSLBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportSLBan\ReportSLBan.rdlc" />
+    <EmbeddedResource Include="Report\Report_InHoaDon\FormRPInHoaDon.resx">
+      <DependentUpon>FormRPInHoaDon.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report_InHoaDon\ReportInHoaDon.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report_InPhieuGiao\ReportInPG.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Database\QLBanSach.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>QLBanSach.designer.cs</LastGenOutput>
@@ -302,6 +336,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Database\QLBanSachDataSet_InHD_InPG.xsc">
+      <DependentUpon>QLBanSachDataSet_InHD_InPG.xsd</DependentUpon>
+    </None>
+    <None Include="Database\QLBanSachDataSet_InHD_InPG.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBanSachDataSet_InHD_InPG.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\QLBanSachDataSet_InHD_InPG.xss">
+      <DependentUpon>QLBanSachDataSet_InHD_InPG.xsd</DependentUpon>
+    </None>
     <None Include="Report\ReportSLBan\DataSet1QLSLBan.xsc">
       <DependentUpon>DataSet1QLSLBan.xsd</DependentUpon>
     </None>
@@ -503,6 +548,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\books_bookshelves_bookstore_business_data_education_indoors_knowledge_library_literature_market_pile_research_stock_text_4757x3130.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

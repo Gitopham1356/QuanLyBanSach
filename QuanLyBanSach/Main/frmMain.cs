@@ -24,6 +24,7 @@ namespace QuanLyBanSach
                 riboManage.Visible = false;
                 riboSales.Visible = false;
                 barbtnLogout.Enabled = false;
+                btnDoiMK.Enabled = false;
             }
         }
 
@@ -54,12 +55,14 @@ namespace QuanLyBanSach
             riboSales.Visible = true;
             barbtnLogout.Enabled = true;
             barbtnLogin.Enabled = false;
+            btnDoiMK.Enabled = true;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             skins();
             barbtnLogout.Enabled = false;
+            btnDoiMK.Enabled = false;
             frmHeThong_DangNhap frm = new frmHeThong_DangNhap(this);
             showFrm<frmHeThong_DangNhap>(frm);
 
@@ -197,6 +200,14 @@ namespace QuanLyBanSach
         {
             Report.ReportSLBan.frmReportSLBan frm = new Report.ReportSLBan.frmReportSLBan(this);
             showFrm<Report.ReportSLBan.frmReportSLBan>(frm);
+        }
+
+        private void btnDoiMK_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Hệ_thống.frmHeThong_DoiMatKhau frm = new Hệ_thống.frmHeThong_DoiMatKhau();
+            showFrm<Hệ_thống.frmHeThong_DoiMatKhau>(frm);
+
+
         }
     }
 }

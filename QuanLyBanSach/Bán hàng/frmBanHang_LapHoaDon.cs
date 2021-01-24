@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using QuanLyBanSach.Report.Report_InHoaDon;
 
 namespace QuanLyBanSach
 {
@@ -13,6 +14,13 @@ namespace QuanLyBanSach
         int dem = 0;
         frmMain frm1;
         frmHeThong_DangNhap DN;
+
+        // report in hoa don
+        private string textMaKH;
+        private string textMaHD;
+
+        public string TextMaKH { get => textMaKH; set => textMaKH = value; }
+        public string TextMaHD { get => textMaHD; set => textMaHD = value; }
 
 
         //Constructor
@@ -457,6 +465,12 @@ namespace QuanLyBanSach
                                 context.CTHDs.InsertOnSubmit(cTHD);
                                 this.context.SubmitChanges();
                             }
+                            textMaKH = cmbMaKH.Text;
+                            textMaHD = txtMaHD.Text;
+                            FormRPInHoaDon rpInHoaDon = new FormRPInHoaDon(this);
+                            rpInHoaDon.Dock = DockStyle.Fill;
+                            rpInHoaDon.Show();
+
                             MessageBox.Show("Lập hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             loadNDisplay();
 

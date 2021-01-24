@@ -127,7 +127,7 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnRegister_Click(object sender, System.EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("Bạn có chắc muốn thêm NXB này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("Bạn có chắc muốn thêm tác giả này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
 
@@ -191,7 +191,7 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("Bạn muốn cập nhật thông tin sách? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("Bạn muốn cập nhật thông tin tác giả? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
             }
@@ -254,7 +254,7 @@ namespace QuanLyBanSach.Quản_lý
 
         private void btnDeleteUs_Click(object sender, System.EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("Bạn muốn xoá thông tin sách này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("Bạn muốn xoá thông tin tác giả này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
             }

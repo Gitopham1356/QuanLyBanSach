@@ -82,7 +82,7 @@ namespace QuanLyBanSach
         {
             lbTenKH.Text = lbDoBKH.Text = lbAdressKH.Text = lbSDTKH.Text = lbEmailKH.Text = "";
 
-            DialogResult dia = MessageBox.Show("Bạn có chắc muốn thêm người này? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("Bạn có chắc muốn thêm người này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dia == DialogResult.No)
             {
 

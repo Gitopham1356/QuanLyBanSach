@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBanSach.Report.Report_InPhieuGiao;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,6 +11,14 @@ namespace QuanLyBanSach
         Database.QLBanSachDataContext context = new Database.QLBanSachDataContext();
 
         frmMain frm1;
+        private string textMaPG;
+        private string textMaKH;
+        private string textMaS;
+
+        public string TextMaPG { get => textMaPG; set => textMaPG = value; }
+        public string TextMaKH { get => textMaKH; set => textMaKH = value; }
+        public string TextMaS { get => textMaS; set => textMaS = value; }
+
         //Constructor
 
         public frmBanHang_LapPhieuGiao()
@@ -59,7 +68,7 @@ namespace QuanLyBanSach
             var sName = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text);
             if (sName != null)
             {
-                txtTenS.Text = sName.TenS.ToString();
+                cmbTenS.Text = sName.TenS.ToString();
             }
         }
 
@@ -82,7 +91,7 @@ namespace QuanLyBanSach
                 if (stt < 10)
                     txtMaPG.Text = "PG0" + stt.ToString();
                 else if (stt < 100)
-                    txtMaPG.Text = "PG" + stt.ToString();
+                    txtMaPG.Text = "PG0" + stt.ToString();
                 else
                     txtMaPG.Text = "PG" + stt.ToString();
             }
@@ -103,13 +112,15 @@ namespace QuanLyBanSach
         {
 
             dgvTTSach.Rows[selectedRow].Cells[0].Value = cmbMaS.Text;
-            dgvTTSach.Rows[selectedRow].Cells[1].Value = txtTenS.Text;
+            dgvTTSach.Rows[selectedRow].Cells[1].Value = cmbTenS.Text;
             dgvTTSach.Rows[selectedRow].Cells[2].Value = txtSoLuong.Text;
         }
 
         void clear()
         {
             txtSoLuong.Clear();
+
+
         }
         //truyền MaKH vào collectionS để gợi ý
         public void getDataKH(AutoCompleteStringCollection Data)
@@ -160,10 +171,7 @@ namespace QuanLyBanSach
         {
             lbMaKh.Text = "";
             var mak = context.KhachHangs.FirstOrDefault(b => b.MaKH == cmbMaKH.Text);
-            if (cmbMaKH.Text == "")
-            {
-                txtTenKH.Text = "00".ToString();
-            }else if (mak == null && cmbMaKH.Text != "")
+            if (mak == null)
             {
                 lbMaKh.Text = "xMã khách hàng không tồn tại.";
                 txtTenKH.Text = "".ToString();
@@ -189,7 +197,7 @@ namespace QuanLyBanSach
             if (maS == null)
             {
                 lbMaS.Text = "xMã sách không tồn tại.".ToString();
-                txtTenS.Text = "".ToString();
+                cmbTenS.Text = "".ToString();
             }
             else
             {
@@ -201,17 +209,14 @@ namespace QuanLyBanSach
                 var SName = context.Saches.FirstOrDefault(k => k.MaS == cmbMaS.Text);
                 if (SName != null)
                 {
-                    txtTenS.Text = SName.TenS.ToString();
+                    cmbTenS.Text = SName.TenS.ToString();
                 }
             }
         }
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) == false &&
-                Char.IsControl(e.KeyChar) == false ||
-                txtSoLuong.Text.Length >5 &&
-                e.KeyChar != (char)Keys.Back)
+            if (Char.IsDigit(e.KeyChar) == false && Char.IsControl(e.KeyChar) == false)
             {
                 e.Handled = true;
             }
@@ -235,7 +240,7 @@ namespace QuanLyBanSach
         {
             try
             {
-                if (cmbMaS.Text == "" || txtTenS.Text == "" || txtSoLuong.Text == "")
+                if (cmbMaS.Text == "" || cmbTenS.Text == "" || txtSoLuong.Text == "")
                 {
 
                     throw new Exception("Vui lòng nhập đầy đủ thông tin!");
@@ -269,7 +274,7 @@ namespace QuanLyBanSach
         {
             try
             {
-                if (cmbMaS.Text == "" || txtTenS.Text == "" || txtSoLuong.Text == "")
+                if (cmbMaS.Text == "" || cmbTenS.Text == "" || txtSoLuong.Text == "")
                 {
                     throw new Exception("Vui lòng nhập đầy đủ thông tin!");
                 }
@@ -329,7 +334,7 @@ namespace QuanLyBanSach
                 numrows = e.RowIndex;
 
                 cmbMaS.Text = dgvTTSach.Rows[numrows].Cells[0].Value.ToString();
-                txtTenS.Text = dgvTTSach.Rows[numrows].Cells[1].Value.ToString();
+                cmbTenS.Text = dgvTTSach.Rows[numrows].Cells[1].Value.ToString();
                 txtSoLuong.Text = dgvTTSach.Rows[numrows].Cells[2].Value.ToString();
 
             }
@@ -347,7 +352,7 @@ namespace QuanLyBanSach
                 string mas;
                 int soluonggiao = 0;
 
-                if (txtMaPG.Text == "" || dtimepickNgayLapPG.Text == ""
+                if (txtMaPG.Text == "" || cmbMaKH.Text == "" || dtimepickNgayLapPG.Text == ""
                                        || datetimeNgayGiaoDK.Text == "")
                 {
                     MessageBox.Show("Vui lòng nhập đầy dủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -357,15 +362,6 @@ namespace QuanLyBanSach
 
                 else
                 {
-
-                    if (cmbMaKH.Text == "")
-                    {
-                        phieugiao.MaKH = "KH00".ToString();
-                    }
-                    else
-                    {
-                        phieugiao.MaKH = cmbMaKH.Text;
-                    }
 
                     phieugiao.MaPG = txtMaPG.Text;
                     phieugiao.MaKH = cmbMaKH.Text;
@@ -417,6 +413,15 @@ namespace QuanLyBanSach
                                         context.CTPGs.InsertOnSubmit(cTPG);
                                         this.context.SubmitChanges();
                                     }
+
+                                    textMaPG = txtMaPG.Text;
+                                    textMaKH = cmbMaKH.Text;
+                                    textMaS = cmbMaS.Text;
+
+                                    FormInPG rpInPG = new FormInPG(this);
+                                    rpInPG.Dock = DockStyle.Fill;
+                                    rpInPG.Show();
+
                                     MessageBox.Show("Lập phiếu giao thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     loadNDisplay();
 
@@ -487,5 +492,7 @@ namespace QuanLyBanSach
                 lbSoLuong.Text = "xSố lượng phải < hoặc = Số lượng tồn".ToString();
             }
         }
+
+      
     }
 }

@@ -144,7 +144,7 @@ namespace QuanLyBanSach
             // 
             this.btnGoToCTHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGoToCTHD.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToCTHD.Location = new System.Drawing.Point(1247, 582);
+            this.btnGoToCTHD.Location = new System.Drawing.Point(1248, 582);
             this.btnGoToCTHD.Name = "btnGoToCTHD";
             this.btnGoToCTHD.Size = new System.Drawing.Size(324, 35);
             this.btnGoToCTHD.TabIndex = 6;

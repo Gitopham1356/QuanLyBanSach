@@ -13,12 +13,7 @@ namespace QuanLyBanSach
         Database.QLBanSachDataContext QLContext = new Database.QLBanSachDataContext();
 
         //kiểm tra mật khẩu >8 kí tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 kí tự.
-        void checkUpper()
-        {
 
-            string password = txtPassword.Text.ToUpper();
-
-        }
 
 
         public frmHeThong_DangNhap()
@@ -32,10 +27,10 @@ namespace QuanLyBanSach
             main1 = main;
 
         }
-     
+
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
-            
+
 
 
             if (txtAccount.Text.Trim() == "" || txtPassword.Text.Trim() == "")
@@ -49,30 +44,40 @@ namespace QuanLyBanSach
                 MessageBox.Show("Mật khẩu phải có độ dài từ 8 đến 15 kí tự.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                    {
-                        Database.NhanVien loginInfo = QLContext.NhanViens.Where(tk => tk.MaNV == txtAccount.Text).ToList().
-                                                            Where(mk => mk.MatKhau == txtPassword.Text).FirstOrDefault();
+            {
+                Database.NhanVien loginInfo = QLContext.NhanViens.Where(tk => tk.MaNV == txtAccount.Text).ToList().
+                                                    Where(mk => mk.MatKhau == txtPassword.Text).FirstOrDefault();
 
-                        Database.NhanVien loginAC = QLContext.NhanViens.Where(mk => mk.MatKhau == txtPassword.Text).ToList().
-                                                          Where(tk => tk.MaNV == txtAccount.Text).FirstOrDefault();
+                Database.NhanVien loginAC = QLContext.NhanViens.Where(mk => mk.MatKhau == txtPassword.Text).ToList().
+                                                  Where(tk => tk.MaNV == txtAccount.Text).FirstOrDefault();
 
-                        if (loginInfo != null && loginAC != null)
-                        {
+                var query = from nv in QLContext.NhanViens
+                            where nv.MatKhau == txtPassword.Text && nv.MaNV == txtAccount.Text
+                            select nv;
 
-                            this.Hide();
-                            main1.showItem();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đăng nhập thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
+                if (query != null && loginInfo!=null && loginAC!=null)
+                {
+
+                    this.Hide();
+                    main1.showItem();
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void frmHeThong_DangNhap_Load(object sender, EventArgs e)
         {
-            txtAccount.Text = "NV00".ToString();
-            txtPassword.Text = "Gitopham@1356".ToString();
+
+            var queryNhanVien = from nv in QLContext.NhanViens select nv;
+            foreach (var item in queryNhanVien)
+            {
+                txtAccount.Text = item.MaNV.ToString();
+                txtPassword.Text = item.MatKhau.ToString();
+            }
+
         }
     }
 }
