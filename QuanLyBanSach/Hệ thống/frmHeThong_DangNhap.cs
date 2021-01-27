@@ -60,6 +60,7 @@ namespace QuanLyBanSach
 
                     this.Hide();
                     main1.showItem();
+                    
                 }
                 else
                 {
@@ -77,6 +78,11 @@ namespace QuanLyBanSach
                 txtAccount.Text = item.MaNV.ToString();
                 txtPassword.Text = item.MatKhau.ToString();
             }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

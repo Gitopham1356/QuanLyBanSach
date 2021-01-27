@@ -56,6 +56,8 @@ namespace QuanLyBanSach
             barbtnLogout.Enabled = true;
             barbtnLogin.Enabled = false;
             btnDoiMK.Enabled = true;
+
+         
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -65,6 +67,7 @@ namespace QuanLyBanSach
             btnDoiMK.Enabled = false;
             frmHeThong_DangNhap frm = new frmHeThong_DangNhap(this);
             showFrm<frmHeThong_DangNhap>(frm);
+           
 
         }
         //////////////

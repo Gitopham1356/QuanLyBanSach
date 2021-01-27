@@ -254,6 +254,17 @@ namespace QuanLyBanSach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dawn_evening_fog_hazy_landscape_light_mist_nature_night_outdoors_park_pavement_road_street_trees_twilight_walkway_weather_4117x2745 {
+            get {
+                object obj = ResourceManager.GetObject("dawn_evening_fog_hazy_landscape_light_mist_nature_night_outdoors_park_pavement_ro" +
+                        "ad_street_trees_twilight_walkway_weather_4117x2745", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);

@@ -78,7 +78,8 @@ namespace QuanLyBanSach.Hệ_thống
             var queryNhanVien = from nv in db.NhanViens select nv;
             foreach (var item in queryNhanVien)
             {  
-                txtAccount.Text = item.TenNV.ToString();
+                txtAccount.Text = item.MaNV.ToString();
+                
                
             }
           

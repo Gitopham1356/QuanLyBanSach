@@ -564,5 +564,8 @@
   <ItemGroup>
     <None Include="Resources\eye3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dawn_evening_fog_hazy_landscape_light_mist_nature_night_outdoors_park_pavement_road_street_trees_twilight_walkway_weather_4117x2745.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

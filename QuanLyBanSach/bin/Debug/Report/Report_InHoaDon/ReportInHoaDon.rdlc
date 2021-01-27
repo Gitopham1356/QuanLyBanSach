@@ -417,6 +417,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSetInHoaDon</DataSetName>
             <Top>8.48995cm</Top>
+            <Left>0.9525cm</Left>
             <Height>1.2cm</Height>
             <Width>19.6141cm</Width>
             <Style>
@@ -441,7 +442,7 @@
             </Paragraphs>
             <rd:DefaultName>MaHDParam</rd:DefaultName>
             <Top>7.3787cm</Top>
-            <Left>2.85432cm</Left>
+            <Left>3.80682cm</Left>
             <Height>0.6cm</Height>
             <Width>5.675cm</Width>
             <ZIndex>1</ZIndex>
@@ -471,7 +472,7 @@
             </Paragraphs>
             <rd:DefaultName>MaKHParam</rd:DefaultName>
             <Top>3.99203cm</Top>
-            <Left>2.85432cm</Left>
+            <Left>3.80682cm</Left>
             <Height>0.6cm</Height>
             <Width>4.99132cm</Width>
             <ZIndex>2</ZIndex>
@@ -501,7 +502,7 @@
             </Paragraphs>
             <rd:DefaultName>TenKHParam</rd:DefaultName>
             <Top>5.31495cm</Top>
-            <Left>2.85432cm</Left>
+            <Left>3.80682cm</Left>
             <Height>0.6cm</Height>
             <Width>16.75979cm</Width>
             <ZIndex>3</ZIndex>
@@ -561,7 +562,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>5.31495cm</Top>
-            <Left>0.17794cm</Left>
+            <Left>1.13044cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>5</ZIndex>
@@ -623,7 +624,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>3.99203cm</Top>
-            <Left>0.17794cm</Left>
+            <Left>1.13044cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -653,7 +654,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>7.3787cm</Top>
-            <Left>0.17794cm</Left>
+            <Left>1.13044cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -667,11 +668,53 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Khách hàng</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>11.58558cm</Top>
+            <Left>16.64378cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line3">
+            <Top>10.76537cm</Top>
+            <Left>16.2687cm</Left>
+            <Height>0cm</Height>
+            <Width>4.04812cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
         </ReportItems>
-        <Height>4.23958in</Height>
+        <Height>5.72916in</Height>
         <Style />
       </Body>
-      <Width>7.76376in</Width>
+      <Width>8.31584in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

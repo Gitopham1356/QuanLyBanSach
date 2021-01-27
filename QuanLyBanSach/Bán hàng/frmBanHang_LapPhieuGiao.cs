@@ -35,7 +35,7 @@ namespace QuanLyBanSach
 
         bool checkSl()
         {
-            var t = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text && s.SoLuongTon >= int.Parse(txtSoLuong.Text));
+            var t = context.Saches.FirstOrDefault(s => s.MaS == cmbMaS.Text && s.SoLuongTon >= int.Parse(txtSoLuong.Text) && s.SoLuongTon >=0);
             if (t == null)
             {
                 return false;
@@ -486,6 +486,10 @@ namespace QuanLyBanSach
             if (txtSoLuong.Text == "")
             {
 
+            }
+            else if(txtSoLuong.Text == "0")
+            {
+                MessageBox.Show("Số lượng phải tối thiểu là 1.","cảnh báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else if (checkSl() == false)
             {
